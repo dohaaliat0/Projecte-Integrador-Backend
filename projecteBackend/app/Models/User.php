@@ -49,4 +49,9 @@ class User extends Authenticatable
             'role' => UserRole::class,
         ];
     }
+
+    public function zones()
+    {
+        return $this->belongsToMany(Zone::class, 'user_zone');
+    }
 }

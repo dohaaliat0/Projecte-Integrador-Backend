@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Zones;
+use App\Models\Zone;
 
 class ZonesSeeder extends Seeder
 {
@@ -24,7 +24,7 @@ class ZonesSeeder extends Seeder
         ];
 
         foreach ($zones as $zone) {
-            Zones::create(['name' => $zone]);
+            Zone::create(['name' => $zone]);
         }
     }
 }
