@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ZonesSeeder::class,
             ZonesUsersSeeder::class,
+            PatientsSeeder::class,
+            ContactPersonSeeder::class,
         ]);
     }
 }
