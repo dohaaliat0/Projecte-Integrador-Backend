@@ -46,4 +46,41 @@ enum Language: string
             default => $this->value, 
         };
     }
+
+
+    public static function toArray(): array
+    {
+        return [
+            self::SPANISH,
+            self::CATALAN,
+            self::GALICIAN,
+            self::BASQUE,
+            self::ARANESE,
+            self::ENGLISH,
+            self::FRENCH,
+            self::ROMANIAN,
+            self::ARABIC,
+            self::PORTUGUESE,
+            self::GERMAN,
+            self::ITALIAN,
+            self::CHINESE,
+            self::BULGARIAN,
+            self::UKRAINIAN,
+            self::POLISH,
+            self::DUTCH,
+            self::RUSSIAN,
+            self::WOLLOF,
+            self::PULAA,
+            self::HINDI,
+            self::BENGALI,
+            self::URDU,
+            self::GUJARATI,
+            self::PUNJABI,
+            self::TAGALOG,
+            self::JAPANESE,
+            self::KOREAN,
+            self::SWAHILI,
+            self::AMHARIC,
+        ];
+    }
 }
