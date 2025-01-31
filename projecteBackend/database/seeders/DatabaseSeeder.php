@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ZonesUsersSeeder::class,
             PatientsSeeder::class,
             ContactPersonSeeder::class,
+            LanguageSeeder::class,
         ]);
     }
 }

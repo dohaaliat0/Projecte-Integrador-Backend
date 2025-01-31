@@ -32,7 +32,6 @@ return new class extends Migration
             $table->text('economicSituation')->nullable();
             $table->unsignedBigInteger('operatorId')->nullable();
             $table->foreign('operatorId')->references('id')->on('users')->onDelete('set null');
-            $table->enum('language', array_map(fn($lang) => $lang->value, Language::cases()))->default(Language::SPANISH->value);
         });
     }
 

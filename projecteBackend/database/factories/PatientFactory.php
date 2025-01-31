@@ -35,7 +35,6 @@ class PatientFactory extends Factory
             'housingSituation' => 'housing situation random: ' . $this->faker->sentence(),
             'personalAutonomy' => 'personal situation random: ' . $this->faker->sentence(),
             'economicSituation' =>'economic situation random: ' .  $this->faker->sentence(),
-            'language' => $this->faker->randomElement(Language::toArray()),
         ];
     }
 }

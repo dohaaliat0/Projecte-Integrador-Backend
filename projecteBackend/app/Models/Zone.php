@@ -8,7 +8,7 @@ class Zone extends Model
 {
     protected $table = 'zones';
     protected $fillable = ['name', 'status'];
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function users()
     {
