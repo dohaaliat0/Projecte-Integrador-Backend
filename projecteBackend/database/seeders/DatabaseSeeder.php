@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             PatientsSeeder::class,
             ContactPersonSeeder::class,
             LanguageSeeder::class,
+            LanguageUserPatientSeeder::class,
         ]);
     }
 }

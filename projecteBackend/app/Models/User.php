@@ -8,6 +8,7 @@ use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Language;
 
 class User extends Authenticatable
 {
@@ -53,5 +54,15 @@ class User extends Authenticatable
     public function zones()
     {
         return $this->belongsToMany(Zone::class, 'user_zone');
+    }
+
+    public function patients()
+    {
+        return $this->hasMany(Patient::class);
+    }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class, 'language_user');
     }
 }

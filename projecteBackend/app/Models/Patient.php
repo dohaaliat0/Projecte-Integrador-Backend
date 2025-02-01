@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ContactPerson;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Enums\Language;
+use App\Models\Language;
 
 class Patient extends Model
 {
@@ -28,15 +28,30 @@ class Patient extends Model
         'language',
     ];
 
-    public function casts()
-    {
-        return [
-            'language' => Language::class,
-        ];
-    }
+    // public function casts()
+    // {
+    //     return [
+    //         'language' => Language::class,
+    //     ];
+    // }
 
     public function contactPersons()
     {
         return $this->hasMany(ContactPerson::class);
+    }
+
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class);
+    }
+
+    public function zone()
+    {
+        return $this->belongsTo(Zone::class);
+    }
+
+    public function operator()
+    {
+        return $this->belongsTo(User::class);
     }
 }
