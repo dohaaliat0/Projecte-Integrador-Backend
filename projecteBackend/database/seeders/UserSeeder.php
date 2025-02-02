@@ -20,10 +20,13 @@ class UserSeeder extends Seeder
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
             'role' => UserRole::COORDINATOR,
+            'surnames' => 'Doe',
+            'phone' => '123456789',
+            'hireDate' => '2023-01-01',
+            'terminationDate' => null,
+            'username' => 'coordinator123',
         ]);
 
         User::factory(10)->create();
-
-        
     }
 }
