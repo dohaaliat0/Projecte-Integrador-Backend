@@ -11,4 +11,9 @@ enum DayOfWeek: string
     case Friday = 'Friday';
     case Saturday = 'Saturday';
     case Sunday = 'Sunday';
+
+
+    public static function values(){
+        return array_column(self::cases(), 'value');
+    }
 }

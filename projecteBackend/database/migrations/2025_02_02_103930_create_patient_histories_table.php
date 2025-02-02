@@ -12,15 +12,15 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('patient_histories', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relación con el operador
-            $table->foreignId('patient_id')->constrained()->onDelete('cascade'); // Relación con el paciente
-            $table->foreignId('incomingCallId')->nullable()->constrained('calls')->onDelete('set null'); // Relación con la llamada entrante
-            $table->foreignId('outgoingCallId')->nullable()->constrained('calls')->onDelete('set null'); // Relación con la llamada saliente
-            $table->dateTime('dateTime');
-            $table->timestamps();
-        });
+        // Schema::create('patient_histories', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relación con el operador
+        //     $table->foreignId('patient_id')->constrained()->onDelete('cascade'); // Relación con el paciente
+        //     $table->foreignId('incomingCallId')->nullable()->constrained('calls')->onDelete('set null'); // Relación con la llamada entrante
+        //     $table->foreignId('outgoingCallId')->nullable()->constrained('calls')->onDelete('set null'); // Relación con la llamada saliente
+        //     $table->dateTime('dateTime');
+        //     $table->timestamps();
+        // });
     }
 
     /**

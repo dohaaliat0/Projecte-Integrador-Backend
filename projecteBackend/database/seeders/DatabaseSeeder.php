@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Alert;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +24,9 @@ class DatabaseSeeder extends Seeder
             ContactPersonSeeder::class,
             LanguageSeeder::class,
             LanguageUserPatientSeeder::class,
+            AlertSeeder::class,
+            // CallSeeder::class,
+            // PatientHistorySeeder::class,
         ]);
     }
 }
