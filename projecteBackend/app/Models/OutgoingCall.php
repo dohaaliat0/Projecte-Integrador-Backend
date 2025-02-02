@@ -11,12 +11,8 @@ class OutgoingCall extends Model
 {
     use HasFactory;
     protected $fillable = ['callId', 'type', 'alertId'];
+    public $timestamps = false;
 
-    public function casts(){
-        [
-            'type' => OutgoingCallsType::class,
-        ];
-    }
 
     public function call() {
         return $this->belongsTo(Call::class);

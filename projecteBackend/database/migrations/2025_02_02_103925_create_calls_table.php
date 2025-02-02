@@ -34,6 +34,8 @@ return new class extends Migration
         Schema::create('outgoing_calls', function (Blueprint $table) {
             $table->id();
             $table->foreignId('callId')->unique()->references('id')->on('calls')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('alertId')->nullable();
+            $table->foreign('alertId')->references('id')->on('alerts')->onDelete('cascade');
             $table->enum('type', OutgoingCallsType::values());
         });
         

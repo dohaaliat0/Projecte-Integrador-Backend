@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\OutgoingCallsType;
+use App\Models\Alert;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,18 @@ class OutgoingCallFactory extends Factory
      */
     public function definition(): array
     {
+
+        $alertId = null;
+        if (rand(0, 1) == 0) {
+            $alertId = Alert::all()->random()->id;
+        }
+
+        $types = OutgoingCallsType::values();
+        $type = $types[array_rand($types)];
+
         return [
-            //
+            'type' => $type,
+            'alertId' => $alertId,
         ];
     }
 }

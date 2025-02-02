@@ -22,13 +22,11 @@ class CallSeeder extends Seeder
             ]);
         }
 
-        // OutgoingCall::factory()
-        //     ->count(10)
-        //     ->create()
-        //     ->each(function ($outgoingCall) {
-        //         $call = Call::factory()->create();
-        //         $outgoingCall->call()->associate($call);
-        //         $outgoingCall->save();
-        //     });
+        for ($i = 0; $i < 10; $i++) {
+            $call = Call::factory()->create();
+            OutgoingCall::factory()->create([
+                'callId' => $call->id,
+            ]);
+        }
     }
 }
