@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Resources\OperatorResource;
 
 class OperatorController extends Controller
 {
@@ -13,7 +15,7 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        //
+        return OperatorResource::collection(User::where('role', UserRole::OPERATOR)->get());
     }
 
     /**
@@ -21,7 +23,7 @@ class OperatorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //
     }
 
     /**
