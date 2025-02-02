@@ -54,4 +54,9 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function calls()
+    {
+        return $this->hasMany(Call::class);
+    }
 }

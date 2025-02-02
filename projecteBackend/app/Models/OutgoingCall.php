@@ -17,4 +17,8 @@ class OutgoingCall extends Model
     public function call() {
         return $this->belongsTo(Call::class);
     }
+
+    public function alert() {
+        return $this->belongsTo(Alert::class);
+    }
 }

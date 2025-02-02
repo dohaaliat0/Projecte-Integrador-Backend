@@ -12,11 +12,21 @@ class Call extends Model
     use HasFactory;
     protected $fillable = ['patientId', 'operatorId', 'details', 'dateTime'];
 
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
 
     public function operator() {
         return $this->belongsTo(User::class);
     }
+
+    public function patient() {
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function incomingCall(){
+        return $this->hasOne(IncomingCall::class);
+    }
+
+    public function outgoingCall(){
+        return $this->hasOne(OutgoingCall::class);
+    }
+
 }

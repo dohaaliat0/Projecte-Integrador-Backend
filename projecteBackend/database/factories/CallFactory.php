@@ -24,7 +24,7 @@ class CallFactory extends Factory
             'patientId' => Patient::all()->random()->id,
             'operatorId' => User::where('role', UserRole::OPERATOR)->get()->random()->id,
             'details' => $this->faker->text,
-            'dateTime' => Carbon::now(),
+            'dateTime' => Carbon::now()->subDays(rand(0, 10))->addDays(rand(0, 20))->subMinutes(rand(0, 60 * 24 * 30)),
         ];
     }
 }

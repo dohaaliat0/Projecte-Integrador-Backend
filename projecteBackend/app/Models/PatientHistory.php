@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PatientHistory extends Model
 {
-    protected $fillable = ['dateTime', 'user_id', 'patient_id', 'call_id'];
+    protected $fillable = ['dateTime', 'userId', 'patientId', 'callId'];
 
 
     public function user(): BelongsTo

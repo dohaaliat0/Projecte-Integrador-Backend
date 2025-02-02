@@ -27,8 +27,8 @@ class PatientHistorySeeder extends Seeder
 
             if ($matchingOperators->isNotEmpty()) {
                 PatientHistory::create([
-                    'user_id' => $matchingOperators->random()->id,
-                    'patient_id' => $patient->id,
+                    'operatorId' => $matchingOperators->random()->id,
+                    'patientId' => $patient->id,
                     'dateTime' => now()->subDays(rand(1, 30)),
                 ]);
             }

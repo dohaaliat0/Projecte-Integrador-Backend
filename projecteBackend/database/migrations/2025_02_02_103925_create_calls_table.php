@@ -26,14 +26,12 @@ return new class extends Migration
         });
         
         Schema::create('incoming_calls', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('callId')->unique()->references('id')->on('calls')->constrained()->onDelete('cascade');
+            $table->foreignId('callId')->primary()->references('id')->on('calls')->constrained()->onDelete('cascade');
             $table->enum('type', IncomingCallsType::values());
         });
         
         Schema::create('outgoing_calls', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('callId')->unique()->references('id')->on('calls')->constrained()->onDelete('cascade');
+            $table->foreignId('callId')->primary()->references('id')->on('calls')->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('alertId')->nullable();
             $table->foreign('alertId')->references('id')->on('alerts')->onDelete('cascade');
             $table->enum('type', OutgoingCallsType::values());
@@ -46,8 +44,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('calls');
         Schema::dropIfExists('incoming_calls');
         Schema::dropIfExists('outgoing_calls');
+        Schema::dropIfExists('calls');
     }
 };
