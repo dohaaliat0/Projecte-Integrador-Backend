@@ -18,4 +18,9 @@ enum OutgoingCallsType: string
             self::GENERAL_UNEXPECTED_EMERGENCIES => 'General unexpected emergencies',
         };
     }
+
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
 }

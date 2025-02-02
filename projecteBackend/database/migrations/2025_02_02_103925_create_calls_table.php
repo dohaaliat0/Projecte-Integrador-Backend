@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\IncomingCallsType;
+use App\Enums\OutgoingCallsType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,29 +13,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('calls', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->unsignedBigInteger('userId');
-        //     $table->unsignedBigInteger('operatorId')->nullable(); // Puede ser nulo en llamadas entrantes
-        //     $table->text('details')->nullable();
-        //     $table->timestamp('call_time');
-        //     $table->timestamps();
+        Schema::create('calls', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('patientId');
+            $table->unsignedBigInteger('operatorId')->nullable(); // Puede ser nulo en llamadas entrantes
+            $table->text('details')->nullable();
+            $table->timestamp('dateTime');
+            $table->timestamps();
             
-        //     $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-        //     $table->foreign('operatorId')->references('id')->on('users')->onDelete('set null');
-        // });
+            $table->foreign('patientId')->references('id')->on('patients')->onDelete('cascade');
+            $table->foreign('operatorId')->references('id')->on('users')->onDelete('set null');
+        });
         
-        // Schema::create('incoming_calls', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->foreignId('callId')->constrained()->onDelete('cascade');
-        //     $table->enum('call_type', ['emergency', 'follow_up', 'general_inquiry']);
-        // });
+        Schema::create('incoming_calls', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('callId')->unique()->references('id')->on('calls')->constrained()->onDelete('cascade');
+            $table->enum('type', IncomingCallsType::values());
+        });
         
-        // Schema::create('outgoing_calls', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->foreignId('callId')->constrained()->onDelete('cascade');
-        //     $table->enum('call_type', ['alert', 'reminder', 'check_in']);
-        // });
+        Schema::create('outgoing_calls', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('callId')->unique()->references('id')->on('calls')->constrained()->onDelete('cascade');
+            $table->enum('type', OutgoingCallsType::values());
+        });
         
     }
 

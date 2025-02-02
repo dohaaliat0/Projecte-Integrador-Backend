@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             LanguageUserPatientSeeder::class,
             AlertSeeder::class,
-            // CallSeeder::class,
+            CallSeeder::class,
             // PatientHistorySeeder::class,
         ]);
     }
