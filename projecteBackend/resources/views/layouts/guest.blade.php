@@ -19,7 +19,7 @@
         <header class="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-md">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <h1 class="text-3xl font-bold text-white">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'telefex') }}
             </h1>
             @if (request()->is('login'))
                 <a href="{{ url('/register') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">

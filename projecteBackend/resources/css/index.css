@@ -1,0 +1,84 @@
+.user-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    background: linear-gradient(to right, #f6ad55, #f6e05e);
+    transition: background 0.2s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.user-button:hover {
+    background: linear-gradient(to right, #f6e05e, #f6ad55);
+    transform: scale(1.05);
+}
+
+.user-button:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+}
+
+.user-button svg {
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.dropdown-menu {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    width: 200px;
+    right: 0;
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-menu.block {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu.hidden {
+    display: none;
+}
+
+.link {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.link:hover {
+    background-color: #f6ad55;
+    color: white;
+    transform: scale(1.05);
+}
+
+a:focus {
+    outline: none;
+}
+
+.border-l-2 {
+    border-left-width: 2px;
+    border-color: #e2e8f0;
+}
+
+
+img {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
