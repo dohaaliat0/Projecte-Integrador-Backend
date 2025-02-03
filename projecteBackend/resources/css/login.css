@@ -10,5 +10,16 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
     width: 500px;
+}
+
+.field{
+    width: 100%;
+}
+
+.full-width {
+    grid-column: span 2;
 }

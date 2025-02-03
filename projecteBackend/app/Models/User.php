@@ -30,7 +30,8 @@ class User extends Authenticatable
         'phone',
         'hireDate',
         'terminationDate',
-        'username',
+        'username'
+
     ];
 
     /**
