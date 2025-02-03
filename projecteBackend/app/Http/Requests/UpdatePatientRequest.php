@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Enums\Language;
+use App\Models\User;
+use App\Enums\UserRole;
 
 class UpdatePatientRequest extends FormRequest
 {
@@ -23,7 +25,10 @@ class UpdatePatientRequest extends FormRequest
     public function rules(): array
     {
         $validLanguages = Language::values();
+        $patientId = $this->route('patient')->id;
+
         return [
+            'id' => 'exists:jugadores,id,' . $patientId,
             'fullName' => 'required|string|max:255',
             'birthDate' => 'required|date',
             'fullAddress' => 'required|string|max:255',
@@ -37,8 +42,17 @@ class UpdatePatientRequest extends FormRequest
             'housingSituation' => 'nullable|string',
             'personalAutonomy' => 'nullable|string',
             'economicSituation' => 'nullable|string',
-            'operatorId' => 'required|integer|exists:operators,id',
-            //Si da problemas comentadlo de momento
+            'operatorId' => [
+                'required',
+                'integer',
+                'exists:users,id',
+                function ($attribute, $value, $fail) {
+                    $user = User::find($value);
+                    if (!$user || $user->role !== UserRole::OPERATOR) {
+                        $fail('The selected ' . $attribute . ' is invalid.');
+                    }
+                },
+            ],
             'languages' => [
                 'required',
                 'array',

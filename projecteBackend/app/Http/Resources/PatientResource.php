@@ -24,7 +24,6 @@ class PatientResource extends JsonResource
             'healthCardNumber' => $this->healthCardNumber,
             'phone' => $this->phone,
             'email' => $this->email,
-            'zoneId' => $this->zoneId,
             'personalFamilySituation' => $this->personalFamilySituation,
             'healthSituation' => $this->healthSituation,
             'housingSituation' => $this->housingSituation,

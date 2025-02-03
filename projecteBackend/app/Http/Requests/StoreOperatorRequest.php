@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\UserRole;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreOperatorRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreOperatorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,17 @@ class StoreOperatorRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            //
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'role' => 'required|in:'.UserRole::OPERATOR->value,
+            'surnames' => 'required|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'hireDate' => 'required|date',
+            'terminationDate' => 'nullable|date|after:hireDate',
+            'username' => 'required|string|max:255|unique:users',
         ];
     }
 }
