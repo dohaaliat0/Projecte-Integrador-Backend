@@ -25,7 +25,7 @@
                 <a href="{{ url('/register') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">
                 Register
                 </a>
-            @elseif (request()->is('register'))
+            @else
                 <a href="{{ url('/login') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">
                 Login
                 </a>

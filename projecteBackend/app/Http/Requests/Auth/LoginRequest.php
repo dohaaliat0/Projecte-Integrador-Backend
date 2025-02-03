@@ -2,12 +2,14 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Enums\UserRole;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use \App\Models\User;
 
 class LoginRequest extends FormRequest
 {
@@ -26,8 +28,13 @@ class LoginRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            'email' => ['required', 'string', 'email'],
+            'email' => ['required', 'string', 'email', function ($attribute, $value, $fail) {
+                if (!User::where('email', $this->input('email'))->where('role', UserRole::COORDINATOR)->first()) {
+                    $fail('You must be a coordinator to log in.');
+                }
+            }],
             'password' => ['required', 'string'],
         ];
     }
