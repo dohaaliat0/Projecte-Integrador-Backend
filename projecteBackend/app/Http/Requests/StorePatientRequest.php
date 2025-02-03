@@ -5,6 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Enums\Language;
 use App\Enums\Relationship;
+use App\Enums\UserRole;
+use App\Models\User;
 
 class StorePatientRequest extends FormRequest
 {
@@ -38,7 +40,17 @@ class StorePatientRequest extends FormRequest
             'housingSituation' => 'nullable|string',
             'personalAutonomy' => 'nullable|string',
             'economicSituation' => 'nullable|string',
-            'operatorId' => 'required|integer|exists:operators,id',
+            'operatorId' => [
+                'required',
+                'integer',
+                'exists:users,id',
+                function ($attribute, $value, $fail) {
+                    $user = User::find($value);
+                    if (!$user || $user->role !== UserRole::OPERATOR) {
+                        $fail('The selected ' . $attribute . ' is invalid.');
+                    }
+                },
+            ],
             //Si da problemas comentadlo de momento
             'languages' => [
                 'required',
