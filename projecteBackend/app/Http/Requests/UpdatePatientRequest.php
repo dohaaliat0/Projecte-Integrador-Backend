@@ -25,7 +25,10 @@ class UpdatePatientRequest extends FormRequest
     public function rules(): array
     {
         $validLanguages = Language::values();
+        $patientId = $this->route('patient')->id;
+
         return [
+            'id' => 'exists:jugadores,id,' . $patientId,
             'fullName' => 'required|string|max:255',
             'birthDate' => 'required|date',
             'fullAddress' => 'required|string|max:255',
@@ -50,7 +53,6 @@ class UpdatePatientRequest extends FormRequest
                     }
                 },
             ],
-            //Si da problemas comentadlo de momento
             'languages' => [
                 'required',
                 'array',
