@@ -10,9 +10,11 @@ class Zone extends Model
     protected $fillable = ['name', 'status'];
     public $timestamps = true;
 
-    public function users()
+
+    
+    public function operators()
     {
-        return $this->belongsToMany(User::class, 'user_zone');
+        return $this->users()->where('role', 'operator');
     }
 
     public function patients()

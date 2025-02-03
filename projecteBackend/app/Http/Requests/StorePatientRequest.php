@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\Language;
+use App\Enums\Relationship;
 
 class StorePatientRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class StorePatientRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,6 +23,7 @@ class StorePatientRequest extends FormRequest
      */
     public function rules(): array
     {
+        $validLanguages = Language::values();
         return [
             'fullName' => 'required|string|max:255',
             'birthDate' => 'required|date',
@@ -36,7 +39,21 @@ class StorePatientRequest extends FormRequest
             'personalAutonomy' => 'nullable|string',
             'economicSituation' => 'nullable|string',
             'operatorId' => 'required|integer|exists:operators,id',
-            'language' => 'nullable|string|max:50',
+            //Si da problemas comentadlo de momento
+            'languages' => [
+                'required',
+                'array',
+                function ($attribute, $value, $fail) use ($validLanguages) {
+                    if (empty($value)) {
+                        $fail('The ' . $attribute . ' must have at least one element.');
+                    }
+                    foreach ($value as $language) {
+                        if (!in_array($language, $validLanguages)) {
+                            $fail('The selected ' . $attribute . ' is invalid.');
+                        }
+                    }
+                },
+            ],
         ];
     }
 }

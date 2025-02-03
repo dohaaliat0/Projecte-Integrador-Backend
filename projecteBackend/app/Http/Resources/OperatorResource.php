@@ -14,6 +14,18 @@ class OperatorResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'role' => $this->role,
+            'surnames' => $this->surnames,
+            'phone' => $this->phone,
+            'hireDate' => $this->hireDate,
+            'terminationDate' => $this->terminationDate,
+            'zones' => ZoneResource::collection($this->whenLoaded('zones')),
+            'patients' => PatientResource::collection($this->whenLoaded('patients')),
+            'languages' => LanguageResource::collection($this->whenLoaded('languages')),
+        ];
     }
 }
