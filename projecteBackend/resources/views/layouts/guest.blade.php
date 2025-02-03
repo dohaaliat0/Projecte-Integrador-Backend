@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        @vite(['resources/css/login.css'])
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -14,15 +15,25 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+    <body>
+        <header class="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-md">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-white">
+                {{ config('app.name', 'Laravel') }}
+            </h1>
+            @if (request()->is('login'))
+                <a href="{{ url('/register') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">
+                Register
                 </a>
+            @elseif (request()->is('register'))
+                <a href="{{ url('/login') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">
+                Login
+                </a>
+            @endif
             </div>
-
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+        </header>
+        <div class="min-h-screen flex flex-col sm:justify-center items-center ">
+            <div>
                 {{ $slot }}
             </div>
         </div>
