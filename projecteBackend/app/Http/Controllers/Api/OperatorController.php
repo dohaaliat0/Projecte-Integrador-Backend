@@ -41,7 +41,8 @@ class OperatorController extends BaseController
         $user = User::find($id);
     
         if (!$user || $user->role !== UserRole::OPERATOR) {
-            return response()->json(['message' => 'User is not an operator'], 404);
+            // return response()->json(['message' => 'User is not an operator'], 404);
+            $this->sendError('User is not an operator', 404);
         }
     
         return $this->sendResponse(new OperatorResource($user), 'Operator retrieved successfully.', 200);
