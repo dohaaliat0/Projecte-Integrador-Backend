@@ -21,7 +21,9 @@ return Application::configure(basePath: dirname(__DIR__))
             $statusCode = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
             return response()->json([
                 'success' => false,
+                'route' => $request->path(),
                 'message' => $e->getMessage(),
+
             ], $statusCode);
         }
     });

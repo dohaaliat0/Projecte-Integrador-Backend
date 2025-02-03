@@ -37,7 +37,7 @@ class Patient extends Model
 
     public function contactPersons()
     {
-        return $this->hasMany(ContactPerson::class);
+        return $this->hasMany(ContactPerson::class, 'patientId');
     }
 
     public function languages()
@@ -47,16 +47,16 @@ class Patient extends Model
 
     public function zone()
     {
-        return $this->belongsTo(Zone::class);
+        return $this->belongsTo(Zone::class, 'zoneId');
     }
 
     public function operator()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'operatorId');
     }
 
     public function calls()
     {
-        return $this->hasMany(Call::class);
+        return $this->hasMany(Call::class, 'patientId');
     }
 }

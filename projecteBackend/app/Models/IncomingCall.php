@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class IncomingCall extends Model
 {
     use HasFactory;
-    protected $fillable = ['callId', 'type'];
+    protected $fillable = ['callId', 'type', 'emergencyLevel'];
     public $timestamps = false;
 
 
