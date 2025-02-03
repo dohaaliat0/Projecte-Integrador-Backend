@@ -37,4 +37,9 @@ enum IncomingCallsType: string
             self::OTHER_CALLS => 'Other Types of Calls',
         };
     }
+
+    public static function values(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
 }

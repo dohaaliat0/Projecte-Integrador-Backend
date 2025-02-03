@@ -14,7 +14,7 @@ class LanguageSeeder extends Seeder
      */
     public function run(): void
     {
-        $languages = Language::toArray();
+        $languages = Language::values();
         foreach ($languages as $language) {
             DB::table('languages')->insert([
                 'name' => $language,

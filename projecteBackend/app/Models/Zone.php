@@ -14,4 +14,14 @@ class Zone extends Model
     {
         return $this->belongsToMany(User::class, 'user_zone');
     }
+
+    public function patients()
+    {
+        return $this->hasMany(Patient::class);
+    }
+
+    public function alerts()
+    {
+        return $this->hasMany(Alert::class);
+    }
 }
