@@ -12,10 +12,12 @@ class OutgoingCall extends Model
     use HasFactory;
     protected $fillable = ['callId', 'type', 'alertId'];
     public $timestamps = false;
+    protected $primaryKey = 'callId';
+
 
 
     public function call() {
-        return $this->belongsTo(Call::class);
+        return $this->belongsTo(Call::class, 'callId');
     }
 
     public function alert() {
