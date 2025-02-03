@@ -26,6 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 return response()->json([
                     'success' => false,
                     'route' => $request->path(),
+                    'verb' => $request->method(),
                     'message' => $e->getMessage(),
 
                 ], $statusCode);
@@ -39,6 +40,8 @@ return Application::configure(basePath: dirname(__DIR__))
             if ($request->is('api/*')) {
                 return response()->json([
                     'success' => false,
+                    'route' => $request->path(),
+                    'verb' => $request->method(),
                     'message' => $e->getMessage(),
                 ], $statusCode);
             }

@@ -9,7 +9,7 @@ Route::post('register', [AuthController::class, 'register'])->middleware('api');
 
 
 Route::middleware(['auth:sanctum','api'])->group( function () {    
-    // Route::apiResource('operators', OperatorController::class);
+    Route::apiResource('operators', OperatorController::class);
     Route::apiResource('patients', PatientController::class);
 
     Route::post('logout', [AuthController::class, 'logout']);
