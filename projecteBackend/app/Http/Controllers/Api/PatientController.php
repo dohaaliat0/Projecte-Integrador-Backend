@@ -28,7 +28,8 @@ class PatientController extends BaseController
             $patient = Patient::create($request->validated());
             return response()->json(new PatientResource($patient), 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            dd($e);
+            return response()->json(['message' => $e->getMessage()], 400);
         }
     }
 
