@@ -3,25 +3,33 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePatientRequest;
+use App\Http\Requests\UpdatePatientRequest;
+use App\Http\Resources\PatientResource;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
-class PatientController extends Controller
+class PatientController extends BaseController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return PatientResource::collection(Patient::all());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePatientRequest $request)
     {
-        //
+        try{
+            $patient = Patient::create($request->validated());
+            return response()->json(new PatientResource($patient), 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 500);
+        }
     }
 
     /**
@@ -29,15 +37,18 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        $patient->load(['languages', 'contactPersons', 'zone', 'operator', 'calls']);
+
+        return $this->sendResponse(new PatientResource($patient), 'Patient retrieved successfully.', 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Patient $patient)
+    public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        //
+        $patient->update($request->validated());
+        return $this->sendResponse($patient, 'Patient updated successfully.', 200);
     }
 
     /**
@@ -45,6 +56,7 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        $patient->delete();
+        return $this->sendResponse([], 'Patient deleted successfully.', 200);
     }
 }
