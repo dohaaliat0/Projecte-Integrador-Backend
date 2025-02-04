@@ -16,17 +16,17 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
-        <header class="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-md">
+        <header class="bg-gradient-to-r from-gray-400 to-gray-700 shadow-md">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <h1 class="text-3xl font-bold text-white">
                 {{ config('app.name', 'telefex') }}
             </h1>
             @if (request()->is('login'))
-                <a href="{{ url('/register') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">
+                <a href="{{ url('/register') }}" class="bg-white text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-200 transition duration-300">
                 Register
                 </a>
             @else
-                <a href="{{ url('/login') }}" class="bg-white text-indigo-600 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-100 transition duration-300">
+                <a href="{{ url('/login') }}" class="bg-white text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-200 transition duration-300">
                 Login
                 </a>
             @endif
