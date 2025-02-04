@@ -82,3 +82,7 @@ img {
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+.imagne{
+     width: 100px;
+     height: 100px;
+}
