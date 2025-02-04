@@ -6,7 +6,9 @@ use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOperatorRequest;
 use App\Http\Requests\UpdateOperatorRequest;
+use App\Http\Resources\CallResource;
 use App\Http\Resources\OperatorResource;
+use App\Models\Call;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -41,7 +43,8 @@ class OperatorController extends BaseController
         $user = User::find($id);
     
         if (!$user || $user->role !== UserRole::OPERATOR) {
-            return response()->json(['message' => 'User is not an operator'], 404);
+            // return response()->json(['message' => 'User is not an operator'], 404);
+            $this->sendError('User is not an operator', 404);
         }
     
         return $this->sendResponse(new OperatorResource($user), 'Operator retrieved successfully.', 200);
@@ -75,5 +78,11 @@ class OperatorController extends BaseController
 
         $user->delete();
         return $this->sendResponse([], 'Operator deleted successfully.', 200);
+    }
+
+    public function getCallHistoryByOperator($id)
+    {
+        $calls = Call::where('operatorId', $id)->get();
+        return CallResource::collection($calls);
     }
 }

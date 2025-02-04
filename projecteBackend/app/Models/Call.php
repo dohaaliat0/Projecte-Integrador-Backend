@@ -22,11 +22,11 @@ class Call extends Model
     }
 
     public function incomingCall(){
-        return $this->hasOne(IncomingCall::class);
+        return $this->hasOne(IncomingCall::class, 'callId');
     }
 
     public function outgoingCall(){
-        return $this->hasOne(OutgoingCall::class);
+        return $this->hasOne(OutgoingCall::class, 'callId');
     }
 
 }

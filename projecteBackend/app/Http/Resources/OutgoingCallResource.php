@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,7 +18,7 @@ class OutgoingCallResource extends JsonResource
         return [
             'callId' => $this->callId,
             'type' => $this->type,
-            'alertId' => new AlertResource($this->whenLoaded('alert')),
+            'alert' => new AlertResource(Alert::find($this->alertId)),
         ];
     }
 }

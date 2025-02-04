@@ -4,6 +4,13 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\OperatorResource;
+use App\Http\Resources\Partials\PatientSimpleResource;
+use App\Models\Call;
+use App\Models\IncomingCall;
+use App\Models\OutgoingCall;
+use App\Models\Patient;
+use App\Models\User;
 
 class CallResource extends JsonResource
 {
@@ -14,16 +21,15 @@ class CallResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+
         return [
             'id' => $this->id,
-            'patientId' => $this->patientId,
-            'operatorId' => $this->operatorId,
             'details' => $this->details,
             'dateTime' => $this->dateTime,
-            'operator' => new OperatorResource($this->whenLoaded('operator')),
-            'patient' => new PatientResource($this->whenLoaded('patient')),
-            'incomingCall' => new IncomingCallResource($this->whenLoaded('incomingCall')),
-            'outgoingCall' => new OutgoingCallResource($this->whenLoaded('outgoingCall')),
+            'operator' => new OperatorResource(User::find($this->operatorId)),
+            'patient' => new PatientSimpleResource(Patient::find($this->patientId)),
+            'incomingCall' => new IncomingCallResource(IncomingCall::where('callId', $this->id)->first()),
+            'outgoingCall' => new OutgoingCallResource(OutgoingCall::where('callId', $this->id)->first()),
         ];
     }
 }

@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('calls', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('patientId');
-            $table->unsignedBigInteger('operatorId')->nullable(); // Puede ser nulo en llamadas entrantes
+            $table->unsignedBigInteger('operatorId'); 
             $table->text('details')->nullable();
             $table->timestamp('dateTime');
             $table->timestamps();
             
             $table->foreign('patientId')->references('id')->on('patients')->onDelete('cascade');
-            $table->foreign('operatorId')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('operatorId')->references('id')->on('users')->onDelete('cascade');
         });
         
         Schema::create('incoming_calls', function (Blueprint $table) {

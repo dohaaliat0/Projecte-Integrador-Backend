@@ -14,11 +14,16 @@ class AlertResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $zone = null;
+        if($this->zone != null) {
+            $zone = $this->zone->name;
+        }
+
         return [
             'id' => $this->id,
             'operator' => new OperatorResource($this->operator),
             'patient' => new PatientResource($this->patient), 
-            'zone' => $this->zone->name,
+            'zone' => $zone,
             'isActive' => $this->isActive,
             'type' => $this->type,
             'isRecurring' => $this->isRecurring,

@@ -11,9 +11,10 @@ class IncomingCall extends Model
     use HasFactory;
     protected $fillable = ['callId', 'type', 'emergencyLevel'];
     public $timestamps = false;
+    protected $primaryKey = 'callId';
 
 
     public function call() {
-        return $this->belongsTo(Call::class);
+        return $this->belongsTo(Call::class, 'callId');
     }
 }
