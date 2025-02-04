@@ -14,11 +14,11 @@ class Call extends Model
 
 
     public function operator() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'operatorId');
     }
 
     public function patient() {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(Patient::class, 'patientId');
     }
 
     public function incomingCall(){
