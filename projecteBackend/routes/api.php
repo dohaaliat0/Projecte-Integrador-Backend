@@ -20,10 +20,9 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
 
     Route::get('reports/emergencies', [ReportController::class, 'getEmergencies']);
     Route::get('reports/socials', [ReportController::class, 'getSocials']);
-    // Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
+    Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
 
     Route::post('logout', [AuthController::class, 'logout']);
 
 });
-// test route without middleware
-Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
+
