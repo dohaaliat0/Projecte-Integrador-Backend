@@ -25,10 +25,22 @@ class CallController extends BaseController
     public function store(StoreCallRequest $request)
     {
         try {
-            $call = Call::create($request->validated());
-            return response()->json(new CallResource($call), 201);
+            $validated = $request->validated();
+            if (isset($validated['incomingCall'])) {
+                $call = Call::create($validated);
+
+                $call->incomingCall()->create($validated['incomingCall']);
+            } elseif (isset($validated['outgoingCall'])) {
+                $call = Call::create($validated);
+
+                $call->outgoingCall()->create($validated['outgoingCall']);
+            }else{
+                throw new \Exception('Either incomingCall or outgoingCall must be provided.');
+            }
+
+            return $this->sendResponse(new CallResource($call), 201);
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 400);
+            return $this->sendError(['message' => $e->getMessage()], 400);
         }
     }
 

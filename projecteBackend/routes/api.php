@@ -14,6 +14,9 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::apiResource('patients', PatientController::class);
     Route::apiResource('calls', CallController::class);
 
+    Route::get('operators/{id}/calls', [OperatorController::class, 'getCallHistoryByOperator']);
+    Route::get('patients/{id}/calls', [PatientController::class, 'getCallHistoryByPatient']);
+
     Route::post('logout', [AuthController::class, 'logout']);
 
 });

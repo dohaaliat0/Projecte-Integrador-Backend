@@ -7,6 +7,8 @@ use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use App\Http\Resources\PatientResource;
 use App\Models\Patient;
+use App\Models\Call;
+use App\Http\Resources\CallResource;
 use Illuminate\Http\Request;
 
 class PatientController extends BaseController
@@ -60,4 +62,12 @@ class PatientController extends BaseController
         $patient->delete();
         return $this->sendResponse([], 'Patient deleted successfully.', 200);
     }
+
+    public function getCallHistoryByPatient($id)
+    {
+        $calls = Call::where('patientId', $id)->get();
+        return CallResource::collection($calls);
+    }
+
+
 }
