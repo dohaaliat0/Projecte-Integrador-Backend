@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div x-data="{ imageSrc: '/images/default.jpg' }" class="flex">
+    <div :style="{ backgroundImage: 'url(' + imageSrc + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', minHeight: '100vh' }" x-data="{ imageSrc: '/images/default.jpg' }" class="relative">
         <!-- Sidebar de Links -->
-        <div class="w-2/4 p-4 space-y-4">
+        <div class="w-2/4 p-4 space-y-4" style="position: absolute; top: 0; left: 0; min-height: 100vh;">
             <a href="#" @mouseover="imageSrc = '/images/userImage.jpg'" class="link">Link 1</a>
             <a href="#" @mouseover="imageSrc = '/images/DownUsers.jpg'" class="link">Link 2</a>
             <hr class="border-t-2 border-gray-300">
@@ -10,11 +10,7 @@
         </div>
 
         <!-- Línea Vertical -->
-        <div class="border-l-2 border-gray-300 mx-4"></div>
 
-        <!-- Imagen que cambia -->
-        <div class="w-2/4 w-70">
-            <img :src="imageSrc" alt="Image" class="justify-content-center h-auto object-cover transition-all duration-500 ease-in-out">
-        </div>
+
     </div>
 </x-app-layout>
