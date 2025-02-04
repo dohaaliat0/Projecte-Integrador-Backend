@@ -17,7 +17,7 @@ add('writable_dirs', ['storage', 'bootstrap/cache']);
 
 // Hosts
 
-host('3.93.183.56')
+host('52.45.98.55')
     ->set('remote_user', 'ddaw-ud4-deployer')
     ->set('identity_file', '~/.ssh/id_rsa')
     ->set('deploy_path', '/var/www/html');
