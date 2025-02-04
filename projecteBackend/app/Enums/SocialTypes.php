@@ -2,26 +2,26 @@
 namespace App\Enums;
 
 enum SocialTypes :string{
-    case NOTIFY_ABSENCE_RETURN = 'Notificar absències o retorns';
-    case MODIFY_PERSONAL_DATA = 'Modificar dades personals';
-    case ACCIDENTAL_CALL = 'Cridades accidentals';
-    case REQUEST_INFORMATION = 'Petició d’informació';
-    case SUGGESTIONS_COMPLAINTS = 'Formulació de suggeriments, queixes o reclamacions';
-    case SOCIAL_CALL = 'Cridades socials (per saludar o parlar amb el personal)';
-    case REGISTER_MEDICAL_APPOINTMENT = 'Registrar cites mèdiques arran d’una crida';
-    case OTHER_CALLS = 'Altres tipus de crides';
+    case NOTIFY_ABSENCE_RETURN = IncomingCallsType::NOTIFY_ABSENCE_RETURN->value;
+    case MODIFY_PERSONAL_DATA = IncomingCallsType::MODIFY_PERSONAL_DATA->value;
+    case ACCIDENTAL_CALL = IncomingCallsType::ACCIDENTAL_CALL->value;
+    case REQUEST_INFORMATION = IncomingCallsType::REQUEST_INFORMATION->value;
+    case SUGGESTIONS_COMPLAINTS = IncomingCallsType::SUGGESTIONS_COMPLAINTS->value;
+    case SOCIAL_CALL = IncomingCallsType::SOCIAL_CALL->value;
+    case REGISTER_MEDICAL_APPOINTMENT = IncomingCallsType::REGISTER_MEDICAL_APPOINTMENT->value;
+    case OTHER_CALLS = IncomingCallsType::OTHER_CALLS->value;
 
     public function label(): string
     {
         return match($this) {
-            self::NOTIFY_ABSENCE_RETURN => 'Notificar absències o retorns',
-            self::MODIFY_PERSONAL_DATA => 'Modificar dades personals',
-            self::ACCIDENTAL_CALL => 'Cridades accidentals',
-            self::REQUEST_INFORMATION => 'Petició d’informació',
-            self::SUGGESTIONS_COMPLAINTS => 'Formulació de suggeriments, queixes o reclamacions',
-            self::SOCIAL_CALL => 'Cridades socials (per saludar o parlar amb el personal)',
-            self::REGISTER_MEDICAL_APPOINTMENT => 'Registrar cites mèdiques arran d’una crida',
-            self::OTHER_CALLS => 'Altres tipus de crides',
+            self::NOTIFY_ABSENCE_RETURN => IncomingCallsType::NOTIFY_ABSENCE_RETURN->label(),
+            self::MODIFY_PERSONAL_DATA => IncomingCallsType::MODIFY_PERSONAL_DATA->label(),
+            self::ACCIDENTAL_CALL => IncomingCallsType::ACCIDENTAL_CALL->label(),
+            self::REQUEST_INFORMATION => IncomingCallsType::REQUEST_INFORMATION->label(),
+            self::SUGGESTIONS_COMPLAINTS => IncomingCallsType::SUGGESTIONS_COMPLAINTS->label(),
+            self::SOCIAL_CALL => IncomingCallsType::SOCIAL_CALL->label(),
+            self::REGISTER_MEDICAL_APPOINTMENT => IncomingCallsType::REGISTER_MEDICAL_APPOINTMENT->label(),
+            self::OTHER_CALLS => IncomingCallsType::OTHER_CALLS->label(),
         };
     }
 
