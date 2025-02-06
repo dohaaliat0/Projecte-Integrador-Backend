@@ -61,7 +61,7 @@ class StorePatientRequest extends FormRequest
                     }
                     foreach ($value as $language) {
                         if (!in_array($language, $validLanguages)) {
-                            $fail('The selected ' . $attribute . ' is invalid.');
+                            $fail('The selected ' . $attribute . ': '. $language. ' is invalid.');
                         }
                     }
                 },
@@ -70,7 +70,7 @@ class StorePatientRequest extends FormRequest
                 'required',
                 function ($attribute, $value, $fail) {
                     if (!in_array($value, \App\Enums\PatientStatus::values())) {
-                        $fail('The selected ' . $attribute . ' is invalid.');
+                        $fail('The selected ' . $attribute . ' is invalid. Valid values are: ' . implode(', ', \App\Enums\PatientStatus::values()));
                     }
                 },
             ],

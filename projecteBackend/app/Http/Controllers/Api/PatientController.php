@@ -58,6 +58,7 @@ class PatientController extends BaseController
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
         $patient->update($request->validated());
+        dd('hola');
         return $this->sendResponse($patient, 'Patient updated successfully.', 200);
     }
 

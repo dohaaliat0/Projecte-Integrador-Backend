@@ -26,6 +26,7 @@ class UpdatePatientRequest extends FormRequest
     {
         $validLanguages = Language::values();
         $patientId = $this->route('patient')->id;
+        dd($patientId);
 
         return [
             'id' => 'exists:jugadores,id,' . $patientId,
@@ -71,7 +72,7 @@ class UpdatePatientRequest extends FormRequest
                 'required',
                 function ($attribute, $value, $fail) {
                     if (!in_array($value, \App\Enums\PatientStatus::values())) {
-                        $fail('The selected ' . $attribute . ' is invalid.');
+                        $fail('The selected ' . $attribute . ' is invalid. Valid values are: ' . implode(', ', \App\Enums\PatientStatus::values()));
                     }
                 },
             ],

@@ -16,7 +16,17 @@ class CallController extends BaseController
      */
     public function index()
     {
-        return CallResource::collection(Call::all());
+        $type = request()->query('type');
+
+        if ($type === 'incoming') {
+            $calls = Call::whereHas('incomingCall')->get();
+        } elseif ($type === 'outgoing') {
+            $calls = Call::whereHas('outgoingCall')->get();
+        } else {
+            $calls = Call::all();
+        }
+
+        return CallResource::collection($calls);
     }
 
     /**
@@ -34,7 +44,7 @@ class CallController extends BaseController
                 $call = Call::create($validated);
 
                 $call->outgoingCall()->create($validated['outgoingCall']);
-            }else{
+            } else {
                 throw new \Exception('Either incomingCall or outgoingCall must be provided.');
             }
 

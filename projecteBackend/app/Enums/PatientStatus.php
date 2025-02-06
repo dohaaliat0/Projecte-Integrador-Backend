@@ -4,7 +4,7 @@ namespace App\Enums;
 
 enum PatientStatus: string
 {
-    case ADMITTED = 'Admitted';
+    case GOOD = 'Good';
     case DISCHARGED = 'Discharged';
     case IN_TREATMENT = 'In Treatment';
     case RECOVERED = 'Recovered';
@@ -13,7 +13,7 @@ enum PatientStatus: string
     public function label(): string
     {
         return match ($this) {
-            self::ADMITTED => 'Admitted',
+            self::GOOD => 'Good',
             self::DISCHARGED => 'Discharged',
             self::IN_TREATMENT => 'In Treatment',
             self::RECOVERED => 'Recovered',
