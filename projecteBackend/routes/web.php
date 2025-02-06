@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ZonesController;
+use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +21,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->value])->group(function () {
-    Route::resource('/zones', ZonesController::class);
+    Route::resource('webzones', ZoneController::class)
+        ->parameters(['webzones' => 'zone']);
 });
 
 require __DIR__.'/auth.php';

@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateZoneRequest;
 use App\Models\Zone;
 use Illuminate\Http\Request;
 
-class ZonesController extends Controller
+class ZoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class ZonesController extends Controller
     public function index()
     {
         $zones = Zone::all();
-        return view('zones.index', compact('zones'));
+        return view('webzones.index', compact('zones'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ZonesController extends Controller
      */
     public function create()
     {
-        return view('zones.create');
+        return view('webzones.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class ZonesController extends Controller
      */
     public function show(Zone $zone)
     {
-        return view('zones.show', compact('zone'));
+        return view('webzones.show', compact('zone'));
     }
 
     /**
@@ -47,7 +47,7 @@ class ZonesController extends Controller
      */
     public function edit(Zone $zone)
     {
-        return view('zones.edit', compact('zone'));
+        return view('webzones.edit', compact('zone'));
     }
 
     /**
@@ -64,6 +64,6 @@ class ZonesController extends Controller
     public function destroy(Zone $zone)
     {
         $zone->delete();
-        return redirect()->route('zones.index')->with('success', 'Zona esborrada correctament!');
+        return redirect()->route('webzones.index')->with('success', 'Zona esborrada correctament!');
     }
 }

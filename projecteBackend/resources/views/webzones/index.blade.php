@@ -18,11 +18,11 @@
         @foreach ($zones as $zone)
             <tr class="hover:bg-gray-100">
                 <td class="border border-gray-300 p-2">
-                    <a href="{{ route('zones.show', $zone->id) }}" class="text-blue-700 hover:underline">{{ $zone->name }}</a>
+                    <a href="{{ route('webzones.show', $zone->id) }}" class="text-blue-700 hover:underline">{{ $zone->name }}</a>
                 </td>
                 <td class="border border-gray-300 p-2 flex space-x-2">
-                    <a href="{{ route('zones.show', $zone->id) }}" class="text-green-600 hover:underline">Mostrar</a>
-                    <a href="{{ route('zones.edit', $zone->id) }}" class="text-yellow-600 hover:underline">Editar</a>
+                    <a href="{{ route('webzones.show', $zone->id) }}" class="text-green-600 hover:underline">Mostrar</a>
+                    <a href="{{ route('webzones.edit', $zone->id) }}" class="text-yellow-600 hover:underline">Editar</a>
                 </td>
             </tr>
         @endforeach
