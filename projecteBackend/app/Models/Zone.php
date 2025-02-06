@@ -14,16 +14,16 @@ class Zone extends Model
     
     public function operators()
     {
-        return $this->users()->where('role', 'operator');
+        return $this->belongsToMany(User::class, 'user_zone', 'zone_id', 'user_id')->where('role', 'operator');
     }
 
     public function patients()
     {
-        return $this->hasMany(Patient::class);
+        return $this->hasMany(Patient::class, 'zoneId');
     }
 
     public function alerts()
     {
-        return $this->hasMany(Alert::class);
+        return $this->hasMany(Alert::class, 'zoneId');
     }
 }
