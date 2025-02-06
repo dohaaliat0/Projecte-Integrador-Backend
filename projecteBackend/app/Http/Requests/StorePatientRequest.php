@@ -66,6 +66,15 @@ class StorePatientRequest extends FormRequest
                     }
                 },
             ],
+            'status' => [
+                'required',
+                function ($attribute, $value, $fail) {
+                    if (!in_array($value, \App\Enums\PatientStatus::values())) {
+                        $fail('The selected ' . $attribute . ' is invalid.');
+                    }
+                },
+            ],
+            
         ];
     }
 }

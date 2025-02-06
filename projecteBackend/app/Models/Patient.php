@@ -26,6 +26,7 @@ class Patient extends Model
         'economicSituation',
         'operatorId',
         'language',
+        'status'
     ];
 
     // public function casts()
