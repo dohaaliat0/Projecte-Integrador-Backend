@@ -9,6 +9,7 @@ use App\Http\Resources\PatientResource;
 use App\Models\Patient;
 use App\Models\Call;
 use App\Http\Resources\CallResource;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
 class PatientController extends BaseController
@@ -27,7 +28,13 @@ class PatientController extends BaseController
     public function store(StorePatientRequest $request)
     {
         try{
-            $patient = Patient::create($request->validated());
+            $validated = $request->validated();
+            $patient = Patient::create($validated);
+            $languages = $validated['languages'];
+            $languages = Language::whereIn('name', $languages)->get();
+            foreach ($languages as $language) {
+                $patient->languages()->attach($language);
+            }
             return response()->json(new PatientResource($patient), 201);
         } catch (\Exception $e) {
             dd($e);
