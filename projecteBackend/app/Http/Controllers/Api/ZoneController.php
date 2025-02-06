@@ -3,48 +3,54 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Zone;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreZoneRequest;
+use App\Http\Requests\UpdateZoneRequest;
+use App\Http\Resources\ZoneResource;
+use App\Models\Zone;
 
-class ZoneController extends Controller
+class ZoneController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return ZoneResource::collection(Zone::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreZoneRequest $request)
     {
-        //
+        try {
+            $zone = Zone::create($request->validated());
+            return response()->json(new ZoneResource($zone), 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], 400);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Zone $zone)
+    public function show($id)
     {
-        //
+        $zone = Zone::find($id);
+
+        if (!$zone) {
+            return response()->json(['message' => 'Zone not found'], 404);
+        }
+
+        return $this->sendResponse(new ZoneResource($zone), 'Zone retrieved successfully.', 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Zone $zone)
+    public function update(UpdateZoneRequest $request, $id)
     {
-        //
+        $zone = Zone::findOrFail($id);
+
+        $zone->update($request->validated());
+        return $this->sendResponse(new ZoneResource($zone), 'Zone updated successfully.', 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Zone $zone)
+    public function destroy($id)
     {
-        //
+        $zone = Zone::findOrFail($id);
+
+        $zone->delete();
+        return $this->sendResponse([], 'Zone deleted successfully.', 200);
     }
 }
