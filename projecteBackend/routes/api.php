@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CallController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ZoneController;
+use App\Http\Controllers\Api\LanguageController;
 
 Route::post('login', [AuthController::class, 'login'])->middleware('api');
 Route::post('register', [AuthController::class, 'register'])->middleware('api');
@@ -16,15 +17,20 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::apiResource('patients', PatientController::class);
     Route::apiResource('calls', CallController::class);
     Route::apiResource('zones', ZoneController::class);
+    Route::apiResource('languages', LanguageController::class);
+    
 
     Route::get('operators/{id}/calls', [OperatorController::class, 'getCallHistoryByOperator']);
     Route::get('patients/{id}/calls', [PatientController::class, 'getCallHistoryByPatient']);
 
-    Route::get('reports/emergencies', [ReportController::class, 'getEmergencies']);
-    Route::get('reports/socials', [ReportController::class, 'getSocials']);
-    Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
+    // Route::get('reports/emergencies', [ReportController::class, 'getEmergencies']);
+    // Route::get('reports/socials', [ReportController::class, 'getSocials']);
+    // Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
 
     Route::post('logout', [AuthController::class, 'logout']);
 
 });
 
+Route::get('reports/emergencies', [ReportController::class, 'getEmergencies']);
+Route::get('reports/socials', [ReportController::class, 'getSocials']);
+Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);

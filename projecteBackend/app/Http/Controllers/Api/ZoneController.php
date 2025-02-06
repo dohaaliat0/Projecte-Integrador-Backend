@@ -19,12 +19,7 @@ class ZoneController extends BaseController
 
     public function store(StoreZoneRequest $request)
     {
-        try {
-            $zone = Zone::create($request->validated());
-            return response()->json(new ZoneResource($zone), 201);
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 400);
-        }
+        // 
     }
 
     public function show($id)
@@ -40,17 +35,11 @@ class ZoneController extends BaseController
 
     public function update(UpdateZoneRequest $request, $id)
     {
-        $zone = Zone::findOrFail($id);
-
-        $zone->update($request->validated());
-        return $this->sendResponse(new ZoneResource($zone), 'Zone updated successfully.', 200);
+        //
     }
 
     public function destroy($id)
     {
-        $zone = Zone::findOrFail($id);
-
-        $zone->delete();
-        return $this->sendResponse([], 'Zone deleted successfully.', 200);
+        //
     }
 }
