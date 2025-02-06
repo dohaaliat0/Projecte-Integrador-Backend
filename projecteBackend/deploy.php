@@ -4,6 +4,7 @@ namespace Deployer;
 require 'recipe/laravel.php';
 
 // Config
+set('keep_releases', 3);
 set('application', 'Projecte-Integrador-Backend');
 set('repository', 'https://github.com/dohaaliat0/Projecte-Integrador-Backend.git');
 set('branch', 'develop');
