@@ -21,8 +21,13 @@ class StoreContactPersonRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            //
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'relationship' => 'required|in:' . implode(',', array_column(\App\Enums\Relationship::cases(), 'value')),
+            'patientId' => 'required|exists:patients,id',
         ];
     }
 }

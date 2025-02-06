@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\OperatorController;
 use App\Http\Controllers\Api\PatientController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CallController;
+use App\Http\Controllers\Api\ContactPersonController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ZoneController;
 use App\Http\Controllers\Api\LanguageController;
@@ -18,6 +19,9 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::apiResource('calls', CallController::class);
     Route::apiResource('zones', ZoneController::class);
     Route::apiResource('languages', LanguageController::class);
+    Route::apiResource('contact-people', ContactPersonController::class)->parameters([
+        'contact-people' => 'contactPerson'
+    ]);
     
 
     Route::get('operators/{id}/calls', [OperatorController::class, 'getCallHistoryByOperator']);

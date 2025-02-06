@@ -21,8 +21,14 @@ class UpdateContactPersonRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('contactPerson')->id;
         return [
-            //
+            'id' => 'exists:contact_people,id,' . $id,
+            'firstName' => 'required|string|max:255',
+            'lastName' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'relationship' => 'required|in:' . implode(',', array_column(\App\Enums\Relationship::cases(), 'value')),
+            'patientId' => 'required|exists:patients,id',
         ];
     }
 }
