@@ -31,11 +31,13 @@ class LoginRequest extends FormRequest
     {
 
         return [
-            'email' => ['required', 'string', 'email', function ($attribute, $value, $fail) {
+            'email' => ['required', 'string', 'email', 
+            function ($attribute, $value, $fail) {
                 if (!User::where('email', $this->input('email'))->where('role', UserRole::COORDINATOR)->first()) {
                     $fail('You must be a coordinator to log in.');
                 }
-            }],
+            }
+        ],
             'password' => ['required', 'string'],
         ];
     }
