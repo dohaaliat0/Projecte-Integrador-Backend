@@ -15,7 +15,7 @@ class ZonesController extends Controller
     public function index()
     {
         $zones = Zone::all();
-        return view('zones.index', compact('zones'));
+        return view('webzones.index', compact('zones'));
     }
 
     /**
@@ -23,7 +23,7 @@ class ZonesController extends Controller
      */
     public function create()
     {
-        return view('zones.create');
+        return view('webzones.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class ZonesController extends Controller
      */
     public function show(Zone $zone)
     {
-        return view('zones.show', compact('zone'));
+        return view('webzones.show', compact('zone'));
     }
 
     /**
@@ -47,7 +47,7 @@ class ZonesController extends Controller
      */
     public function edit(Zone $zone)
     {
-        return view('zones.edit', compact('zone'));
+        return view('webzones.edit', compact('zone'));
     }
 
     /**
