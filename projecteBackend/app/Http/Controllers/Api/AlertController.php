@@ -18,7 +18,11 @@ class AlertController extends BaseController
 
         foreach ($params as $key => $value) {
             if (in_array($key, (new Alert)->getFillable())) {
+            if ($value === 'null') {
+                $query->whereNull($key);
+            } else {
                 $query->where($key, $value);
+            }
             }
         }
 
