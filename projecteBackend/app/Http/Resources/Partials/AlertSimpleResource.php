@@ -2,13 +2,12 @@
 
 namespace App\Http\Resources;
 
-use App\Http\Resources\Partials\PatientSimpleResource;
 use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AlertResource extends JsonResource
+class AlertSimpleResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -25,9 +24,7 @@ class AlertResource extends JsonResource
         return [
             'id' => $this->id,
             'operatorId' => $this->operatorId,
-            'operator' => new OperatorResource(User::find($this->operatorId)),
             'patientId' => $this->patientId,
-            'patient' => new PatientSimpleResource(Patient::find($this->patientId)), 
             'zone' => $zone,
             'isActive' => $this->isActive,
             'type' => $this->type,

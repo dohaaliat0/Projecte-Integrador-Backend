@@ -53,7 +53,7 @@ class ContactPersonController extends BaseController
      */
     public function update(StoreContactPersonRequest $request, ContactPerson $contactPerson)
     {
-j
+
 
         try {
             $validated = $request->validated();
