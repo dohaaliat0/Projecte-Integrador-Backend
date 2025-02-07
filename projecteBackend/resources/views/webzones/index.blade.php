@@ -7,6 +7,9 @@
          @include('layouts.navigation')
     </div>
 </header>
+@auth
+<a href="{{ route('webzones.create') }}" class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">Crear Equip</a>
+@endauth
 <table class="min-w-full bg-white">
     <thead>
         <tr>
@@ -23,6 +26,11 @@
                 <td class="border border-gray-300 p-2 flex space-x-2">
                     <a href="{{ route('webzones.show', $zone->id) }}" class="text-green-600 hover:underline">Mostrar</a>
                     <a href="{{ route('webzones.edit', $zone->id) }}" class="text-yellow-600 hover:underline">Editar</a>
+                    <form action="{{ route('webzones.destroy', $zone->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-600 hover:underline">Eliminar</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

@@ -55,7 +55,10 @@ class ZoneController extends Controller
      */
     public function update(UpdateZoneRequest $request, Zone $zone)
     {
-        //
+        $validated = $request->validated();
+        $equip = Zone::findOrFail($zone->id);
+        $equip->update($validated);
+        return redirect()->route('webzones.index')->with('success', 'Equip actualitzat correctament!');
     }
 
     /**
