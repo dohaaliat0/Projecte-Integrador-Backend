@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Enums\UserRole;
+use App\Enums\TypeZones;
+use Illuminate\Validation\Rule;
 
 class UpdateZoneRequest extends FormRequest
 {
@@ -11,7 +15,7 @@ class UpdateZoneRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::user()->role === UserRole::COORDINATOR->value;
     }
 
     /**
@@ -22,7 +26,8 @@ class UpdateZoneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'status' => ['required', 'string', Rule::in(TypeZones::values())],
         ];
     }
 }
