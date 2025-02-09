@@ -83,10 +83,12 @@ class AuthController extends BaseController
         $token = $user->createToken('MyAuthApp')->plainTextToken;
 
         // Return a JSON response for the Vue app
-        return $this->sendResponse([
-            'token' => $token,
-            'user' => OperatorResource::make($user),
-        ], 'User authenticated via Google');
+        // return $this->sendResponse([
+        //     'token' => $token,
+        //     'user' => OperatorResource::make($user),
+        // ], 'User authenticated via Google');
+
+        return response()->view('auth.popup', compact('token', 'user'));
     }
 
 }
