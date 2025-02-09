@@ -28,6 +28,7 @@ class CallController extends BaseController
             $validated = $request->validated();
             if (isset($validated['incomingCall'])) {
                 $call = Call::create($validated);
+                
 
                 $call->incomingCall()->create($validated['incomingCall']);
             } elseif (isset($validated['outgoingCall'])) {
