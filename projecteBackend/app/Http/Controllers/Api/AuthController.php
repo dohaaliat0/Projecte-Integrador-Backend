@@ -88,7 +88,8 @@ class AuthController extends BaseController
         //     'user' => OperatorResource::make($user),
         // ], 'User authenticated via Google');
 
-        return response()->view('auth.popup', compact('token', 'user'));
+        $clientIp = request()->ip();
+        return response()->view('auth.popup', compact('token', 'user', 'clientIp'));
     }
 
 }

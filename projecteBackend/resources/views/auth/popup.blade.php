@@ -12,6 +12,10 @@
                 window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5175");
                 window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5174");
                 window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5173");
+                window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://".$clientIp.":5175");
+                window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://".$clientIp.":5174");
+                window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://".$clientIp.":5173");
+
                 
                 window.close(); // Cerrar el popup automáticamente
             }
