@@ -70,17 +70,23 @@ class AuthController extends BaseController
             ['email' => $googleUser->getEmail()],
             [
                 'name' => $googleUser->getName(),
+                'surnames' => $googleUser->user['family_name'],
+                'hireDate' => now(),
+                'username' => $googleUser->getEmail(),
                 'google_id' => $googleUser->getId(),
                 'avatar' => $googleUser->getAvatar(),
                 'password' => bcrypt(str()->random(24)), // Contrassenya aleatòria
             ]
         );
 
-        // Inicia sessió amb l'usuari
-        dd($user);
-        Auth::login($user);
+        // Generate token for the user
+        $token = $user->createToken('MyAuthApp')->plainTextToken;
 
-        return redirect('/'); // Redirigeix a la pàgina principal
+        // Return a JSON response for the Vue app
+        return $this->sendResponse([
+            'token' => $token,
+            'user' => OperatorResource::make($user),
+        ], 'User authenticated via Google');
     }
 
 }
