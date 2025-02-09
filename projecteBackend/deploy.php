@@ -37,7 +37,7 @@ task('build', function () {
 });
 
 task('upload:env', function () {
-    upload('.env.production', '{{deploy_path}}/shared/.env');
+    upload('.env.productions', '{{deploy_path}}/shared/.env');
 })->desc('Environment setup');
 
 task('artisan:cache:clear', function () {
