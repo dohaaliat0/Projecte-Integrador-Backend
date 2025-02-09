@@ -77,6 +77,7 @@ class AuthController extends BaseController
         );
 
         // Inicia sessió amb l'usuari
+        dd($user);
         Auth::login($user);
 
         return redirect('/'); // Redirigeix a la pàgina principal

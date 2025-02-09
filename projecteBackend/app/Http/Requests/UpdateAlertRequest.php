@@ -21,18 +21,58 @@ class UpdateAlertRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('alert')->id;
         return [
-            'operatorId' => 'required|integer',
-            'zoneId' => 'nullable|integer',
-            'patientId' => 'required|integer',
-            'isActive' => 'required|boolean',
-            'type' => 'required|string',
-            'isRecurring' => 'required|boolean',
-            'date' => 'required|date',
-            'endDate' => 'nullable|date',
-            'time' => 'required|date_format:H:i:s',
-            'dayOfWeek' => 'nullable|string',
-            'title' => 'required|string|max:255',
+            'id' => 'required|integer|in:' . $id,
+            'operatorId' => 'sometimes|integer',
+            'patientId' => 'sometimes|integer',
+            'isActive' => [
+                'sometimes',
+                'boolean',
+                function ($attribute, $value, $fail) {
+                    $date = $this->input('date');
+                    $endDate = $this->input('endDate');
+                    if ($value && ($date > now() || ($endDate && $endDate < now()) || (!$endDate && $date != now()->toDateString()))) {
+                        $fail('The isActive field can only be true if the current date is between date and endDate, or if endDate is not provided, it must be the same as date.');
+                    }
+                },
+            ],
+            'type' => [
+                'sometimes',
+                'string',
+                function ($attribute, $value, $fail) {
+                    $validTypes = \App\Enums\AlertType::values();
+                    if (!in_array($value, $validTypes)) {
+                        $fail("The $attribute field contains an invalid type: $value. Valid types are: " . implode(', ', $validTypes));
+                    }
+                },
+            ],
+            'isRecurring' => [
+                'sometimes',
+                'boolean',
+                function ($attribute, $value, $fail) {
+                    $endDate = $this->input('endDate');
+                    if ($value && is_null($endDate)) {
+                        $fail('The isRecurring field can only be true if endDate is provided.');
+                    }
+                },
+            ],
+            'date' => 'sometimes|date',
+            'endDate' => 'nullable|date|after_or_equal:date',
+            'time' => 'sometimes|date_format:H:i:s',
+            'title' => 'sometimes|string|max:255',
+            'dayOfWeek' => [
+                'nullable',
+                'array',
+                function ($attribute, $value, $fail) {
+                    $validDays = \App\Enums\DayOfWeek::values();
+                    foreach ($value as $day) {
+                        if (!in_array($day, $validDays)) {
+                            $fail("The $attribute field contains an invalid day: $day. Valid days are: " . implode(', ', $validDays));
+                        }
+                    }
+                },
+            ],
             'description' => 'nullable|string',
         ];
     }

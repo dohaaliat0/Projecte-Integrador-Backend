@@ -53,4 +53,36 @@ class AlertController extends BaseController
     {
         return $this->sendResponse(new AlertResource($alert), 'Alert retrieved successfully.', 200);
     }
+
+    public function store(StoreAlertRequest $request)
+    {
+        try{
+            $validated = $request->validated();
+            $alert = Alert::create($validated);
+            return $this->sendResponse(new AlertResource($alert), 201);
+        }catch (\Exception $e) {
+            return $this->sendError(['message' => $e->getMessage()], $e->status ?? 400);
+        }
+    }
+
+    public function update(StoreAlertRequest $request, Alert $alert)
+    {
+        try{
+            $validated = $request->validated();
+            $alert->update($validated);
+            return $this->sendResponse(new AlertResource($alert), 200);
+        }catch (\Exception $e) {
+            return $this->sendError(['message' => $e->getMessage()], $e->status ?? 400);
+        }
+    }
+
+    public function destroy(Alert $alert)
+    {
+        try{
+            $alert->delete();
+            return $this->sendResponse([], 204);
+        }catch (\Exception $e) {
+            return $this->sendError(['message' => $e->getMessage()], $e->status ?? 400);
+        }
+    }
 }

@@ -17,6 +17,9 @@ class Alert extends Model
     //         'dayOfWeek' => DayOfWeek::class . '|null',
     //     ];
     // }
+    protected $casts = [
+        'dayOfWeek' => 'array',
+    ];
     public function user() {
         return $this->belongsTo(User::class);
     }

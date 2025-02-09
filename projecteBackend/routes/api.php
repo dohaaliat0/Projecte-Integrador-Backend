@@ -13,10 +13,10 @@ Route::post('login', [AuthController::class, 'login'])->middleware('api');
 Route::post('register', [AuthController::class, 'register'])->middleware('api');
 // Route::get('login/google', [AuthController::class, 'redirectToGoogle'])->middleware('api');
 // Route::get('login/google/callback', [AuthController::class, 'handleGoogleCallback'])->middleware('api');
-Route::middleware(['web'])->group(function () {
+// Route::middleware(['web'])->group(function () {
     Route::get('login/google', [AuthController::class, 'redirectToGoogle']);
     Route::get('login/google/callback', [AuthController::class, 'handleGoogleCallback']);
-});
+// });
 
 
 Route::middleware(['auth:sanctum','api'])->group( function () {    
@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::apiResource('calls', CallController::class);
     Route::apiResource('zones', ZoneController::class);
     Route::apiResource('languages', LanguageController::class);
+    Route::apiResource('alerts', AlertController::class);
     
 
     Route::get('operators/{id}/calls', [OperatorController::class, 'getCallHistoryByOperator']);
@@ -34,8 +35,8 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::get('reports/socials', [ReportController::class, 'getSocials']);
     Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
 
-    Route::get('alerts', [AlertController::class, 'index']);
-    Route::get('alerts/{alert}', [AlertController::class, 'show']);
+    // Route::get('alerts', [AlertController::class, 'index']);
+    // Route::get('alerts/{alert}', [AlertController::class, 'show']);
 
     Route::post('logout', [AuthController::class, 'logout']);
 
