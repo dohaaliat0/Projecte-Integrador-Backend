@@ -7,6 +7,7 @@ use App\Http\Resources\OperatorResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends BaseController
 {
@@ -53,6 +54,32 @@ class AuthController extends BaseController
         $user->tokens()->where('id', $user->currentAccessToken()->id)->delete();
         $success['name'] =  $user->name;
          return $this->sendResponse($success, 'User successfully signed out.');
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        $googleUser = Socialite::driver('google')->stateless()->user();
+
+        // Cerca l'usuari o crea'l si no existeix
+        $user = User::firstOrCreate(
+            ['email' => $googleUser->getEmail()],
+            [
+                'name' => $googleUser->getName(),
+                'google_id' => $googleUser->getId(),
+                'avatar' => $googleUser->getAvatar(),
+                'password' => bcrypt(str()->random(24)), // Contrassenya aleatòria
+            ]
+        );
+
+        // Inicia sessió amb l'usuari
+        Auth::login($user);
+
+        return redirect('/'); // Redirigeix a la pàgina principal
     }
 
 }
