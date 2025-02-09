@@ -1,11 +1,11 @@
 <?php
 return [
 
-    'paths' => ['*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'login/google', 'login/google/callback'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['http://localhost:5174','http://localhost:5174', 'http://your-vue-app-domain.com'],
 
     'allowed_origins_patterns' => [],
 
