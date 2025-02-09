@@ -89,6 +89,7 @@ class AuthController extends BaseController
         // ], 'User authenticated via Google');
 
         $clientIp = request()->ip();
+        dd($token, $user, $clientIp);
         return response()->view('auth.popup', compact('token', 'user', 'clientIp'));
     }
 
