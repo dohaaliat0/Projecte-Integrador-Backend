@@ -9,6 +9,7 @@
         window.onload = function() {
             if (window.opener) {
                 // Enviar el token a la ventana principal
+                window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5173");
                 window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5174");
 
                 
