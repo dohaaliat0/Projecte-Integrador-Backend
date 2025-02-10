@@ -3,6 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\TypeZones;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use App\Enums\UserRole;
 
 class StoreZoneRequest extends FormRequest
 {
@@ -11,7 +15,7 @@ class StoreZoneRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::user()->role === UserRole::COORDINATOR->value;
     }
 
     /**
@@ -22,7 +26,20 @@ class StoreZoneRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'status' => ['required', 'string', Rule::in(TypeZones::values())],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El campo nombre es obligatorio',
+            'name.string' => 'El campo nombre debe ser un texto',
+            'name.max' => 'El campo nombre no debe exceder los 255 caracteres',
+            'status.required' => 'El campo estado es obligatorio',
+            'status.string' => 'El campo estado debe ser un texto',
+            'status.in' => 'El campo estado no es válido',
         ];
     }
 }
