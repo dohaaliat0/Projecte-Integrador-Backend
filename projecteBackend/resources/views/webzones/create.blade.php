@@ -1,7 +1,7 @@
 <x-app-layout>
     <form action="{{ route('webzones.store') }}" method="POST" enctype="multipart/form-data">    
         @csrf
-        @method('PUT')
+        @method('POST')
 
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre:</label>
@@ -20,7 +20,7 @@
             @error('status') border-red-500 @enderror">
             <option selected disabled>-- elige una opcion --</option>
             @foreach(\App\Enums\TypeZones::cases() as $status)
-                <option>
+                <option value="{{ $status->value }}" {{ old('status') == $status->value ? 'selected' : '' }}>
                     {{ $status->label() }}
                 </option>
             @endforeach
@@ -31,7 +31,7 @@
         </div>
 
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            Actualizar
+            Crear
         </button>
         <a href="{{ route('webzones.index') }}" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">
             Tornar a la llista
