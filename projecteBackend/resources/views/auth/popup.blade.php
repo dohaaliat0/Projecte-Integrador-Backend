@@ -8,12 +8,19 @@
         // Esperar a que la ventana principal esté disponible
         window.onload = function() {
             if (window.opener) {
-                // Enviar el token a la ventana principal
-                window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5173");
-                window.opener.postMessage({ token: "{{ $token }}", user: @json($user) }, "http://localhost:5174");
 
-                
-                window.close(); // Cerrar el popup automáticamente
+                @isset($errorMessage)
+                    window.opener.postMessage({ error: "{{ $errorMessage }}", success: false }, "http://localhost:5173");
+                    window.opener.postMessage({ error: "{{ $errorMessage }}", success: false }, "http://localhost:5174");
+                    window.close(); // Cerrar el popup automáticamente
+                @endisset
+                @isset($token)
+                    // Enviar el token a la ventana principal
+                    window.opener.postMessage({ token: "{{ $token }}", user: @json($user), success: true }, "http://localhost:5173");
+                    window.opener.postMessage({ token: "{{ $token }}", user: @json($user), success: true }, "http://localhost:5174");
+
+                    window.close(); // Cerrar el popup automáticamente
+                @endisset
             }
         };
     </script>

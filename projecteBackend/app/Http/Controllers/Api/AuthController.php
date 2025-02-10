@@ -66,21 +66,34 @@ class AuthController extends BaseController
         $googleUser = Socialite::driver('google')->stateless()->user();
 
         // Cerca l'usuari o crea'l si no existeix
-        $user = User::firstOrCreate(
-            ['email' => $googleUser->getEmail()],
-            [
-                'name' => $googleUser->getName(),
-                'surnames' => $googleUser->user['family_name'],
-                'hireDate' => now(),
-                'username' => $googleUser->getEmail(),
-                'google_id' => $googleUser->getId(),
-                'avatar' => $googleUser->getAvatar(),
-                'password' => bcrypt(str()->random(24)), // Contrassenya aleatòria
-            ]
-        );
+        // $user = User::firstOrCreate(
+        //     ['email' => $googleUser->getEmail()],
+        //     [
+        //         'name' => $googleUser->getName(),
+        //         'surnames' => $googleUser->user['family_name'],
+        //         'hireDate' => now(),
+        //         'username' => $googleUser->getEmail(),
+        //         'google_id' => $googleUser->getId(),
+        //         'avatar' => $googleUser->getAvatar(),
+        //         'password' => bcrypt(str()->random(24)), // Contrassenya aleatòria
+        //     ]
+        // );
+        $user = User::where('email', $googleUser->getEmail())->first();
+        $errorMessage = 'User not found in the system. Please, contact the coordinator.';
+        if (!$user) {
+            return response()->view('auth.popup', compact('errorMessage'));
+        }
 
-        // Generate token for the user
+        // Actualiza la información del usuario si es necesario
+        $user->update([
+            'google_id' => $googleUser->getId(),
+            'avatar' => $googleUser->getAvatar(),
+        ]);
+
+        // // Generate token for the user
         $token = $user->createToken('MyAuthApp')->plainTextToken;
+
+
 
         // Return a JSON response for the Vue app
         // return $this->sendResponse([
