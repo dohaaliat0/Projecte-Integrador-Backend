@@ -69,8 +69,8 @@ class ZoneController extends Controller
     {
         $this->authorize('update', $zone);
         $validated = $request->validated();
-        $equip = Zone::findOrFail($zone->id);
-        $equip->update($validated);
+        $zone = Zone::findOrFail($zone->id);
+        $zone->update($validated);
         return redirect()->route('webzones.index')->with('success', 'Zona actualitzada correctament!');
     }
 
