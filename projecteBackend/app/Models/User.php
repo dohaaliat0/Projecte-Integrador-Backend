@@ -66,7 +66,7 @@ class User extends Authenticatable
 
     public function patients()
     {
-        return $this->hasMany(Patient::class);
+        return $this->hasMany(Patient::class, 'operatorId');
     }
 
     public function languages()

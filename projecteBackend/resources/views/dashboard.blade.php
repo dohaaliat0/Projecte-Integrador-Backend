@@ -9,7 +9,7 @@
                 <a href="#" @mouseover="imageSrc = '/images/userImage.jpg'" class="link">Usuarios</a>
                 <a href="#" @mouseover="imageSrc = '/images/DownUsers.jpg'" class="link">Dar de baja</a>
                 <a href="webzones" @mouseover="imageSrc = '/images/UpUsers.jpg'" class="link">Zonas</a>
-                <a href="#" @mouseover="imageSrc = '/images/ModifiUser.jpg'" class="link">Modificar usuarios</a>
+                <a href="assignusers" @mouseover="imageSrc = '/images/ModifiUser.jpg'" class="link">Asignar usuarios a teleoperadores</a>
             </div>
         </div>
 </x-app-layout>

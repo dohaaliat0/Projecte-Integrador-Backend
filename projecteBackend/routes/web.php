@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsignUsersController;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\RoleMiddleware;
@@ -23,6 +24,9 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->value])->group(function () {
     Route::resource('webzones', ZoneController::class)
         ->parameters(['webzones' => 'zone']);
+    Route::resource('assignusers', AsignUsersController::class)
+        ->parameters(['assignusers' => 'patient']);
+    
 });
 
 require __DIR__.'/auth.php';
