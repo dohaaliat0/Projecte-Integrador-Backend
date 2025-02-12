@@ -7,6 +7,7 @@ use App\Enums\Language;
 use App\Enums\Relationship;
 use App\Enums\UserRole;
 use App\Models\User;
+use App\Models\Language as LanguageModel;
 
 class StorePatientRequest extends FormRequest
 {
@@ -46,12 +47,11 @@ class StorePatientRequest extends FormRequest
                 'exists:users,id',
                 function ($attribute, $value, $fail) {
                     $user = User::find($value);
-                    if (!$user || $user->role !== UserRole::OPERATOR) {
+                    if (!$user || $user->role !== UserRole::OPERATOR->value) {
                         $fail('The selected ' . $attribute . ' is invalid.');
                     }
                 },
             ],
-            //Si da problemas comentadlo de momento
             'languages' => [
                 'required',
                 'array',
@@ -60,7 +60,7 @@ class StorePatientRequest extends FormRequest
                         $fail('The ' . $attribute . ' must have at least one element.');
                     }
                     foreach ($value as $language) {
-                        if (!in_array($language, $validLanguages)) {
+                        if (!in_array($language, $validLanguages) && !LanguageModel::isValidId($language)) {
                             $fail('The selected ' . $attribute . ' is invalid.');
                         }
                     }
@@ -70,7 +70,7 @@ class StorePatientRequest extends FormRequest
                 'required',
                 function ($attribute, $value, $fail) {
                     if (!in_array($value, \App\Enums\PatientStatus::values())) {
-                        $fail('The selected ' . $attribute . ' is invalid.');
+                        $fail('The selected ' . $attribute . ' is invalid. Valid status are: ' . implode(', ', \App\Enums\PatientStatus::values()));
                     }
                 },
             ],

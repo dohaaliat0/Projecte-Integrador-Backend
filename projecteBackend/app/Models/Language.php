@@ -23,4 +23,9 @@ class Language extends Model
     {
         return LanguageEnum::tryFrom($value)?->label() ?? $value;
     }
+
+    public static function isValidId($id)
+    {
+        return self::where('id', $id)->exists();
+    }
 }

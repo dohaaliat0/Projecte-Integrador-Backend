@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Enums\Language;
 use App\Models\User;
 use App\Enums\UserRole;
+use App\Models\Language as LanguageModel;
 
 class UpdatePatientRequest extends FormRequest
 {
@@ -26,16 +27,19 @@ class UpdatePatientRequest extends FormRequest
     {
         $validLanguages = Language::values();
         $patientId = $this->route('patient')->id;
+        $currentDni = $this->route('patient')->dni;
+        $currentHealthCardNumber = $this->route('patient')->healthCardNumber;
+        $currentMail = $this->route('patient')->email;
 
         return [
             'id' => 'exists:jugadores,id,' . $patientId,
             'fullName' => 'required|string|max:255',
             'birthDate' => 'required|date',
             'fullAddress' => 'required|string|max:255',
-            'dni' => 'required|string|max:20|unique:patients,dni',
-            'healthCardNumber' => 'required|string|max:20|unique:patients,healthCardNumber',
+            'dni' => 'required|string|max:20|unique:patients,dni,' . $currentDni . ',dni',
+            'healthCardNumber' => 'required|string|max:20|unique:patients,healthCardNumber,' . $currentHealthCardNumber . ',healthCardNumber',
             'phone' => 'required|string|max:15',
-            'email' => 'required|string|email|max:255|unique:patients,email',
+            'email' => 'required|string|email|max:255|unique:patients,email,' . $currentMail . ',email',
             'zoneId' => 'required|integer|exists:zones,id',
             'personalFamilySituation' => 'nullable|string',
             'healthSituation' => 'nullable|string',
@@ -48,7 +52,7 @@ class UpdatePatientRequest extends FormRequest
                 'exists:users,id',
                 function ($attribute, $value, $fail) {
                     $user = User::find($value);
-                    if (!$user || $user->role !== UserRole::OPERATOR) {
+                    if (!$user || $user->role !== UserRole::OPERATOR->value) {
                         $fail('The selected ' . $attribute . ' is invalid.');
                     }
                 },
@@ -61,7 +65,7 @@ class UpdatePatientRequest extends FormRequest
                         $fail('The ' . $attribute . ' must have at least one element.');
                     }
                     foreach ($value as $language) {
-                        if (!in_array($language, $validLanguages)) {
+                        if (!in_array($language, $validLanguages) && !LanguageModel::isValidId($language)) {
                             $fail('The selected ' . $attribute . ' is invalid.');
                         }
                     }
@@ -71,7 +75,7 @@ class UpdatePatientRequest extends FormRequest
                 'required',
                 function ($attribute, $value, $fail) {
                     if (!in_array($value, \App\Enums\PatientStatus::values())) {
-                        $fail('The selected ' . $attribute . ' is invalid.');
+                        $fail('The selected ' . $attribute . ' is invalid. Valid values are: ' . implode(', ', \App\Enums\PatientStatus::values()));
                     }
                 },
             ],

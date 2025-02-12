@@ -31,9 +31,17 @@ class PatientController extends BaseController
             $validated = $request->validated();
             $patient = Patient::create($validated);
             $languages = $validated['languages'];
-            $languages = Language::whereIn('name', $languages)->get();
             foreach ($languages as $language) {
-                $patient->languages()->attach($language);
+                if (is_numeric($language)) {
+                    $languageModel = Language::find($language);
+                } else {
+                    $languageModel = Language::where('name', $language)->first();
+                }
+                if ($languageModel) {
+                    if (!$patient->languages()->where('language_id', $languageModel->id)->exists()) {
+                        $patient->languages()->attach($languageModel);
+                    }
+                }
             }
             return response()->json(new PatientResource($patient), 201);
         } catch (\Exception $e) {
@@ -56,8 +64,23 @@ class PatientController extends BaseController
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
-        $patient->update($request->validated());
-        return $this->sendResponse($patient, 'Patient updated successfully.', 200);
+        $validated = $request->validated();
+        $patient->update($validated);
+        $languages = $validated['languages'];
+        $patient->languages()->detach();
+        foreach ($languages as $language) {
+            if (is_numeric($language)) {
+                $languageModel = Language::find($language);
+            } else {
+                $languageModel = Language::where('name', $language)->first();
+            }
+            if ($languageModel) {
+                if (!$patient->languages()->where('language_id', $languageModel->id)->exists()) {
+                    $patient->languages()->attach($languageModel);
+                }
+            }
+        }
+        return $this->sendResponse(new PatientResource($patient), 'Patient updated successfully.', 200);
     }
 
     /**
