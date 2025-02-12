@@ -32,7 +32,6 @@ class AlertController extends BaseController
 
         if(request()->has('endDate')) {
             if (Carbon::hasFormat(request()->endDate, 'Y-m-d')) {
-                dd('here');
                 $query->where('endDate  ', '<=', request()->endDate);
             } else {
                 $query->whereNull('endDate');

@@ -37,7 +37,6 @@ class PatientController extends BaseController
             }
             return response()->json(new PatientResource($patient), 201);
         } catch (\Exception $e) {
-            dd($e);
             return response()->json(['message' => $e->getMessage()], 400);
         }
     }
