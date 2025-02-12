@@ -11,4 +11,9 @@ enum Relationship: string
     case Friend = 'friend';
     case Guardian = 'guardian';
     case Other = 'other';
+
+    public static function values(){
+        return array_column(self::cases(), 'value');
+    }
 }
+

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ZoneController;
 use App\Http\Controllers\Api\LanguageController;
 use App\Http\Controllers\Api\AlertController;   
+use App\Http\Controllers\Api\RelationshipController;
 
 Route::post('login', [AuthController::class, 'login'])->middleware('api');
 Route::post('register', [AuthController::class, 'register'])->middleware('api');
@@ -26,6 +27,8 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::apiResource('zones', ZoneController::class);
     Route::apiResource('languages', LanguageController::class);
     Route::apiResource('alerts', AlertController::class);
+
+    Route::get('relationships', [RelationshipController::class, 'index']);
     
 
     Route::get('operators/{id}/calls', [OperatorController::class, 'getCallHistoryByOperator']);
