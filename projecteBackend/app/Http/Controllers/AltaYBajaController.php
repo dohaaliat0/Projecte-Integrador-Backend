@@ -31,6 +31,7 @@ class AltaYBajaController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
         return view('DarAltaBaja.create');
     }
 
@@ -39,6 +40,8 @@ class AltaYBajaController extends Controller
      */
     public function store(StoreDarAltaRequest $request)
     {   
+        
+        $this->authorize('create', User::class);
         $validated = $request->validated();
 
         $user = User::create([
@@ -61,6 +64,7 @@ class AltaYBajaController extends Controller
     //  */
     public function altaAntiguoUser()
     {
+        $this->authorize('update', User::class);
         $users = User::where('role', UserRole::OPERATOR->value)
                  ->whereNotNull('terminationDate')
                  ->get();
@@ -73,6 +77,8 @@ class AltaYBajaController extends Controller
      */
     public function updateAltaAntiguoUser(UpdateDasAltaRequest $request)
     {
+        
+        $this->authorize('update', User::class);
         $validated = $request->validated();
         $user = User::find($validated['user_id']);
         if(!$user){
@@ -89,6 +95,7 @@ class AltaYBajaController extends Controller
      */
     public function destroy( $id)
     {
+        $this->authorize('delete', User::class);
         $user = User::find($id);
         if(!$user){
             return redirect()->route('altabaja.index')->with('error', 'User not found.');
