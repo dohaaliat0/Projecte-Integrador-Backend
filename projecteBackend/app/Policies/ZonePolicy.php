@@ -4,8 +4,6 @@ namespace App\Policies;
 
 use App\Models\User;
 use App\Models\Zone;
-use Illuminate\Auth\Access\Response;
-use Illuminate\Support\Facades\Auth;
 use App\Enums\UserRole;
 
 class ZonePolicy
@@ -39,7 +37,7 @@ class ZonePolicy
      */
     public function update(User $user, Zone $zone): bool
     {
-        return $user->role === UserRole::COORDINATOR->value;
+         return $user->role === UserRole::COORDINATOR->value;
     }
 
     /**
