@@ -26,9 +26,14 @@ Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->valu
     Route::resource('webzones', ZoneController::class)
         ->parameters(['webzones' => 'zone']);
     Route::resource('assignusers', AsignUsersController::class)
-        ->parameters(['assignusers' => 'patient']);
+        ->parameters( ['assignusers' => 'patient']);
     Route::resource('altabaja', AltaYBajaController::class)
-        ->parameters(['altabaja' => 'users']);
+        ->parameters(['altabaja' => 'users'])
+        ->except(['show', 'update']);
+    Route::get('altabaja/altaAntiguo', [AltaYBajaController::class, 'altaAntiguoUser'])
+        ->name('altabaja.altaAntiguoUser');
+    Route::put('altabaja/updateAltaAntiguoUser', [AltaYBajaController::class, 'updateAltaAntiguoUser'])
+        ->name('altabaja.updateAltaAntiguoUser');
 });
 
 require __DIR__.'/auth.php';

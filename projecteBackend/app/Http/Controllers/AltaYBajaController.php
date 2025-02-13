@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDarAltaRequest;
+use App\Http\Requests\UpdateDasAltaRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Enums\UserRole;
@@ -58,18 +59,30 @@ class AltaYBajaController extends Controller
     // /**
     //  * Show the form for editing the specified resource.
     //  */
-    // public function edit(Zone $zone)
-    // {
+    public function altaAntiguoUser()
+    {
+        $users = User::where('role', UserRole::OPERATOR->value)
+                 ->whereNotNull('terminationDate')
+                 ->get();
 
-    // }
+        return view('DarAltaBaja.edit', ['users' => $users, 'user' => $users->first()]);
+    }
 
-    // /**
-    //  * Update the specified resource in storage.
-    //  */
-    // public function update(UpdateZoneRequest $request, Zone $zone)
-    // {
+    /**
+     * Update the specified resource in storage.
+     */
+    public function updateAltaAntiguoUser(UpdateDasAltaRequest $request)
+    {
+        $validated = $request->validated();
+        $user = User::find($validated['user_id']);
+        if(!$user){
+            return redirect()->route('altabaja.index')->with('error', 'User not found.');
+        }
+        $user->terminationDate = null;
+        $user->save();
 
-    // }
+        return redirect()->route('altabaja.index')->with('success', 'User reactivated successfully.');
+    }
 
     /**
      * Remove the specified resource from storage.

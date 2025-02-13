@@ -8,7 +8,10 @@
     </div>
 </header>
 @auth
-<a href="{{ route('altabaja.create') }}" class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">Dar de alta</a>
+    <a href="{{ route('altabaja.create') }}" class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">Dar de alta nuevo usuario</a>
+@endauth
+@auth
+    <a href="{{ route('altabaja.altaAntiguoUser') }}"  class="bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">Dar de alta antiguo usuario</a>
 @endauth
 <table class="min-w-full bg-white">
     <thead>
