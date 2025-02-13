@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AltaYBajaController;
 use App\Http\Controllers\AsignUsersController;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\ProfileController;
@@ -26,7 +27,8 @@ Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->valu
         ->parameters(['webzones' => 'zone']);
     Route::resource('assignusers', AsignUsersController::class)
         ->parameters(['assignusers' => 'patient']);
-    
+    Route::resource('altabaja', AltaYBajaController::class)
+        ->parameters(['altabaja' => 'users']);
 });
 
 require __DIR__.'/auth.php';
