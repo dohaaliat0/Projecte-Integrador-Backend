@@ -6,7 +6,7 @@
     font-size: 12px; /* Reducido */
     font-weight: 500;
     color: black;
-    background: linear-gradient(to right, #f6ad55, #f6e05e);
+    background: white;
     transition: background 0.2s ease, transform 0.1s ease;
     border: none;
     cursor: pointer;

@@ -70,17 +70,18 @@ class AsignUsers extends Component
 
     public function actualizarOperadores()
     {
-        $query = User::where('role', UserRole::OPERATOR->value);
+        $query = User::where('role', UserRole::OPERATOR->value)
+                 ->whereNull('terminationDate');
 
         if (!empty($this->filterLanguages)) {
             $query->whereHas('languages', function ($q) {
-                $q->whereIn('languages.id', $this->filterLanguages);
+            $q->whereIn('languages.id', $this->filterLanguages);
             });
         }
 
         if (!empty($this->filterZones)) {
             $query->whereHas('zones', function ($q) {
-                $q->whereIn('zones.id', $this->filterZones);
+            $q->whereIn('zones.id', $this->filterZones);
             });
         }
 
