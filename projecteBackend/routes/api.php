@@ -37,6 +37,8 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::get('reports/emergencies', [ReportController::class, 'getEmergencies']);
     Route::get('reports/socials', [ReportController::class, 'getSocials']);
     Route::get('reports/monitoring', [ReportController::class, 'getMonitorings']);
+    Route::get('reports/patients', [ReportController::class, 'getAllPatients']);
+    Route::get('reports/patients', [ReportController::class, 'getAllPatients']);
 
     // Route::get('alerts', [AlertController::class, 'index']);
     // Route::get('alerts/{alert}', [AlertController::class, 'show']);

@@ -13,6 +13,12 @@ class AuthController extends BaseController
 {
     public function login(Request $request)
     {
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && $user->terminationDate !== null) {
+            return $this->sendError('Unauthorised.', ['error' => 'User is terminated.']);
+        }
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             $authUser = Auth::user();
             $result['token'] =  $authUser->createToken('MyAuthApp')->plainTextToken;
@@ -20,7 +26,7 @@ class AuthController extends BaseController
 
             return $this->sendResponse($result, 'User signed in');
         }
-        return $this->sendError('Unauthorised.', ['error'=>'incorrect Email/Password']);
+        return $this->sendError('Unauthorised.', ['error' => 'Incorrect Email/Password']);
     }
     public function register(Request $request)
     {
