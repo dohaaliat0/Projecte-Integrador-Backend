@@ -30,19 +30,19 @@ class PatientController extends BaseController
         try{
             $validated = $request->validated();
             $patient = Patient::create($validated);
-            // $languages = $validated['languages'];
-            // foreach ($languages as $language) {
-            //     if (is_numeric($language)) {
-            //         $languageModel = Language::find($language);
-            //     } else {
-            //         $languageModel = Language::where('name', $language)->first();
-            //     }
-            //     if ($languageModel) {
-            //         if (!$patient->languages()->where('language_id', $languageModel->id)->exists()) {
-            //             $patient->languages()->attach($languageModel);
-            //         }
-            //     }
-            // }
+            $languages = $validated['languages'];
+            foreach ($languages as $language) {
+                if (is_numeric($language)) {
+                    $languageModel = Language::find($language);
+                } else {
+                    $languageModel = Language::where('name', $language)->first();
+                }
+                if ($languageModel) {
+                    if (!$patient->languages()->where('language_id', $languageModel->id)->exists()) {
+                        $patient->languages()->attach($languageModel);
+                    }
+                }
+            }
             return response()->json(new PatientResource($patient), 201);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 400);
