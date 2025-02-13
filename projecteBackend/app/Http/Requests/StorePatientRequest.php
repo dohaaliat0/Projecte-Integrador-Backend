@@ -52,20 +52,20 @@ class StorePatientRequest extends FormRequest
                     }
                 },
             ],
-            'languages' => [
-                'required',
-                'array',
-                function ($attribute, $value, $fail) use ($validLanguages) {
-                    if (empty($value)) {
-                        $fail('The ' . $attribute . ' must have at least one element.');
-                    }
-                    foreach ($value as $language) {
-                        if (!in_array($language, $validLanguages) && !LanguageModel::isValidId($language)) {
-                            $fail('The selected ' . $attribute . ' is invalid.');
-                        }
-                    }
-                },
-            ],
+            // 'languages' => [
+            //     'required',
+            //     'array',
+            //     function ($attribute, $value, $fail) use ($validLanguages) {
+            //         if (empty($value)) {
+            //             $fail('The ' . $attribute . ' must have at least one element.');
+            //         }
+            //         foreach ($value as $language) {
+            //             if (!in_array($language, $validLanguages) && !LanguageModel::isValidId($language)) {
+            //                 $fail('The selected ' . $attribute . ' is invalid.');
+            //             }
+            //         }
+            //     },
+            // ],
             'status' => [
                 'required',
                 function ($attribute, $value, $fail) {
