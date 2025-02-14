@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use App\Enums\EmergencyTypes;
 use App\Enums\OutgoingCallsType;
 use App\Enums\SocialTypes;
+use App\Models\Patient;
+use App\Models\Alert;
 use Dompdf\Dompdf;
 
 class ReportController extends BaseController
@@ -89,7 +91,7 @@ class ReportController extends BaseController
 
     public function getAllPatients(Request $request)
     {
-        $query = Call::query();
+        $query = Patient::query();
 
         foreach ($request->query() as $key => $value) {
             $query->where($key, $value);
@@ -116,16 +118,66 @@ class ReportController extends BaseController
         $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
         $endDate = $request->query('endDate') ? Carbon::parse($request->query('endDate'))->endOfDay() : Carbon::now()->endOfYear();
 
-        $calls = Call::where('patient_id', $id)->whereBetween('dateTime', [$startDate, $endDate])->get();
+        $calls = Call::where('patientId', $id)->whereBetween('dateTime', [$startDate, $endDate])->get();
+        $patient = Patient::find($id);
 
         $dompdf = new Dompdf();
-        $html = view('reports.patient_history', compact('calls', 'startDate', 'endDate'))->render();
+        $html = view('reports.patient_history', compact('calls', 'patient', 'startDate', 'endDate'))->render();
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
         $response = response($dompdf->output(), 200)
             ->header('Content-Type', 'application/pdf')
             ->header('Content-Disposition', 'attachment; filename="patient_history_report.pdf"')
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+        return $response;
+    }
+
+
+    public function getScheduledCalls(Request $request)
+    {
+        $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
+        $endDate = $request->query('endDate') ? Carbon::parse($request->query('endDate'))->endOfDay() : Carbon::now()->endOfYear();
+
+        $alertsWithCalls = Alert::whereBetween('date', [$startDate, $endDate])->whereHas('outgoingCall')->get();
+
+        $alertsWithoutCalls = Alert::whereBetween('date', [$startDate, $endDate])->whereDoesntHave('outgoingCall')->get();
+
+        $dompdf = new Dompdf();
+        $html = view('reports.scheduled_calls', compact('alertsWithCalls', 'alertsWithoutCalls', 'startDate', 'endDate'))->render();
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $response = response($dompdf->output(), 200)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="scheduled_calls_report.pdf"')
+            ->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+        return $response;
+    }
+
+    public function doneCalls(Request $request)
+    {
+
+        $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
+        $endDate = $request->query('endDate') ? Carbon::parse($request->query('endDate'))->endOfDay() : Carbon::now()->endOfYear();
+
+        $incomingCalls = Call::whereHas('incomingCall')->whereBetween('dateTime', [$startDate, $endDate])->get();
+        $outgoingCalls = Call::whereHas('outgoingCall')->whereBetween('dateTime', [$startDate, $endDate])->get();
+
+        $dompdf = new Dompdf();
+        $html = view('reports.done_calls', compact('incomingCalls','outgoingCalls', 'startDate', 'endDate'))->render();
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+        $response = response($dompdf->output(), 200)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'attachment; filename="done_calls_report.pdf"')
             ->header('Access-Control-Allow-Origin', '*')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
             ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');

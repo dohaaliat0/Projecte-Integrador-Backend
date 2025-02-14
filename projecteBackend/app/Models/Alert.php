@@ -29,7 +29,11 @@ class Alert extends Model
     }
 
     public function patient() {
-        return $this->belongsTo(Patient::class);
+        return $this->belongsTo(Patient::class, 'patientId');
+    }
+
+    public function outgoingCall() {
+        return $this->hasOne(OutgoingCall::class, 'alertId');
     }
 
 
