@@ -59,7 +59,17 @@ class UpdateAlertRequest extends FormRequest
             ],
             'date' => 'sometimes|date',
             'endDate' => 'nullable|date|after_or_equal:date',
-            'time' => 'sometimes|date_format:H:i:s',
+            'time' => [
+                'required',
+                'regex:/^\d{2}:\d{2}(:\d{2})?$/',
+                function ($attribute, $value, $fail) {
+                    if (preg_match('/^\d{2}:\d{2}$/', $value)) {
+                        $this->merge([$attribute => $value . ':00']);
+                    } elseif (!preg_match('/^\d{2}:\d{2}:\d{2}$/', $value)) {
+                        $fail('The time format is invalid. It should be H:i or H:i:s.');
+                    }
+                },
+            ],
             'title' => 'sometimes|string|max:255',
             'dayOfWeek' => [
                 'nullable',
