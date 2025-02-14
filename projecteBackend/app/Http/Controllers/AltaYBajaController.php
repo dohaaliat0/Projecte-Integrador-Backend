@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDarAltaRequest;
-use App\Http\Requests\UpdateDasAltaRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateDasAltaAntiguoRequest;
+use App\Http\Requests\UpdateDarAltaNuevoRequest;
 use App\Models\User;
 use App\Enums\UserRole;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -59,9 +59,30 @@ class AltaYBajaController extends Controller
         return redirect()->route('altabaja.index')->with('success', 'User activated successfully.');
     }
 
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  */
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(User $user)
+    {
+        $this->authorize('update', $user);
+        return view('DarAltaBaja.edit', compact('user'));  
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateDarAltaNuevoRequest $request, User $user)
+    {
+        $this->authorize('update', $user);
+        $validated = $request->validated();
+        $user->update($validated);
+
+        return redirect()->route('altabaja.index')->with('success', 'User updated successfully.');
+        
+    }
+
+
+   
     public function altaAntiguoUser()
     {
         $this->authorize('update', User::class);
@@ -69,15 +90,12 @@ class AltaYBajaController extends Controller
                  ->whereNotNull('terminationDate')
                  ->get();
 
-        return view('DarAltaBaja.edit', ['users' => $users, 'user' => $users->first()]);
+        return view('DarAltaBaja.DarAltaAntiguo', ['users' => $users, 'user' => $users->first()]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function updateAltaAntiguoUser(UpdateDasAltaRequest $request)
+
+    public function updateAltaAntiguoUser(UpdateDasAltaAntiguoRequest $request)
     {
-        
         $this->authorize('update', User::class);
         $validated = $request->validated();
         $user = User::find($validated['user_id']);

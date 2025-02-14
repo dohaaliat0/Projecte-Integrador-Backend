@@ -31,6 +31,7 @@
                     {{ $user->email }}
                 </td>
                 <td class="border border-gray-300 p-2 flex space-x-2">
+                    <a href="{{ route('altabaja.edit', $user->id) }}" class="text-yellow-600 hover:underline">Editar</a>
                     <form action="{{ route('altabaja.destroy', $user->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
