@@ -29,11 +29,14 @@ Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->valu
         ->parameters( ['assignusers' => 'patient']);
     Route::resource('altabaja', AltaYBajaController::class)
         ->parameters(['altabaja' => 'users'])
-        ->except(['show', 'update']);
+        ->except(['show']);
     Route::get('altabaja/altaAntiguo', [AltaYBajaController::class, 'altaAntiguoUser'])
         ->name('altabaja.altaAntiguoUser');
-    Route::put('altabaja/updateAltaAntiguoUser', [AltaYBajaController::class, 'updateAltaAntiguoUser'])
+        Route::put('altabaja/updateAltaAntiguoUser/{user}', [AltaYBajaController::class, 'updateAltaAntiguoUser'])
         ->name('altabaja.updateAltaAntiguoUser');
+    
+    
+        
 });
 
 require __DIR__.'/auth.php';
