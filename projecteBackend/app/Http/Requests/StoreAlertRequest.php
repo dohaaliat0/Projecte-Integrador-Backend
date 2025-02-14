@@ -78,10 +78,10 @@ class StoreAlertRequest extends FormRequest
             'title' => 'required|string|max:255',
             'dayOfWeek' => [
                 'nullable',
-                'array',
                 function ($attribute, $value, $fail) {
                     $validDays = \App\Enums\DayOfWeek::values();
-                    foreach ($value as $day) {
+                    $days = is_array($value) ? $value : explode(', ', $value);
+                    foreach ($days as $day) {
                         if (!in_array($day, $validDays)) {
                             $fail("The $attribute field contains an invalid day: $day. Valid days are: " . implode(', ', $validDays));
                         }
