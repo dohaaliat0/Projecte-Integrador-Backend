@@ -33,7 +33,7 @@ class Alert extends Model
     }
 
     public function outgoingCall() {
-        return $this->hasOne(OutgoingCall::class, 'alertId');
+        return $this->hasMany(OutgoingCall::class, 'alertId');
     }
 
 

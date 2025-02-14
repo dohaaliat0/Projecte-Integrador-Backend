@@ -32,8 +32,14 @@ class UpdateAlertRequest extends FormRequest
                 function ($attribute, $value, $fail) {
                     $date = $this->input('date');
                     $endDate = $this->input('endDate');
-                    if ($value && ($date > now() || ($endDate && $endDate < now()) || (!$endDate && $date != now()->toDateString()))) {
-                        $fail('The isActive field can only be true if the current date is between date and endDate, or if endDate is not provided, it must be the same as date.');
+                    if ($value) {
+                        if ($date > now()) {
+                            $fail('The isActive field can only be true if the date is not in the future.');
+                        } elseif ($endDate && $endDate < now()) {
+                            $fail('The isActive field can only be true if the endDate is not in the past.');
+                        } elseif (!$endDate && $date != now()->toDateString()) {
+                            $fail('The isActive field can only be true if the date is today when endDate is not provided.');
+                        }
                     }
                 },
             ],

@@ -28,6 +28,8 @@ Route::middleware(['auth:sanctum','api'])->group( function () {
     Route::apiResource('languages', LanguageController::class);
     Route::apiResource('alerts', AlertController::class);
 
+    Route::get('calls/alerts/{alertId}/', [AlertController::class, 'getCallByAlertId']);
+
     Route::get('relationships', [RelationshipController::class, 'index']);
     
 

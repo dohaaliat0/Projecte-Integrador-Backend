@@ -84,4 +84,23 @@ class AlertController extends BaseController
             return $this->sendError(['message' => $e->getMessage()], $e->status ?? 400);
         }
     }
+
+    public function getCallByAlertId($id)
+    {
+        $alert = Alert::find($id);
+
+
+
+        if (!$alert) {
+            return $this->sendError(['message' => 'Alert not found'], 404);
+        }
+
+        $calls = $alert->outgoingCall;
+        
+        foreach ($calls as $call) {
+            $call->call;
+        }
+
+        return $this->sendResponse($calls, 'Calls retrieved successfully.', 200);
+    }
 }
