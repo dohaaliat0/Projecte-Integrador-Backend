@@ -22,7 +22,11 @@ class ReportController extends BaseController
         $calls = Call::whereHas('incomingCall', function ($query) {
             $query->whereIn('type', EmergencyTypes::values());
         })->whereBetween('dateTime', [$startDate, $endDate])->get();
-
+        foreach ($request->query() as $key => $value) {
+            if (!in_array($key, ['startDate', 'endDate'])) {
+            $calls = $calls->where($key, $value);
+            }
+        }
         $dompdf = new Dompdf();
         $html = view('reports.emergencies', compact('calls', 'startDate', 'endDate'))->render();
         $dompdf->loadHtml($html);
@@ -48,7 +52,11 @@ class ReportController extends BaseController
         $calls = Call::whereHas('incomingCall', function ($query) {
             $query->whereIn('type', SocialTypes::values());
         })->whereBetween('dateTime', [$startDate, $endDate])->get();
-
+        foreach ($request->query() as $key => $value) {
+            if (!in_array($key, ['startDate', 'endDate'])) {
+            $calls = $calls->where($key, $value);
+            }
+        }
 
         $dompdf = new Dompdf();
         $html = view('reports.socials', compact('calls', 'startDate', 'endDate'))->render();
@@ -73,6 +81,11 @@ class ReportController extends BaseController
         $calls = Call::whereHas('outgoingCall', function ($query) {
             $query->whereIn('type', OutgoingCallsType::values());
         })->whereBetween('dateTime', [$startDate, $endDate])->get();
+        foreach ($request->query() as $key => $value) {
+            if (!in_array($key, ['startDate', 'endDate'])) {
+            $calls = $calls->where($key, $value);
+            }
+        }
 
         $dompdf = new Dompdf();
         $html = view('reports.monitoring', compact('calls', 'startDate', 'endDate'))->render();
