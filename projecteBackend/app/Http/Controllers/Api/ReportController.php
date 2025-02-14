@@ -141,10 +141,16 @@ class ReportController extends BaseController
     {
         $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
         $endDate = $request->query('endDate') ? Carbon::parse($request->query('endDate'))->endOfDay() : Carbon::now()->endOfYear();
+        $zoneId = $request->query('zoneId') ? $request->query('zoneId') : null;
 
-        $alertsWithCalls = Alert::whereBetween('date', [$startDate, $endDate])->whereHas('outgoingCall')->get();
+        if ($zoneId) {
+            $alertsWithCalls = Alert::where('zoneId', $zoneId)->whereBetween('date', [$startDate, $endDate])->whereHas('outgoingCall')->get();
+            $alertsWithoutCalls = Alert::where('zoneId', $zoneId)->whereBetween('date', [$startDate, $endDate])->whereDoesntHave('outgoingCall')->get();
+        } else {
+            $alertsWithCalls = Alert::whereBetween('date', [$startDate, $endDate])->whereHas('outgoingCall')->get();
 
-        $alertsWithoutCalls = Alert::whereBetween('date', [$startDate, $endDate])->whereDoesntHave('outgoingCall')->get();
+            $alertsWithoutCalls = Alert::whereBetween('date', [$startDate, $endDate])->whereDoesntHave('outgoingCall')->get();
+        }
 
         $dompdf = new Dompdf();
         $html = view('reports.scheduled_calls', compact('alertsWithCalls', 'alertsWithoutCalls', 'startDate', 'endDate'))->render();
@@ -171,7 +177,7 @@ class ReportController extends BaseController
         $outgoingCalls = Call::whereHas('outgoingCall')->whereBetween('dateTime', [$startDate, $endDate])->get();
 
         $dompdf = new Dompdf();
-        $html = view('reports.done_calls', compact('incomingCalls','outgoingCalls', 'startDate', 'endDate'))->render();
+        $html = view('reports.done_calls', compact('incomingCalls', 'outgoingCalls', 'startDate', 'endDate'))->render();
         $dompdf->loadHtml($html);
         $dompdf->setPaper('A4', 'landscape');
         $dompdf->render();
