@@ -30,7 +30,7 @@ class UpdateCallRequest extends FormRequest
             'patientId' => 'required|exists:patients,id',
             'operatorId' => 'required|exists:users,id',
             'details' => 'required|string',
-            'dateTime' => 'required|date|after_or_equal:today',
+            'dateTime' => 'required|date',
             'incomingCall' => 'required_without:outgoingCall|array',
             'incomingCall.type' => [
                 'required_with:incomingCall',
