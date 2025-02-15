@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Http\Resources\Partials\PatientSimpleResource;
 use App\Models\Patient;
 use App\Models\User;
+use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,8 +19,10 @@ class AlertResource extends JsonResource
     public function toArray(Request $request): array
     {
         $zone = null;
-        if($this->zone != null) {
-            $zone = $this->zone->name;
+        if($this->zoneId == null){
+            $zone = null;
+        }else{
+            $zone = Zone::find($this->zoneId);
         }
 
         return [
@@ -29,7 +32,7 @@ class AlertResource extends JsonResource
             'patientId' => $this->patientId,
             'patient' => new PatientSimpleResource(Patient::find($this->patientId)),
             'zoneId' => $this->zoneId, 
-            'zone' => $zone,
+            'zone' => new ZoneResource($zone),
             'isActive' => $this->isActive,
             'type' => $this->type,
             'isRecurring' => $this->isRecurring,
