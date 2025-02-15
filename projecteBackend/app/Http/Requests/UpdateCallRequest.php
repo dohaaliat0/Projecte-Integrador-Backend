@@ -26,7 +26,6 @@ class UpdateCallRequest extends FormRequest
     {
         $id = $this->route('call')->id;
         return [
-            'id' => 'exists:calls,id,' . $id,
             'patientId' => 'required|exists:patients,id',
             'operatorId' => 'required|exists:users,id',
             'details' => 'required|string',
