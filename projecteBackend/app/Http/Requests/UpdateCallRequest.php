@@ -24,7 +24,10 @@ class UpdateCallRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('call')->id;
+
+        $this->merge([
+            'dateTime' => Carbon::parse($this->input('dateTime'))->format('Y-m-d H:i:s'),
+        ]);
         return [
             'patientId' => 'required|exists:patients,id',
             'operatorId' => 'required|exists:users,id',
