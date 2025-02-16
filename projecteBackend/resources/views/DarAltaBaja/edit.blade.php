@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <form action="{{ route('altabaja.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
