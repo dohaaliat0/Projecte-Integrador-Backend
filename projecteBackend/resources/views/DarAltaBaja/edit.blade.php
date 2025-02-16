@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <form action="{{ route('altabaja.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('altabaja.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -50,7 +50,7 @@
 
         <!-- Password -->
         <div class="mb-4">
-            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña:</label>
+            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Nueva Contraseña:</label>
             <input type="password" name="password" id="password"
             class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
             @error('password') border-red-500 @enderror">
@@ -61,7 +61,7 @@
 
         <!-- Confirm Password -->
         <div class="mb-4">
-            <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Confirm Contraseña:</label>
+            <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-1">Confirm nueva Contraseña:</label>
             <input type="password" name="password_confirmation" id="password_confirmation"
             class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
             @error('password_confirmation') border-red-500 @enderror">
