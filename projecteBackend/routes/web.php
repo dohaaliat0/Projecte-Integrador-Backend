@@ -28,7 +28,7 @@ Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->valu
     Route::resource('assignusers', AsignUsersController::class)
         ->parameters( ['assignusers' => 'patient']);
     Route::resource('altabaja', AltaYBajaController::class)
-        ->parameters(['altabaja' => 'users'])
+        ->parameters(['altabaja' => 'user'])
         ->except(['show']);
     Route::get('altabaja/altaAntiguo', [AltaYBajaController::class, 'altaAntiguoUser'])
         ->name('altabaja.altaAntiguoUser');
