@@ -17,9 +17,17 @@ class PatientController extends BaseController
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return PatientResource::collection(Patient::all());
+        $query = Patient::query();
+
+        foreach ($request->query() as $key => $value) {
+            if (in_array($key, ['zoneId', 'operatorId', 'status'])) {
+            $query->where($key, $value);
+            }
+        }
+
+        return PatientResource::collection($query->get());
     }
 
     /**
