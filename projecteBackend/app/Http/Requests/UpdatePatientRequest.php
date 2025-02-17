@@ -72,7 +72,6 @@ class UpdatePatientRequest extends FormRequest
                 },
             ],
             'status' => [
-                'required',
                 function ($attribute, $value, $fail) {
                     if (is_null($value)) {
                         $value = \App\Enums\PatientStatus::ADMITTED->value;
