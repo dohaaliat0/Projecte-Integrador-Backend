@@ -12,17 +12,17 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js' , 'resources/css/index.css','resources/js/index.js','resources/css/DarAltaBaja.css'])
+        @vite(['resources/css/app.css', 'resources/js/app.js' , 'resources/css/index.css','resources/js/index.js','resources/css/DarAltaBaja.css','resources/css/header.css'])
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <header class="bg-gradient-to-r from-gray-300 to-gray-600 shadow-md">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                    <h1 class="text-3xl font-bold text-white">
+            <header>
+                <div class="header-container">
+                    <h1 class="header-title">
                         {{ config('app.name', 'ConectaSalud') }}
                     </h1>
-                     @include('layouts.navigation')
+                    @include('layouts.navigation')
                 </div>
             </header>
 

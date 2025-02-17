@@ -137,7 +137,7 @@
     align-items: center;
 }
 
-.nav-link {
+.menuCustom {
     position: relative;
     font-weight: 600;
     color: white;
@@ -145,7 +145,29 @@
     transition: color 0.3s ease-in-out;
 }
 
-.nav-link:hover {
+.menuCustom:hover {
     color: #d1d1d1;
+}
+
+
+@media (max-width: 1024px) {
+    .menuCustom {
+        font-size: 16px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menuCustom {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menuCustom {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
 }
 
