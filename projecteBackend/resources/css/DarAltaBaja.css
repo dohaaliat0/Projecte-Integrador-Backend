@@ -109,6 +109,10 @@ body {
         text-align: center;
         margin: 10px 0;
     }
+
+    .btn-primary {
+        transform: scale(1);
+    }
     
     .custom-table th,
     .custom-table td {
@@ -121,6 +125,11 @@ body {
 }
 
 @media (max-width: 768px) {
+
+    .btn-primary {
+        transform: scale(1);
+    }
+
     .custom-table {
         display: block;
         overflow-x: auto;
@@ -140,6 +149,11 @@ body {
     .btn-primary {
         font-size: 14px;
         padding: 8px 12px;
+    }
+
+
+    .btn-primary {
+        transform: scale(1);
     }
     
     .custom-table th,
