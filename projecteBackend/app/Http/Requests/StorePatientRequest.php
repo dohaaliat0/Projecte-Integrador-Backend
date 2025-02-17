@@ -69,6 +69,9 @@ class StorePatientRequest extends FormRequest
             'status' => [
                 'required',
                 function ($attribute, $value, $fail) {
+                    if (is_null($value)) {
+                        $value = \App\Enums\PatientStatus::ADMITTED->value;
+                    }
                     if (!in_array($value, \App\Enums\PatientStatus::values())) {
                         $fail('The selected ' . $attribute . ' is invalid. Valid status are: ' . implode(', ', \App\Enums\PatientStatus::values()));
                     }
