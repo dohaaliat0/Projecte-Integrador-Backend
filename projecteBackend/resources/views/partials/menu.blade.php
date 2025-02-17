@@ -6,7 +6,7 @@
     </div>
     <div class="menu-item hidden sm:flex items-center">
         <x-nav-link :href="route('assignusers.index')" :active="request()->routeIs('assignusers.index')" class="menuCustom text-white font-semibold hover:text-gray-300 transition duration-300 ease-in-out">
-            {{ __('Asignar un usuario') }}
+            {{ __('Asignar usuarios') }}
         </x-nav-link>
     </div>
     <div class="menu-item hidden sm:flex items-center"> 
@@ -16,7 +16,7 @@
     </div> 
     <div class="menu-item hidden sm:flex items-center">
         <x-nav-link :href="route('altabaja.index')" :active="request()->routeIs('altabaja.index')" class="menuCustom text-white font-semibold hover:text-gray-300 transition duration-300 ease-in-out">
-            {{ __('Dar de alta o baja') }}
+            {{ __('Gestionar Operadores') }}
         </x-nav-link>
     </div>
 </div>
