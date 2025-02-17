@@ -1,0 +1,98 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+   
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- BOTONES PRINCIPALES --- */
+.btn-primary {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* --- ESTILO DE LA TABLA --- */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- CABECERA DE LA TABLA --- */
+.custom-table th {
+    background-color: #007BFF;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+}
+
+/* --- CELDAS --- */
+.custom-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* --- HOVER EN FILAS --- */
+.custom-table tr:hover {
+    background-color: #e3eaf8;
+}
+
+/* --- ESTILOS DE LOS LINKS DE ACCIÓN --- */
+.edit-link {
+    color: #f6c23e;
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.edit-link:hover {
+    color: #d4a128;
+    text-decoration: underline;
+}
+
+/* --- BOTÓN DE ELIMINACIÓN --- */
+.delete-btn {
+    color: #dc3545;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #a71d2a;
+    text-decoration: underline;
+}
+
+/* --- ESTILO PARA EL FORMULARIO INLINE --- */
+.inline-form {
+    display: inline;
+}
