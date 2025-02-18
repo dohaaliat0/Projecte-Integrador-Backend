@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Call;
 use App\Models\Zone;
 use Carbon\Carbon;
+use Livewire\Attributes\On;
 
 class Llamadas extends Component
 {
@@ -17,6 +18,13 @@ class Llamadas extends Component
     {
         $this->actualizarLlamadas();
     }
+    
+    #[On('LlamadaActualizada')]
+    public function actualizarDesdeEvento(){
+        $this->actualizarLlamadas();
+        $this->dispatch('$refresh');
+    }
+    
 
     public function applyFilter()
     {
@@ -51,7 +59,8 @@ class Llamadas extends Component
                 'operator' => $call->operator ? $call->operator->name : 'N/A',
                 'details' => $call->details,
                 'dateTime' => $call->dateTime,
-                'type' => $call->incomingCall ? 'Entrante' : ($call->outgoingCall ? 'Saliente' : 'Desconocido'),
+                'typeCall' => $call->incomingCall ? 'Entrante' : ($call->outgoingCall ? 'Saliente' : 'Desconocido'),
+                'type' => $call->incomingCall ? $call->incomingCall->type : ($call->outgoingCall ? $call->outgoingCall->type : 'Desconocido'),
             ];
         });
     }

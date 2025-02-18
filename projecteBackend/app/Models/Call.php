@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Events\LlamadaActualizada;
 
 
 class Call extends Model
@@ -27,6 +28,17 @@ class Call extends Model
 
     public function outgoingCall(){
         return $this->hasOne(OutgoingCall::class, 'callId');
+    }
+
+    protected static function booted()
+    {
+        static::created(function ($call) {
+            event(new LlamadaActualizada($call));
+        });
+    
+        static::updated(function ($call) {
+            event(new LlamadaActualizada($call));
+        });
     }
 
 }
