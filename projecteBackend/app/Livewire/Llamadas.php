@@ -21,6 +21,7 @@ class Llamadas extends Component
     
     #[On('LlamadaActualizada')]
     public function actualizarDesdeEvento(){
+        dd('actualizado desde evento');
         $this->actualizarLlamadas();
         $this->dispatch('$refresh');
     }
