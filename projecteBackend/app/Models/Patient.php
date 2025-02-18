@@ -60,4 +60,6 @@ class Patient extends Model
     {
         return $this->hasMany(Call::class, 'patientId');
     }
+
+    
 }
