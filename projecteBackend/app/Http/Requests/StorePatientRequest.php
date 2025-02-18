@@ -76,7 +76,19 @@ class StorePatientRequest extends FormRequest
                     }
                 },
             ],
-            
+            'contactPersons' => 'nullable|array',
+            'contactPersons.*.firstName' => 'required|string|max:255',
+            'contactPersons.*.lastName' => 'required|string|max:255',
+            'contactPersons.*.phone' => 'required|string|max:15',
+            'contactPersons.*.relationship' => [
+                'required',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (!in_array($value, Relationship::values())) {
+                        $fail('The selected ' . $attribute . ' is invalid.');
+                    }
+                },
+            ],
         ];
     }
 }

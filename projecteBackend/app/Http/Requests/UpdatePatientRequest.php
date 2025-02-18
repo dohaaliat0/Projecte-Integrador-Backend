@@ -7,6 +7,7 @@ use App\Enums\Language;
 use App\Models\User;
 use App\Enums\UserRole;
 use App\Models\Language as LanguageModel;
+use App\Enums\Relationship;
 
 class UpdatePatientRequest extends FormRequest
 {
@@ -76,6 +77,19 @@ class UpdatePatientRequest extends FormRequest
                     }
                     if (!in_array($value, \App\Enums\PatientStatus::values())) {
                         $fail('The selected ' . $attribute . ' is invalid. Valid status are: ' . implode(', ', \App\Enums\PatientStatus::values()));
+                    }
+                },
+            ],
+            'contactPersons' => 'nullable|array',
+            'contactPersons.*.firstName' => 'required|string|max:255',
+            'contactPersons.*.lastName' => 'required|string|max:255',
+            'contactPersons.*.phone' => 'required|string|max:15',
+            'contactPersons.*.relationship' => [
+                'required',
+                'string',
+                function ($attribute, $value, $fail) {
+                    if (!in_array($value, Relationship::values())) {
+                        $fail('The selected ' . $attribute . ' is invalid.');
                     }
                 },
             ],

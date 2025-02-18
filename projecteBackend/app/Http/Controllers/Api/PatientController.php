@@ -51,6 +51,15 @@ class PatientController extends BaseController
                     }
                 }
             }
+
+            $contactPersons = $validated['contactPersons'];
+            foreach ($contactPersons as $contactPerson) {
+                if (!isset($contactPerson['patientId'])) {
+                    $contactPerson['patientId'] = $patient->id;
+                }
+                $patient->contactPersons()->create($contactPerson);
+            }
+
             return response()->json(new PatientResource($patient), 201);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 400);
@@ -88,6 +97,16 @@ class PatientController extends BaseController
                 }
             }
         }
+
+        $contactPersons = $validated['contactPersons'];
+        $patient->contactPersons()->delete();
+        foreach ($contactPersons as $contactPerson) {
+            if (!isset($contactPerson['patientId'])) {
+                $contactPerson['patientId'] = $patient->id;
+            }
+            $patient->contactPersons()->create($contactPerson);
+        }
+
         return $this->sendResponse(new PatientResource($patient), 'Patient updated successfully.', 200);
     }
 

@@ -1,4 +1,5 @@
 <?php 
+use App\Http\Controllers\Api\ContactPersonController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OperatorController;
 use App\Http\Controllers\Api\PatientController;
