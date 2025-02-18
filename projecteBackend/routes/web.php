@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AltaYBajaController;
 use App\Http\Controllers\AsignUsersController;
+use App\Http\Controllers\LlamadasController;
 use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\RoleMiddleware;
@@ -34,8 +35,8 @@ Route::middleware(['auth', RoleMiddleware::class.':'.UserRole::COORDINATOR->valu
         ->name('altabaja.altaAntiguoUser');
     Route::put('altabaja/updateAltaAntiguoUser/{user}', [AltaYBajaController::class, 'updateAltaAntiguoUser'])
         ->name('altabaja.updateAltaAntiguoUser');
-    
-    
+    Route::resource('llamadas', LlamadasController::class)
+        ->parameters(['llamadas' => 'call']);
         
 });
 
