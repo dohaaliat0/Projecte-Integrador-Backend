@@ -29,6 +29,7 @@
                 <th class="border border-gray-300 px-4 py-2">Operador</th>
                 <th class="border border-gray-300 px-4 py-2">Detalles</th>
                 <th class="border border-gray-300 px-4 py-2">Fecha y Hora</th>
+                <th class="border border-gray-300 px-4 py-2">Tipo de llamada</th>
                 <th class="border border-gray-300 px-4 py-2">Tipo</th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                     <td class="border border-gray-300 px-4 py-2">{{ $call['operator'] }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $call['details'] }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $call['dateTime'] }}</td>
+                    <td class="border border-gray-300 px-4 py-2">{{ $call['typeCall'] }}</td>
                     <td class="border border-gray-300 px-4 py-2">{{ $call['type'] }}</td>
                 </tr>
             @endforeach
