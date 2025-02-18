@@ -42,7 +42,6 @@
 }
 
 /* --- STYLE FOR EACH OPTION --- */
-/* Aplica estilo base a cada opción */
 .filter-label {
     cursor: pointer;
     font-size: 14px;
