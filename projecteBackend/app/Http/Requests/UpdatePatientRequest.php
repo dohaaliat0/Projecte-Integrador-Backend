@@ -26,13 +26,11 @@ class UpdatePatientRequest extends FormRequest
     public function rules(): array
     {
         $validLanguages = Language::values();
-        $patientId = $this->route('patient')->id;
         $currentDni = $this->route('patient')->dni;
         $currentHealthCardNumber = $this->route('patient')->healthCardNumber;
         $currentMail = $this->route('patient')->email;
 
         return [
-            'id' => 'exists:jugadores,id,' . $patientId,
             'fullName' => 'required|string|max:255',
             'birthDate' => 'required|date',
             'fullAddress' => 'required|string|max:255',
@@ -66,7 +64,7 @@ class UpdatePatientRequest extends FormRequest
                     }
                     foreach ($value as $language) {
                         if (!in_array($language, $validLanguages) && !LanguageModel::isValidId($language)) {
-                            $fail('The selected ' . $attribute . ' is invalid.');
+                            $fail('The selected ' . $attribute . ' is invalid. It failed for ' . $language);
                         }
                     }
                 },
