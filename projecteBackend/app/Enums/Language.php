@@ -35,17 +35,17 @@ enum Language: string
     case SWAHILI = 'Swahili';
     case AMHARIC = 'Amharic';
 
-    public function label(): string
-    {
-        return match ($this) {
-            self::SPANISH => 'Español',
-            self::CATALAN => 'Català',
-            self::GALICIAN => 'Galego',
-            self::BASQUE => 'Euskara',
-            self::ARANESE => 'Aranès',
-            default => $this->value, 
-        };
-    }
+    // public function label(): string
+    // {
+    //     return match ($this) {
+    //         self::SPANISH => 'Español',
+    //         self::CATALAN => 'Català',
+    //         self::GALICIAN => 'Galego',
+    //         self::BASQUE => 'Euskara',
+    //         self::ARANESE => 'Aranès',
+    //         default => $this->value, 
+    //     };
+    // }
 
     public static function values(): array
     {
