@@ -33,12 +33,10 @@ class Call extends Model
     protected static function booted()
     {
         static::created(function ($call) {
-            dd($call);
             event(new LlamadaActualizada($call));
         });
     
         static::updated(function ($call) {
-            dd($call);
             event(new LlamadaActualizada($call));
         });
     }
