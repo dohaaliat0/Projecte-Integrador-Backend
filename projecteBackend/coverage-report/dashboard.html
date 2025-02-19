@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=11.0.8" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=11.0.8" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=11.0.8" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/var/www/html/app</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#12">App\Http\Controllers\AltaYBajaController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#12">App\Http\Controllers\Api\AlertController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#10">App\Http\Controllers\Api\ContactPersonController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#9">App\Http\Controllers\Api\LanguageController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#15">App\Http\Controllers\Api\OperatorController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/RelationshipController.php.html#10">App\Http\Controllers\Api\RelationshipController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#15">App\Http\Controllers\Api\ReportController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#12">App\Http\Controllers\Api\ZoneController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AsignUsersController.php.html#8">App\Http\Controllers\AsignUsersController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#12">App\Http\Controllers\Auth\AuthenticatedSessionController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#12">App\Http\Controllers\Auth\ConfirmablePasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#9">App\Http\Controllers\Auth\EmailVerificationNotificationController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#10">App\Http\Controllers\Auth\EmailVerificationPromptController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#16">App\Http\Controllers\Auth\NewPasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordController.php.html#11">App\Http\Controllers\Auth\PasswordController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#11">App\Http\Controllers\Auth\PasswordResetLinkController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisteredUserController.php.html#15">App\Http\Controllers\Auth\RegisteredUserController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#10">App\Http\Controllers\Auth\VerifyEmailController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/LlamadasController.php.html#8">App\Http\Controllers\LlamadasController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ProfileController.php.html#12">App\Http\Controllers\ProfileController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#11">App\Http\Controllers\ZoneController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RoleMiddleware.php.html#8">App\Http\Middleware\RoleMiddleware</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#15">App\Http\Requests\Auth\LoginRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ProfileUpdateRequest.php.html#9">App\Http\Requests\ProfileUpdateRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreAlertRequest.php.html#7">App\Http\Requests\StoreAlertRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreContactPersonRequest.php.html#7">App\Http\Requests\StoreContactPersonRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreDarAltaRequest.php.html#8">App\Http\Requests\StoreDarAltaRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreOperatorRequest.php.html#8">App\Http\Requests\StoreOperatorRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreZoneRequest.php.html#11">App\Http\Requests\StoreZoneRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateAlertRequest.php.html#7">App\Http\Requests\UpdateAlertRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateContactPersonRequest.php.html#7">App\Http\Requests\UpdateContactPersonRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateDarAltaNuevoRequest.php.html#7">App\Http\Requests\UpdateDarAltaNuevoRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateDasAltaAntiguoRequest.php.html#7">App\Http\Requests\UpdateDasAltaAntiguoRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateOperatorRequest.php.html#8">App\Http\Requests\UpdateOperatorRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateZoneRequest.php.html#11">App\Http\Requests\UpdateZoneRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Resources/AlertResource.php.html#12">App\Http\Resources\AlertResource</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Resources/OutgoingCallResource.php.html#9">App\Http\Resources\OutgoingCallResource</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Resources/Partials/AlertSimpleResource.php.html#10">App\Http\Resources\AlertSimpleResource</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#12">App\Livewire\AsignUsers</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#11">App\Livewire\Llamadas</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Alert.php.html#9">App\Models\Alert</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/IncomingCall.php.html#9">App\Models\IncomingCall</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/OutgoingCall.php.html#10">App\Models\OutgoingCall</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Zone.php.html#8">App\Models\Zone</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#9">App\Policies\DarAltaPolicy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#9">App\Policies\ZonePolicy</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/AppLayout.php.html#8">App\View\Components\AppLayout</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/GuestLayout.php.html#8">App\View\Components\GuestLayout</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/Zones.php.html#10">App\View\Components\Zones</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/DayOfWeek.php.html#5">App\Enums\DayOfWeek</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/EmergencyTypes.php.html#5">App\Enums\EmergencyTypes</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/SocialTypes.php.html#4">App\Enums\SocialTypes</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/TypeZones.php.html#4">App\Enums\TypeZones</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/UserRole.php.html#5">App\Enums\UserRole</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/IncomingCallsType.php.html#5">App\Enums\IncomingCallsType</a></td><td class="text-right">6%</td></tr>
+       <tr><td><a href="Enums/AlertType.php.html#5">App\Enums\AlertType</a></td><td class="text-right">8%</td></tr>
+       <tr><td><a href="Enums/PatientStatus.php.html#5">App\Enums\PatientStatus</a></td><td class="text-right">12%</td></tr>
+       <tr><td><a href="Enums/OutgoingCallsType.php.html#5">App\Enums\OutgoingCallsType</a></td><td class="text-right">14%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#12">App\Http\Controllers\Api\AuthController</a></td><td class="text-right">46%</td></tr>
+       <tr><td><a href="Models/Language.php.html#8">App\Models\Language</a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="Models/User.php.html#14">App\Models\User</a></td><td class="text-right">57%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/CallController.php.html#12">App\Http\Controllers\Api\CallController</a></td><td class="text-right">64%</td></tr>
+       <tr><td><a href="Models/Call.php.html#11">App\Models\Call</a></td><td class="text-right">70%</td></tr>
+       <tr><td><a href="Models/ContactPerson.php.html#9">App\Models\ContactPerson</a></td><td class="text-right">75%</td></tr>
+       <tr><td><a href="Http/Requests/StoreCallRequest.php.html#10">App\Http\Requests\StoreCallRequest</a></td><td class="text-right">89%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateCallRequest.php.html#10">App\Http\Requests\UpdateCallRequest</a></td><td class="text-right">89%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/PatientController.php.html#15">App\Http\Controllers\Api\PatientController</a></td><td class="text-right">89%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#15">App\Http\Controllers\Api\ReportController</a></td><td class="text-right">812</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#12">App\Http\Controllers\Api\AlertController</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#12">App\Livewire\AsignUsers</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#11">App\Livewire\Llamadas</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Enums/IncomingCallsType.php.html#5">App\Enums\IncomingCallsType</a></td><td class="text-right">173</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#15">App\Http\Controllers\Api\OperatorController</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#12">App\Http\Controllers\AltaYBajaController</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#10">App\Http\Controllers\Api\ContactPersonController</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Requests/StoreAlertRequest.php.html#7">App\Http\Requests\StoreAlertRequest</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Requests/UpdateAlertRequest.php.html#7">App\Http\Requests\UpdateAlertRequest</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Enums/SocialTypes.php.html#4">App\Enums\SocialTypes</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Enums/AlertType.php.html#5">App\Enums\AlertType</a></td><td class="text-right">104</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#15">App\Http\Requests\Auth\LoginRequest</a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#9">App\Http\Controllers\Api\LanguageController</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#12">App\Http\Controllers\Api\ZoneController</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Enums/EmergencyTypes.php.html#5">App\Enums\EmergencyTypes</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Enums/TypeZones.php.html#4">App\Enums\TypeZones</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Enums/PatientStatus.php.html#5">App\Enums\PatientStatus</a></td><td class="text-right">39</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#12">App\Http\Controllers\Api\AuthController</a></td><td class="text-right">29</td></tr>
+       <tr><td><a href="Enums/OutgoingCallsType.php.html#5">App\Enums\OutgoingCallsType</a></td><td class="text-right">28</td></tr>
+       <tr><td><a href="Http/Controllers/Api/PatientController.php.html#15">App\Http\Controllers\Api\PatientController</a></td><td class="text-right">21</td></tr>
+       <tr><td><a href="Http/Controllers/ProfileController.php.html#12">App\Http\Controllers\ProfileController</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#12">App\Http\Controllers\Auth\ConfirmablePasswordController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#16">App\Http\Controllers\Auth\NewPasswordController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#11">App\Http\Controllers\Auth\PasswordResetLinkController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#10">App\Http\Controllers\Auth\VerifyEmailController</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/RoleMiddleware.php.html#8">App\Http\Middleware\RoleMiddleware</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Enums/UserRole.php.html#5">App\Enums\UserRole</a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Api/CallController.php.html#12">App\Http\Controllers\Api\CallController</a></td><td class="text-right">10</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#9">App\Http\Controllers\Auth\EmailVerificationNotificationController</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#10">App\Http\Controllers\Auth\EmailVerificationPromptController</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Resources/AlertResource.php.html#12">App\Http\Resources\AlertResource</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Resources/Partials/AlertSimpleResource.php.html#10">App\Http\Resources\AlertSimpleResource</a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/StoreCallRequest.php.html#10">App\Http\Requests\StoreCallRequest</a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Http/Requests/UpdateCallRequest.php.html#10">App\Http\Requests\UpdateCallRequest</a></td><td class="text-right">4</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#20"><abbr title="App\Http\Controllers\AltaYBajaController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#32"><abbr title="App\Http\Controllers\AltaYBajaController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#41"><abbr title="App\Http\Controllers\AltaYBajaController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#65"><abbr title="App\Http\Controllers\AltaYBajaController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#74"><abbr title="App\Http\Controllers\AltaYBajaController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#86"><abbr title="App\Http\Controllers\AltaYBajaController::altaAntiguoUser">altaAntiguoUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#97"><abbr title="App\Http\Controllers\AltaYBajaController::updateAltaAntiguoUser">updateAltaAntiguoUser</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#114"><abbr title="App\Http\Controllers\AltaYBajaController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#14"><abbr title="App\Http\Controllers\Api\AlertController::getValidData">getValidData</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#46"><abbr title="App\Http\Controllers\Api\AlertController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#51"><abbr title="App\Http\Controllers\Api\AlertController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#56"><abbr title="App\Http\Controllers\Api\AlertController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#67"><abbr title="App\Http\Controllers\Api\AlertController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#78"><abbr title="App\Http\Controllers\Api\AlertController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#88"><abbr title="App\Http\Controllers\Api\AlertController::getCallByAlertId">getCallByAlertId</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#31"><abbr title="App\Http\Controllers\Api\AuthController::register">register</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#56"><abbr title="App\Http\Controllers\Api\AuthController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#15"><abbr title="App\Http\Controllers\Api\ContactPersonController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#28"><abbr title="App\Http\Controllers\Api\ContactPersonController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#42"><abbr title="App\Http\Controllers\Api\ContactPersonController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#54"><abbr title="App\Http\Controllers\Api\ContactPersonController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#70"><abbr title="App\Http\Controllers\Api\ContactPersonController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#12"><abbr title="App\Http\Controllers\Api\LanguageController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#17"><abbr title="App\Http\Controllers\Api\LanguageController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#22"><abbr title="App\Http\Controllers\Api\LanguageController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#33"><abbr title="App\Http\Controllers\Api\LanguageController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#38"><abbr title="App\Http\Controllers\Api\LanguageController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#20"><abbr title="App\Http\Controllers\Api\OperatorController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#28"><abbr title="App\Http\Controllers\Api\OperatorController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#41"><abbr title="App\Http\Controllers\Api\OperatorController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#56"><abbr title="App\Http\Controllers\Api\OperatorController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#71"><abbr title="App\Http\Controllers\Api\OperatorController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#83"><abbr title="App\Http\Controllers\Api\OperatorController::getCallHistoryByOperator">getCallHistoryByOperator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/RelationshipController.php.html#15"><abbr title="App\Http\Controllers\Api\RelationshipController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/RelationshipController.php.html#23"><abbr title="App\Http\Controllers\Api\RelationshipController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/RelationshipController.php.html#31"><abbr title="App\Http\Controllers\Api\RelationshipController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/RelationshipController.php.html#39"><abbr title="App\Http\Controllers\Api\RelationshipController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/RelationshipController.php.html#47"><abbr title="App\Http\Controllers\Api\RelationshipController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#17"><abbr title="App\Http\Controllers\Api\ReportController::getEmergencies">getEmergencies</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#46"><abbr title="App\Http\Controllers\Api\ReportController::getSocials">getSocials</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#76"><abbr title="App\Http\Controllers\Api\ReportController::getMonitorings">getMonitorings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#105"><abbr title="App\Http\Controllers\Api\ReportController::getAllPatients">getAllPatients</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#129"><abbr title="App\Http\Controllers\Api\ReportController::getPatientHistory">getPatientHistory</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#153"><abbr title="App\Http\Controllers\Api\ReportController::getScheduledCalls">getScheduledCalls</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#183"><abbr title="App\Http\Controllers\Api\ReportController::doneCalls">doneCalls</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#15"><abbr title="App\Http\Controllers\Api\ZoneController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#20"><abbr title="App\Http\Controllers\Api\ZoneController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#25"><abbr title="App\Http\Controllers\Api\ZoneController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#36"><abbr title="App\Http\Controllers\Api\ZoneController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#41"><abbr title="App\Http\Controllers\Api\ZoneController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/AsignUsersController.php.html#16"><abbr title="App\Http\Controllers\AsignUsersController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#17"><abbr title="App\Http\Controllers\Auth\AuthenticatedSessionController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#25"><abbr title="App\Http\Controllers\Auth\AuthenticatedSessionController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/AuthenticatedSessionController.php.html#37"><abbr title="App\Http\Controllers\Auth\AuthenticatedSessionController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#17"><abbr title="App\Http\Controllers\Auth\ConfirmablePasswordController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#25"><abbr title="App\Http\Controllers\Auth\ConfirmablePasswordController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#14"><abbr title="App\Http\Controllers\Auth\EmailVerificationNotificationController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#15"><abbr title="App\Http\Controllers\Auth\EmailVerificationPromptController::__invoke">__invoke</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#21"><abbr title="App\Http\Controllers\Auth\NewPasswordController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#31"><abbr title="App\Http\Controllers\Auth\NewPasswordController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordController.php.html#16"><abbr title="App\Http\Controllers\Auth\PasswordController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#16"><abbr title="App\Http\Controllers\Auth\PasswordResetLinkController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#26"><abbr title="App\Http\Controllers\Auth\PasswordResetLinkController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisteredUserController.php.html#20"><abbr title="App\Http\Controllers\Auth\RegisteredUserController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/RegisteredUserController.php.html#30"><abbr title="App\Http\Controllers\Auth\RegisteredUserController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#15"><abbr title="App\Http\Controllers\Auth\VerifyEmailController::__invoke">__invoke</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/LlamadasController.php.html#16"><abbr title="App\Http\Controllers\LlamadasController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ProfileController.php.html#17"><abbr title="App\Http\Controllers\ProfileController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ProfileController.php.html#27"><abbr title="App\Http\Controllers\ProfileController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ProfileController.php.html#43"><abbr title="App\Http\Controllers\ProfileController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#19"><abbr title="App\Http\Controllers\ZoneController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#28"><abbr title="App\Http\Controllers\ZoneController::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#37"><abbr title="App\Http\Controllers\ZoneController::store">store</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#51"><abbr title="App\Http\Controllers\ZoneController::show">show</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#59"><abbr title="App\Http\Controllers\ZoneController::edit">edit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#68"><abbr title="App\Http\Controllers\ZoneController::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/ZoneController.php.html#80"><abbr title="App\Http\Controllers\ZoneController::destroy">destroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Middleware/RoleMiddleware.php.html#15"><abbr title="App\Http\Middleware\RoleMiddleware::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#20"><abbr title="App\Http\Requests\Auth\LoginRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#30"><abbr title="App\Http\Requests\Auth\LoginRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#50"><abbr title="App\Http\Requests\Auth\LoginRequest::authenticate">authenticate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#70"><abbr title="App\Http\Requests\Auth\LoginRequest::ensureIsNotRateLimited">ensureIsNotRateLimited</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#91"><abbr title="App\Http\Requests\Auth\LoginRequest::throttleKey">throttleKey</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/ProfileUpdateRequest.php.html#16"><abbr title="App\Http\Requests\ProfileUpdateRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreAlertRequest.php.html#12"><abbr title="App\Http\Requests\StoreAlertRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreAlertRequest.php.html#22"><abbr title="App\Http\Requests\StoreAlertRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreContactPersonRequest.php.html#12"><abbr title="App\Http\Requests\StoreContactPersonRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreContactPersonRequest.php.html#22"><abbr title="App\Http\Requests\StoreContactPersonRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreDarAltaRequest.php.html#13"><abbr title="App\Http\Requests\StoreDarAltaRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreDarAltaRequest.php.html#23"><abbr title="App\Http\Requests\StoreDarAltaRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreOperatorRequest.php.html#13"><abbr title="App\Http\Requests\StoreOperatorRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreOperatorRequest.php.html#23"><abbr title="App\Http\Requests\StoreOperatorRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreZoneRequest.php.html#16"><abbr title="App\Http\Requests\StoreZoneRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreZoneRequest.php.html#26"><abbr title="App\Http\Requests\StoreZoneRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/StoreZoneRequest.php.html#34"><abbr title="App\Http\Requests\StoreZoneRequest::messages">messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateAlertRequest.php.html#12"><abbr title="App\Http\Requests\UpdateAlertRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateAlertRequest.php.html#22"><abbr title="App\Http\Requests\UpdateAlertRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateContactPersonRequest.php.html#12"><abbr title="App\Http\Requests\UpdateContactPersonRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateContactPersonRequest.php.html#22"><abbr title="App\Http\Requests\UpdateContactPersonRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateDarAltaNuevoRequest.php.html#12"><abbr title="App\Http\Requests\UpdateDarAltaNuevoRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateDarAltaNuevoRequest.php.html#22"><abbr title="App\Http\Requests\UpdateDarAltaNuevoRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateDasAltaAntiguoRequest.php.html#12"><abbr title="App\Http\Requests\UpdateDasAltaAntiguoRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateDasAltaAntiguoRequest.php.html#22"><abbr title="App\Http\Requests\UpdateDasAltaAntiguoRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateOperatorRequest.php.html#13"><abbr title="App\Http\Requests\UpdateOperatorRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateOperatorRequest.php.html#23"><abbr title="App\Http\Requests\UpdateOperatorRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateZoneRequest.php.html#16"><abbr title="App\Http\Requests\UpdateZoneRequest::authorize">authorize</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateZoneRequest.php.html#26"><abbr title="App\Http\Requests\UpdateZoneRequest::rules">rules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Resources/AlertResource.php.html#19"><abbr title="App\Http\Resources\AlertResource::toArray">toArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Resources/OutgoingCallResource.php.html#16"><abbr title="App\Http\Resources\OutgoingCallResource::toArray">toArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Resources/Partials/AlertSimpleResource.php.html#17"><abbr title="App\Http\Resources\AlertSimpleResource::toArray">toArray</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#21"><abbr title="App\Livewire\AsignUsers::mount">mount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#26"><abbr title="App\Livewire\AsignUsers::applyFilter">applyFilter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#31"><abbr title="App\Livewire\AsignUsers::actualizarDatos">actualizarDatos</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#37"><abbr title="App\Livewire\AsignUsers::clearFilters">clearFilters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#45"><abbr title="App\Livewire\AsignUsers::actualizarPacientes">actualizarPacientes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#71"><abbr title="App\Livewire\AsignUsers::actualizarOperadores">actualizarOperadores</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#91"><abbr title="App\Livewire\AsignUsers::asignarOperador">asignarOperador</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#102"><abbr title="App\Livewire\AsignUsers::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#17"><abbr title="App\Livewire\Llamadas::mount">mount</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#22"><abbr title="App\Livewire\Llamadas::actualizarDesdeEvento">actualizarDesdeEvento</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#29"><abbr title="App\Livewire\Llamadas::applyFilter">applyFilter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#34"><abbr title="App\Livewire\Llamadas::clearFilters">clearFilters</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#41"><abbr title="App\Livewire\Llamadas::actualizarLlamadas">actualizarLlamadas</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#68"><abbr title="App\Livewire\Llamadas::createCall">createCall</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#80"><abbr title="App\Livewire\Llamadas::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Alert.php.html#23"><abbr title="App\Models\Alert::user">user</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Alert.php.html#27"><abbr title="App\Models\Alert::zone">zone</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Alert.php.html#31"><abbr title="App\Models\Alert::patient">patient</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Alert.php.html#35"><abbr title="App\Models\Alert::outgoingCall">outgoingCall</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Call.php.html#17"><abbr title="App\Models\Call::operator">operator</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Call.php.html#21"><abbr title="App\Models\Call::patient">patient</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Call.php.html#29"><abbr title="App\Models\Call::outgoingCall">outgoingCall</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/ContactPerson.php.html#27"><abbr title="App\Models\ContactPerson::patient">patient</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/IncomingCall.php.html#17"><abbr title="App\Models\IncomingCall::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Language.php.html#13"><abbr title="App\Models\Language::patients">patients</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Language.php.html#18"><abbr title="App\Models\Language::users">users</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/OutgoingCall.php.html#19"><abbr title="App\Models\OutgoingCall::call">call</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/OutgoingCall.php.html#23"><abbr title="App\Models\OutgoingCall::alert">alert</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#62"><abbr title="App\Models\User::zones">zones</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#67"><abbr title="App\Models\User::patients">patients</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/User.php.html#72"><abbr title="App\Models\User::languages">languages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Zone.php.html#17"><abbr title="App\Models\Zone::operators">operators</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Zone.php.html#22"><abbr title="App\Models\Zone::patients">patients</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Models/Zone.php.html#27"><abbr title="App\Models\Zone::alerts">alerts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#14"><abbr title="App\Policies\DarAltaPolicy::viewAny">viewAny</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#22"><abbr title="App\Policies\DarAltaPolicy::view">view</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#30"><abbr title="App\Policies\DarAltaPolicy::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#38"><abbr title="App\Policies\DarAltaPolicy::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#46"><abbr title="App\Policies\DarAltaPolicy::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#54"><abbr title="App\Policies\DarAltaPolicy::restore">restore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/DarAltaPolicy.php.html#62"><abbr title="App\Policies\DarAltaPolicy::forceDelete">forceDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#14"><abbr title="App\Policies\ZonePolicy::viewAny">viewAny</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#22"><abbr title="App\Policies\ZonePolicy::view">view</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#30"><abbr title="App\Policies\ZonePolicy::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#38"><abbr title="App\Policies\ZonePolicy::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#46"><abbr title="App\Policies\ZonePolicy::delete">delete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#54"><abbr title="App\Policies\ZonePolicy::restore">restore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Policies/ZonePolicy.php.html#62"><abbr title="App\Policies\ZonePolicy::forceDelete">forceDelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/AppLayout.php.html#13"><abbr title="App\View\Components\AppLayout::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/GuestLayout.php.html#13"><abbr title="App\View\Components\GuestLayout::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/Zones.php.html#15"><abbr title="App\View\Components\Zones::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="View/Components/Zones.php.html#24"><abbr title="App\View\Components\Zones::render">render</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/AlertType.php.html#16"><abbr title="App\Enums\AlertType::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/DayOfWeek.php.html#16"><abbr title="App\Enums\DayOfWeek::values">values</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/EmergencyTypes.php.html#11"><abbr title="App\Enums\EmergencyTypes::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/EmergencyTypes.php.html#21"><abbr title="App\Enums\EmergencyTypes::values">values</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/IncomingCallsType.php.html#23"><abbr title="App\Enums\IncomingCallsType::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/OutgoingCallsType.php.html#12"><abbr title="App\Enums\OutgoingCallsType::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/PatientStatus.php.html#13"><abbr title="App\Enums\PatientStatus::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/SocialTypes.php.html#14"><abbr title="App\Enums\SocialTypes::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/SocialTypes.php.html#28"><abbr title="App\Enums\SocialTypes::values">values</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/TypeZones.php.html#10"><abbr title="App\Enums\TypeZones::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/TypeZones.php.html#20"><abbr title="App\Enums\TypeZones::values">values</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Enums/UserRole.php.html#9"><abbr title="App\Enums\UserRole::label">label</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/CallController.php.html#25"><abbr title="App\Http\Controllers\Api\CallController::store">store</abbr></a></td><td class="text-right">45%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/PatientController.php.html#82"><abbr title="App\Http\Controllers\Api\PatientController::update">update</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#14"><abbr title="App\Http\Controllers\Api\AuthController::login">login</abbr></a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Http/Controllers/Api/PatientController.php.html#36"><abbr title="App\Http\Controllers\Api\PatientController::store">store</abbr></a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Http/Requests/StoreCallRequest.php.html#25"><abbr title="App\Http\Requests\StoreCallRequest::rules">rules</abbr></a></td><td class="text-right">88%</td></tr>
+       <tr><td><a href="Http/Requests/UpdateCallRequest.php.html#25"><abbr title="App\Http\Requests\UpdateCallRequest::rules">rules</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Enums/IncomingCallsType.php.html#23"><abbr title="App\Enums\IncomingCallsType::label">label</abbr></a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Enums/AlertType.php.html#16"><abbr title="App\Enums\AlertType::label">label</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Http/Requests/StoreAlertRequest.php.html#22"><abbr title="App\Http\Requests\StoreAlertRequest::rules">rules</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Http/Requests/UpdateAlertRequest.php.html#22"><abbr title="App\Http\Requests\UpdateAlertRequest::rules">rules</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Livewire/Llamadas.php.html#41"><abbr title="App\Livewire\Llamadas::actualizarLlamadas">actualizarLlamadas</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Enums/SocialTypes.php.html#14"><abbr title="App\Enums\SocialTypes::label">label</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#14"><abbr title="App\Http\Controllers\Api\AlertController::getValidData">getValidData</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Enums/PatientStatus.php.html#13"><abbr title="App\Enums\PatientStatus::label">label</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#17"><abbr title="App\Http\Controllers\Api\ReportController::getEmergencies">getEmergencies</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#46"><abbr title="App\Http\Controllers\Api\ReportController::getSocials">getSocials</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#76"><abbr title="App\Http\Controllers\Api\ReportController::getMonitorings">getMonitorings</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#153"><abbr title="App\Http\Controllers\Api\ReportController::getScheduledCalls">getScheduledCalls</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#45"><abbr title="App\Livewire\AsignUsers::actualizarPacientes">actualizarPacientes</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Enums/EmergencyTypes.php.html#11"><abbr title="App\Enums\EmergencyTypes::label">label</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Enums/OutgoingCallsType.php.html#12"><abbr title="App\Enums\OutgoingCallsType::label">label</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Enums/TypeZones.php.html#10"><abbr title="App\Enums\TypeZones::label">label</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#88"><abbr title="App\Http\Controllers\Api\AlertController::getCallByAlertId">getCallByAlertId</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#31"><abbr title="App\Http\Controllers\Api\AuthController::register">register</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#41"><abbr title="App\Http\Controllers\Api\OperatorController::show">show</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#129"><abbr title="App\Http\Controllers\Api\ReportController::getPatientHistory">getPatientHistory</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#183"><abbr title="App\Http\Controllers\Api\ReportController::doneCalls">doneCalls</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/VerifyEmailController.php.html#15"><abbr title="App\Http\Controllers\Auth\VerifyEmailController::__invoke">__invoke</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Middleware/RoleMiddleware.php.html#15"><abbr title="App\Http\Middleware\RoleMiddleware::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#71"><abbr title="App\Livewire\AsignUsers::actualizarOperadores">actualizarOperadores</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Livewire/AsignUsers.php.html#91"><abbr title="App\Livewire\AsignUsers::asignarOperador">asignarOperador</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Enums/UserRole.php.html#9"><abbr title="App\Enums\UserRole::label">label</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Http/Controllers/Api/PatientController.php.html#36"><abbr title="App\Http\Controllers\Api\PatientController::store">store</abbr></a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="Http/Controllers/Api/PatientController.php.html#82"><abbr title="App\Http\Controllers\Api\PatientController::update">update</abbr></a></td><td class="text-right">7</td></tr>
+       <tr><td><a href="Http/Controllers/Api/CallController.php.html#25"><abbr title="App\Http\Controllers\Api\CallController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#97"><abbr title="App\Http\Controllers\AltaYBajaController::updateAltaAntiguoUser">updateAltaAntiguoUser</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/AltaYBajaController.php.html#114"><abbr title="App\Http\Controllers\AltaYBajaController::destroy">destroy</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#56"><abbr title="App\Http\Controllers\Api\AlertController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#67"><abbr title="App\Http\Controllers\Api\AlertController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AlertController.php.html#78"><abbr title="App\Http\Controllers\Api\AlertController::destroy">destroy</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#15"><abbr title="App\Http\Controllers\Api\ContactPersonController::index">index</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#28"><abbr title="App\Http\Controllers\Api\ContactPersonController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#42"><abbr title="App\Http\Controllers\Api\ContactPersonController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#54"><abbr title="App\Http\Controllers\Api\ContactPersonController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ContactPersonController.php.html#70"><abbr title="App\Http\Controllers\Api\ContactPersonController::destroy">destroy</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/LanguageController.php.html#22"><abbr title="App\Http\Controllers\Api\LanguageController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#28"><abbr title="App\Http\Controllers\Api\OperatorController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#56"><abbr title="App\Http\Controllers\Api\OperatorController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/OperatorController.php.html#71"><abbr title="App\Http\Controllers\Api\OperatorController::destroy">destroy</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ReportController.php.html#105"><abbr title="App\Http\Controllers\Api\ReportController::getAllPatients">getAllPatients</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/ZoneController.php.html#25"><abbr title="App\Http\Controllers\Api\ZoneController::show">show</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/ConfirmablePasswordController.php.html#25"><abbr title="App\Http\Controllers\Auth\ConfirmablePasswordController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationNotificationController.php.html#14"><abbr title="App\Http\Controllers\Auth\EmailVerificationNotificationController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/EmailVerificationPromptController.php.html#15"><abbr title="App\Http\Controllers\Auth\EmailVerificationPromptController::__invoke">__invoke</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/NewPasswordController.php.html#31"><abbr title="App\Http\Controllers\Auth\NewPasswordController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Auth/PasswordResetLinkController.php.html#26"><abbr title="App\Http\Controllers\Auth\PasswordResetLinkController::store">store</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/ProfileController.php.html#27"><abbr title="App\Http\Controllers\ProfileController::update">update</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#30"><abbr title="App\Http\Requests\Auth\LoginRequest::rules">rules</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#50"><abbr title="App\Http\Requests\Auth\LoginRequest::authenticate">authenticate</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Requests/Auth/LoginRequest.php.html#70"><abbr title="App\Http\Requests\Auth\LoginRequest::ensureIsNotRateLimited">ensureIsNotRateLimited</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Resources/AlertResource.php.html#19"><abbr title="App\Http\Resources\AlertResource::toArray">toArray</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Resources/Partials/AlertSimpleResource.php.html#17"><abbr title="App\Http\Resources\AlertSimpleResource::toArray">toArray</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Http/Controllers/Api/AuthController.php.html#14"><abbr title="App\Http\Controllers\Api\AuthController::login">login</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Http/Requests/StoreCallRequest.php.html#25"><abbr title="App\Http\Requests\StoreCallRequest::rules">rules</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Http/Requests/UpdateCallRequest.php.html#25"><abbr title="App\Http\Requests\UpdateCallRequest::rules">rules</abbr></a></td><td class="text-right">3</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 11.0.8</a> using <a href="https://www.php.net/" target="_top">PHP 8.4.3</a> and <a href="https://phpunit.de/">PHPUnit 11.5.3</a> at Wed Feb 19 22:50:20 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=11.0.8" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=11.0.8" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=11.0.8" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([54,2,2,0,0,1,2,1,2,3,2,15], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([174,0,0,0,0,1,0,0,0,5,3,46], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,3,"<a href=\"Events\/LlamadaActualizada.php.html#14\">App\\Events\\LlamadaActualizada<\/a>"],[0,10,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#12\">App\\Http\\Controllers\\AltaYBajaController<\/a>"],[0,18,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#12\">App\\Http\\Controllers\\Api\\AlertController<\/a>"],[46.34146341463415,11,"<a href=\"Http\/Controllers\/Api\/AuthController.php.html#12\">App\\Http\\Controllers\\Api\\AuthController<\/a>"],[100,3,"<a href=\"Http\/Controllers\/Api\/BaseController.php.html#5\">App\\Http\\Controllers\\Api\\BaseController<\/a>"],[64.70588235294117,8,"<a href=\"Http\/Controllers\/Api\/CallController.php.html#12\">App\\Http\\Controllers\\Api\\CallController<\/a>"],[0,10,"<a href=\"Http\/Controllers\/Api\/ContactPersonController.php.html#10\">App\\Http\\Controllers\\Api\\ContactPersonController<\/a>"],[0,6,"<a href=\"Http\/Controllers\/Api\/LanguageController.php.html#9\">App\\Http\\Controllers\\Api\\LanguageController<\/a>"],[0,11,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#15\">App\\Http\\Controllers\\Api\\OperatorController<\/a>"],[89.36170212765957,21,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#15\">App\\Http\\Controllers\\Api\\PatientController<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Api\/RelationshipController.php.html#10\">App\\Http\\Controllers\\Api\\RelationshipController<\/a>"],[0,28,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#15\">App\\Http\\Controllers\\Api\\ReportController<\/a>"],[0,6,"<a href=\"Http\/Controllers\/Api\/ZoneController.php.html#12\">App\\Http\\Controllers\\Api\\ZoneController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AsignUsersController.php.html#8\">App\\Http\\Controllers\\AsignUsersController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#12\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#12\">App\\Http\\Controllers\\Auth\\ConfirmablePasswordController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationNotificationController.php.html#9\">App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationPromptController.php.html#10\">App\\Http\\Controllers\\Auth\\EmailVerificationPromptController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/NewPasswordController.php.html#16\">App\\Http\\Controllers\\Auth\\NewPasswordController<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/PasswordController.php.html#11\">App\\Http\\Controllers\\Auth\\PasswordController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#11\">App\\Http\\Controllers\\Auth\\PasswordResetLinkController<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/RegisteredUserController.php.html#15\">App\\Http\\Controllers\\Auth\\RegisteredUserController<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/VerifyEmailController.php.html#10\">App\\Http\\Controllers\\Auth\\VerifyEmailController<\/a>"],[100,0,"<a href=\"Http\/Controllers\/Controller.php.html#5\">App\\Http\\Controllers\\Controller<\/a>"],[0,1,"<a href=\"Http\/Controllers\/LlamadasController.php.html#8\">App\\Http\\Controllers\\LlamadasController<\/a>"],[0,4,"<a href=\"Http\/Controllers\/ProfileController.php.html#12\">App\\Http\\Controllers\\ProfileController<\/a>"],[0,7,"<a href=\"Http\/Controllers\/ZoneController.php.html#11\">App\\Http\\Controllers\\ZoneController<\/a>"],[0,3,"<a href=\"Http\/Middleware\/RoleMiddleware.php.html#8\">App\\Http\\Middleware\\RoleMiddleware<\/a>"],[0,8,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#15\">App\\Http\\Requests\\Auth\\LoginRequest<\/a>"],[0,1,"<a href=\"Http\/Requests\/ProfileUpdateRequest.php.html#9\">App\\Http\\Requests\\ProfileUpdateRequest<\/a>"],[0,10,"<a href=\"Http\/Requests\/StoreAlertRequest.php.html#7\">App\\Http\\Requests\\StoreAlertRequest<\/a>"],[89.28571428571429,4,"<a href=\"Http\/Requests\/StoreCallRequest.php.html#10\">App\\Http\\Requests\\StoreCallRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/StoreContactPersonRequest.php.html#7\">App\\Http\\Requests\\StoreContactPersonRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/StoreDarAltaRequest.php.html#8\">App\\Http\\Requests\\StoreDarAltaRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/StoreOperatorRequest.php.html#8\">App\\Http\\Requests\\StoreOperatorRequest<\/a>"],[93.10344827586206,11,"<a href=\"Http\/Requests\/StorePatientRequest.php.html#12\">App\\Http\\Requests\\StorePatientRequest<\/a>"],[0,3,"<a href=\"Http\/Requests\/StoreZoneRequest.php.html#11\">App\\Http\\Requests\\StoreZoneRequest<\/a>"],[0,10,"<a href=\"Http\/Requests\/UpdateAlertRequest.php.html#7\">App\\Http\\Requests\\UpdateAlertRequest<\/a>"],[89.28571428571429,4,"<a href=\"Http\/Requests\/UpdateCallRequest.php.html#10\">App\\Http\\Requests\\UpdateCallRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateContactPersonRequest.php.html#7\">App\\Http\\Requests\\UpdateContactPersonRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateDarAltaNuevoRequest.php.html#7\">App\\Http\\Requests\\UpdateDarAltaNuevoRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateDasAltaAntiguoRequest.php.html#7\">App\\Http\\Requests\\UpdateDasAltaAntiguoRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateOperatorRequest.php.html#8\">App\\Http\\Requests\\UpdateOperatorRequest<\/a>"],[91.80327868852459,11,"<a href=\"Http\/Requests\/UpdatePatientRequest.php.html#12\">App\\Http\\Requests\\UpdatePatientRequest<\/a>"],[0,2,"<a href=\"Http\/Requests\/UpdateZoneRequest.php.html#11\">App\\Http\\Requests\\UpdateZoneRequest<\/a>"],[0,2,"<a href=\"Http\/Resources\/AlertResource.php.html#12\">App\\Http\\Resources\\AlertResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/CallResource.php.html#15\">App\\Http\\Resources\\CallResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/ContactPersonResource.php.html#8\">App\\Http\\Resources\\ContactPersonResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/IncomingCallResource.php.html#8\">App\\Http\\Resources\\IncomingCallResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/LanguageResource.php.html#8\">App\\Http\\Resources\\LanguageResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/OperatorResource.php.html#8\">App\\Http\\Resources\\OperatorResource<\/a>"],[0,1,"<a href=\"Http\/Resources\/OutgoingCallResource.php.html#9\">App\\Http\\Resources\\OutgoingCallResource<\/a>"],[0,2,"<a href=\"Http\/Resources\/Partials\/AlertSimpleResource.php.html#10\">App\\Http\\Resources\\AlertSimpleResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/Partials\/PatientSimpleResource.php.html#9\">App\\Http\\Resources\\Partials\\PatientSimpleResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/PatientResource.php.html#9\">App\\Http\\Resources\\PatientResource<\/a>"],[100,1,"<a href=\"Http\/Resources\/ZoneResource.php.html#8\">App\\Http\\Resources\\ZoneResource<\/a>"],[0,16,"<a href=\"Livewire\/AsignUsers.php.html#12\">App\\Livewire\\AsignUsers<\/a>"],[0,15,"<a href=\"Livewire\/Llamadas.php.html#11\">App\\Livewire\\Llamadas<\/a>"],[0,4,"<a href=\"Models\/Alert.php.html#9\">App\\Models\\Alert<\/a>"],[70,5,"<a href=\"Models\/Call.php.html#11\">App\\Models\\Call<\/a>"],[75,2,"<a href=\"Models\/ContactPerson.php.html#9\">App\\Models\\ContactPerson<\/a>"],[0,1,"<a href=\"Models\/IncomingCall.php.html#9\">App\\Models\\IncomingCall<\/a>"],[50,4,"<a href=\"Models\/Language.php.html#8\">App\\Models\\Language<\/a>"],[0,2,"<a href=\"Models\/OutgoingCall.php.html#10\">App\\Models\\OutgoingCall<\/a>"],[100,5,"<a href=\"Models\/Patient.php.html#10\">App\\Models\\Patient<\/a>"],[57.14285714285714,4,"<a href=\"Models\/User.php.html#14\">App\\Models\\User<\/a>"],[0,3,"<a href=\"Models\/Zone.php.html#8\">App\\Models\\Zone<\/a>"],[0,7,"<a href=\"Policies\/DarAltaPolicy.php.html#9\">App\\Policies\\DarAltaPolicy<\/a>"],[0,7,"<a href=\"Policies\/ZonePolicy.php.html#9\">App\\Policies\\ZonePolicy<\/a>"],[100,2,"<a href=\"Providers\/AppServiceProvider.php.html#12\">App\\Providers\\AppServiceProvider<\/a>"],[0,1,"<a href=\"View\/Components\/AppLayout.php.html#8\">App\\View\\Components\\AppLayout<\/a>"],[0,1,"<a href=\"View\/Components\/GuestLayout.php.html#8\">App\\View\\Components\\GuestLayout<\/a>"],[0,2,"<a href=\"View\/Components\/Zones.php.html#10\">App\\View\\Components\\Zones<\/a>"],[8.333333333333332,11,"<a href=\"Enums\/AlertType.php.html#5\">App\\Enums\\AlertType<\/a>"],[0,1,"<a href=\"Enums\/DayOfWeek.php.html#5\">App\\Enums\\DayOfWeek<\/a>"],[0,6,"<a href=\"Enums\/EmergencyTypes.php.html#5\">App\\Enums\\EmergencyTypes<\/a>"],[6.666666666666667,14,"<a href=\"Enums\/IncomingCallsType.php.html#5\">App\\Enums\\IncomingCallsType<\/a>"],[100,3,"<a href=\"Enums\/Language.php.html#5\">App\\Enums\\Language<\/a>"],[14.285714285714285,6,"<a href=\"Enums\/OutgoingCallsType.php.html#5\">App\\Enums\\OutgoingCallsType<\/a>"],[12.5,7,"<a href=\"Enums\/PatientStatus.php.html#5\">App\\Enums\\PatientStatus<\/a>"],[100,1,"<a href=\"Enums\/Relationship.php.html#5\">App\\Enums\\Relationship<\/a>"],[0,10,"<a href=\"Enums\/SocialTypes.php.html#4\">App\\Enums\\SocialTypes<\/a>"],[0,6,"<a href=\"Enums\/TypeZones.php.html#4\">App\\Enums\\TypeZones<\/a>"],[0,3,"<a href=\"Enums\/UserRole.php.html#5\">App\\Enums\\UserRole<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Events\/LlamadaActualizada.php.html#20\">App\\Events\\LlamadaActualizada::__construct<\/a>"],[100,1,"<a href=\"Events\/LlamadaActualizada.php.html#25\">App\\Events\\LlamadaActualizada::broadcastOn<\/a>"],[100,1,"<a href=\"Events\/LlamadaActualizada.php.html#30\">App\\Events\\LlamadaActualizada::broadcastAs<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#20\">App\\Http\\Controllers\\AltaYBajaController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#32\">App\\Http\\Controllers\\AltaYBajaController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#41\">App\\Http\\Controllers\\AltaYBajaController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#65\">App\\Http\\Controllers\\AltaYBajaController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#74\">App\\Http\\Controllers\\AltaYBajaController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#86\">App\\Http\\Controllers\\AltaYBajaController::altaAntiguoUser<\/a>"],[0,2,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#97\">App\\Http\\Controllers\\AltaYBajaController::updateAltaAntiguoUser<\/a>"],[0,2,"<a href=\"Http\/Controllers\/AltaYBajaController.php.html#114\">App\\Http\\Controllers\\AltaYBajaController::destroy<\/a>"],[0,7,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#14\">App\\Http\\Controllers\\Api\\AlertController::getValidData<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#46\">App\\Http\\Controllers\\Api\\AlertController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#51\">App\\Http\\Controllers\\Api\\AlertController::show<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#56\">App\\Http\\Controllers\\Api\\AlertController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#67\">App\\Http\\Controllers\\Api\\AlertController::update<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#78\">App\\Http\\Controllers\\Api\\AlertController::destroy<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Api\/AlertController.php.html#88\">App\\Http\\Controllers\\Api\\AlertController::getCallByAlertId<\/a>"],[88.88888888888889,4,"<a href=\"Http\/Controllers\/Api\/AuthController.php.html#14\">App\\Http\\Controllers\\Api\\AuthController::login<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Api\/AuthController.php.html#31\">App\\Http\\Controllers\\Api\\AuthController::register<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/AuthController.php.html#56\">App\\Http\\Controllers\\Api\\AuthController::logout<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/AuthController.php.html#65\">App\\Http\\Controllers\\Api\\AuthController::redirectToGoogle<\/a>"],[90.9090909090909,2,"<a href=\"Http\/Controllers\/Api\/AuthController.php.html#70\">App\\Http\\Controllers\\Api\\AuthController::handleGoogleCallback<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/BaseController.php.html#12\">App\\Http\\Controllers\\Api\\BaseController::sendResponse<\/a>"],[100,2,"<a href=\"Http\/Controllers\/Api\/BaseController.php.html#26\">App\\Http\\Controllers\\Api\\BaseController::sendError<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/CallController.php.html#17\">App\\Http\\Controllers\\Api\\CallController::index<\/a>"],[45.45454545454545,4,"<a href=\"Http\/Controllers\/Api\/CallController.php.html#25\">App\\Http\\Controllers\\Api\\CallController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/CallController.php.html#51\">App\\Http\\Controllers\\Api\\CallController::show<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/CallController.php.html#59\">App\\Http\\Controllers\\Api\\CallController::update<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/CallController.php.html#68\">App\\Http\\Controllers\\Api\\CallController::destroy<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ContactPersonController.php.html#15\">App\\Http\\Controllers\\Api\\ContactPersonController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ContactPersonController.php.html#28\">App\\Http\\Controllers\\Api\\ContactPersonController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ContactPersonController.php.html#42\">App\\Http\\Controllers\\Api\\ContactPersonController::show<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ContactPersonController.php.html#54\">App\\Http\\Controllers\\Api\\ContactPersonController::update<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ContactPersonController.php.html#70\">App\\Http\\Controllers\\Api\\ContactPersonController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/LanguageController.php.html#12\">App\\Http\\Controllers\\Api\\LanguageController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/LanguageController.php.html#17\">App\\Http\\Controllers\\Api\\LanguageController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/LanguageController.php.html#22\">App\\Http\\Controllers\\Api\\LanguageController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/LanguageController.php.html#33\">App\\Http\\Controllers\\Api\\LanguageController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/LanguageController.php.html#38\">App\\Http\\Controllers\\Api\\LanguageController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#20\">App\\Http\\Controllers\\Api\\OperatorController::index<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#28\">App\\Http\\Controllers\\Api\\OperatorController::store<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#41\">App\\Http\\Controllers\\Api\\OperatorController::show<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#56\">App\\Http\\Controllers\\Api\\OperatorController::update<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#71\">App\\Http\\Controllers\\Api\\OperatorController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/OperatorController.php.html#83\">App\\Http\\Controllers\\Api\\OperatorController::getCallHistoryByOperator<\/a>"],[100,3,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#20\">App\\Http\\Controllers\\Api\\PatientController::index<\/a>"],[88.88888888888889,8,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#36\">App\\Http\\Controllers\\Api\\PatientController::store<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#72\">App\\Http\\Controllers\\Api\\PatientController::show<\/a>"],[83.33333333333334,7,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#82\">App\\Http\\Controllers\\Api\\PatientController::update<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#116\">App\\Http\\Controllers\\Api\\PatientController::destroy<\/a>"],[100,1,"<a href=\"Http\/Controllers\/Api\/PatientController.php.html#122\">App\\Http\\Controllers\\Api\\PatientController::getCallHistoryByPatient<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/RelationshipController.php.html#15\">App\\Http\\Controllers\\Api\\RelationshipController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/RelationshipController.php.html#23\">App\\Http\\Controllers\\Api\\RelationshipController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/RelationshipController.php.html#31\">App\\Http\\Controllers\\Api\\RelationshipController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/RelationshipController.php.html#39\">App\\Http\\Controllers\\Api\\RelationshipController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/RelationshipController.php.html#47\">App\\Http\\Controllers\\Api\\RelationshipController::destroy<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#17\">App\\Http\\Controllers\\Api\\ReportController::getEmergencies<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#46\">App\\Http\\Controllers\\Api\\ReportController::getSocials<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#76\">App\\Http\\Controllers\\Api\\ReportController::getMonitorings<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#105\">App\\Http\\Controllers\\Api\\ReportController::getAllPatients<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#129\">App\\Http\\Controllers\\Api\\ReportController::getPatientHistory<\/a>"],[0,5,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#153\">App\\Http\\Controllers\\Api\\ReportController::getScheduledCalls<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Api\/ReportController.php.html#183\">App\\Http\\Controllers\\Api\\ReportController::doneCalls<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/ZoneController.php.html#15\">App\\Http\\Controllers\\Api\\ZoneController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/ZoneController.php.html#20\">App\\Http\\Controllers\\Api\\ZoneController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Api\/ZoneController.php.html#25\">App\\Http\\Controllers\\Api\\ZoneController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/ZoneController.php.html#36\">App\\Http\\Controllers\\Api\\ZoneController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Api\/ZoneController.php.html#41\">App\\Http\\Controllers\\Api\\ZoneController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/AsignUsersController.php.html#16\">App\\Http\\Controllers\\AsignUsersController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#17\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#25\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/AuthenticatedSessionController.php.html#37\">App\\Http\\Controllers\\Auth\\AuthenticatedSessionController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#17\">App\\Http\\Controllers\\Auth\\ConfirmablePasswordController::show<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/ConfirmablePasswordController.php.html#25\">App\\Http\\Controllers\\Auth\\ConfirmablePasswordController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationNotificationController.php.html#14\">App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController::store<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/EmailVerificationPromptController.php.html#15\">App\\Http\\Controllers\\Auth\\EmailVerificationPromptController::__invoke<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/NewPasswordController.php.html#21\">App\\Http\\Controllers\\Auth\\NewPasswordController::create<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/NewPasswordController.php.html#31\">App\\Http\\Controllers\\Auth\\NewPasswordController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/PasswordController.php.html#16\">App\\Http\\Controllers\\Auth\\PasswordController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#16\">App\\Http\\Controllers\\Auth\\PasswordResetLinkController::create<\/a>"],[0,2,"<a href=\"Http\/Controllers\/Auth\/PasswordResetLinkController.php.html#26\">App\\Http\\Controllers\\Auth\\PasswordResetLinkController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisteredUserController.php.html#20\">App\\Http\\Controllers\\Auth\\RegisteredUserController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/Auth\/RegisteredUserController.php.html#30\">App\\Http\\Controllers\\Auth\\RegisteredUserController::store<\/a>"],[0,3,"<a href=\"Http\/Controllers\/Auth\/VerifyEmailController.php.html#15\">App\\Http\\Controllers\\Auth\\VerifyEmailController::__invoke<\/a>"],[0,1,"<a href=\"Http\/Controllers\/LlamadasController.php.html#16\">App\\Http\\Controllers\\LlamadasController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ProfileController.php.html#17\">App\\Http\\Controllers\\ProfileController::edit<\/a>"],[0,2,"<a href=\"Http\/Controllers\/ProfileController.php.html#27\">App\\Http\\Controllers\\ProfileController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ProfileController.php.html#43\">App\\Http\\Controllers\\ProfileController::destroy<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#19\">App\\Http\\Controllers\\ZoneController::index<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#28\">App\\Http\\Controllers\\ZoneController::create<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#37\">App\\Http\\Controllers\\ZoneController::store<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#51\">App\\Http\\Controllers\\ZoneController::show<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#59\">App\\Http\\Controllers\\ZoneController::edit<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#68\">App\\Http\\Controllers\\ZoneController::update<\/a>"],[0,1,"<a href=\"Http\/Controllers\/ZoneController.php.html#80\">App\\Http\\Controllers\\ZoneController::destroy<\/a>"],[0,3,"<a href=\"Http\/Middleware\/RoleMiddleware.php.html#15\">App\\Http\\Middleware\\RoleMiddleware::handle<\/a>"],[0,1,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#20\">App\\Http\\Requests\\Auth\\LoginRequest::authorize<\/a>"],[0,2,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#30\">App\\Http\\Requests\\Auth\\LoginRequest::rules<\/a>"],[0,2,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#50\">App\\Http\\Requests\\Auth\\LoginRequest::authenticate<\/a>"],[0,2,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#70\">App\\Http\\Requests\\Auth\\LoginRequest::ensureIsNotRateLimited<\/a>"],[0,1,"<a href=\"Http\/Requests\/Auth\/LoginRequest.php.html#91\">App\\Http\\Requests\\Auth\\LoginRequest::throttleKey<\/a>"],[0,1,"<a href=\"Http\/Requests\/ProfileUpdateRequest.php.html#16\">App\\Http\\Requests\\ProfileUpdateRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreAlertRequest.php.html#12\">App\\Http\\Requests\\StoreAlertRequest::authorize<\/a>"],[0,9,"<a href=\"Http\/Requests\/StoreAlertRequest.php.html#22\">App\\Http\\Requests\\StoreAlertRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/StoreCallRequest.php.html#15\">App\\Http\\Requests\\StoreCallRequest::authorize<\/a>"],[88.88888888888889,3,"<a href=\"Http\/Requests\/StoreCallRequest.php.html#25\">App\\Http\\Requests\\StoreCallRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreContactPersonRequest.php.html#12\">App\\Http\\Requests\\StoreContactPersonRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreContactPersonRequest.php.html#22\">App\\Http\\Requests\\StoreContactPersonRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreDarAltaRequest.php.html#13\">App\\Http\\Requests\\StoreDarAltaRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreDarAltaRequest.php.html#23\">App\\Http\\Requests\\StoreDarAltaRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreOperatorRequest.php.html#13\">App\\Http\\Requests\\StoreOperatorRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreOperatorRequest.php.html#23\">App\\Http\\Requests\\StoreOperatorRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/StorePatientRequest.php.html#17\">App\\Http\\Requests\\StorePatientRequest::authorize<\/a>"],[92.98245614035088,10,"<a href=\"Http\/Requests\/StorePatientRequest.php.html#27\">App\\Http\\Requests\\StorePatientRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreZoneRequest.php.html#16\">App\\Http\\Requests\\StoreZoneRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreZoneRequest.php.html#26\">App\\Http\\Requests\\StoreZoneRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/StoreZoneRequest.php.html#34\">App\\Http\\Requests\\StoreZoneRequest::messages<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateAlertRequest.php.html#12\">App\\Http\\Requests\\UpdateAlertRequest::authorize<\/a>"],[0,9,"<a href=\"Http\/Requests\/UpdateAlertRequest.php.html#22\">App\\Http\\Requests\\UpdateAlertRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/UpdateCallRequest.php.html#15\">App\\Http\\Requests\\UpdateCallRequest::authorize<\/a>"],[88.88888888888889,3,"<a href=\"Http\/Requests\/UpdateCallRequest.php.html#25\">App\\Http\\Requests\\UpdateCallRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateContactPersonRequest.php.html#12\">App\\Http\\Requests\\UpdateContactPersonRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateContactPersonRequest.php.html#22\">App\\Http\\Requests\\UpdateContactPersonRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateDarAltaNuevoRequest.php.html#12\">App\\Http\\Requests\\UpdateDarAltaNuevoRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateDarAltaNuevoRequest.php.html#22\">App\\Http\\Requests\\UpdateDarAltaNuevoRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateDasAltaAntiguoRequest.php.html#12\">App\\Http\\Requests\\UpdateDasAltaAntiguoRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateDasAltaAntiguoRequest.php.html#22\">App\\Http\\Requests\\UpdateDasAltaAntiguoRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateOperatorRequest.php.html#13\">App\\Http\\Requests\\UpdateOperatorRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateOperatorRequest.php.html#23\">App\\Http\\Requests\\UpdateOperatorRequest::rules<\/a>"],[100,1,"<a href=\"Http\/Requests\/UpdatePatientRequest.php.html#17\">App\\Http\\Requests\\UpdatePatientRequest::authorize<\/a>"],[91.66666666666666,10,"<a href=\"Http\/Requests\/UpdatePatientRequest.php.html#27\">App\\Http\\Requests\\UpdatePatientRequest::rules<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateZoneRequest.php.html#16\">App\\Http\\Requests\\UpdateZoneRequest::authorize<\/a>"],[0,1,"<a href=\"Http\/Requests\/UpdateZoneRequest.php.html#26\">App\\Http\\Requests\\UpdateZoneRequest::rules<\/a>"],[0,2,"<a href=\"Http\/Resources\/AlertResource.php.html#19\">App\\Http\\Resources\\AlertResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/CallResource.php.html#22\">App\\Http\\Resources\\CallResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/ContactPersonResource.php.html#15\">App\\Http\\Resources\\ContactPersonResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/IncomingCallResource.php.html#15\">App\\Http\\Resources\\IncomingCallResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/LanguageResource.php.html#15\">App\\Http\\Resources\\LanguageResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/OperatorResource.php.html#15\">App\\Http\\Resources\\OperatorResource::toArray<\/a>"],[0,1,"<a href=\"Http\/Resources\/OutgoingCallResource.php.html#16\">App\\Http\\Resources\\OutgoingCallResource::toArray<\/a>"],[0,2,"<a href=\"Http\/Resources\/Partials\/AlertSimpleResource.php.html#17\">App\\Http\\Resources\\AlertSimpleResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/Partials\/PatientSimpleResource.php.html#16\">App\\Http\\Resources\\Partials\\PatientSimpleResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/PatientResource.php.html#16\">App\\Http\\Resources\\PatientResource::toArray<\/a>"],[100,1,"<a href=\"Http\/Resources\/ZoneResource.php.html#15\">App\\Http\\Resources\\ZoneResource::toArray<\/a>"],[0,1,"<a href=\"Livewire\/AsignUsers.php.html#21\">App\\Livewire\\AsignUsers::mount<\/a>"],[0,1,"<a href=\"Livewire\/AsignUsers.php.html#26\">App\\Livewire\\AsignUsers::applyFilter<\/a>"],[0,1,"<a href=\"Livewire\/AsignUsers.php.html#31\">App\\Livewire\\AsignUsers::actualizarDatos<\/a>"],[0,1,"<a href=\"Livewire\/AsignUsers.php.html#37\">App\\Livewire\\AsignUsers::clearFilters<\/a>"],[0,5,"<a href=\"Livewire\/AsignUsers.php.html#45\">App\\Livewire\\AsignUsers::actualizarPacientes<\/a>"],[0,3,"<a href=\"Livewire\/AsignUsers.php.html#71\">App\\Livewire\\AsignUsers::actualizarOperadores<\/a>"],[0,3,"<a href=\"Livewire\/AsignUsers.php.html#91\">App\\Livewire\\AsignUsers::asignarOperador<\/a>"],[0,1,"<a href=\"Livewire\/AsignUsers.php.html#102\">App\\Livewire\\AsignUsers::render<\/a>"],[0,1,"<a href=\"Livewire\/Llamadas.php.html#17\">App\\Livewire\\Llamadas::mount<\/a>"],[0,1,"<a href=\"Livewire\/Llamadas.php.html#22\">App\\Livewire\\Llamadas::actualizarDesdeEvento<\/a>"],[0,1,"<a href=\"Livewire\/Llamadas.php.html#29\">App\\Livewire\\Llamadas::applyFilter<\/a>"],[0,1,"<a href=\"Livewire\/Llamadas.php.html#34\">App\\Livewire\\Llamadas::clearFilters<\/a>"],[0,9,"<a href=\"Livewire\/Llamadas.php.html#41\">App\\Livewire\\Llamadas::actualizarLlamadas<\/a>"],[0,1,"<a href=\"Livewire\/Llamadas.php.html#68\">App\\Livewire\\Llamadas::createCall<\/a>"],[0,1,"<a href=\"Livewire\/Llamadas.php.html#80\">App\\Livewire\\Llamadas::render<\/a>"],[0,1,"<a href=\"Models\/Alert.php.html#23\">App\\Models\\Alert::user<\/a>"],[0,1,"<a href=\"Models\/Alert.php.html#27\">App\\Models\\Alert::zone<\/a>"],[0,1,"<a href=\"Models\/Alert.php.html#31\">App\\Models\\Alert::patient<\/a>"],[0,1,"<a href=\"Models\/Alert.php.html#35\">App\\Models\\Alert::outgoingCall<\/a>"],[0,1,"<a href=\"Models\/Call.php.html#17\">App\\Models\\Call::operator<\/a>"],[0,1,"<a href=\"Models\/Call.php.html#21\">App\\Models\\Call::patient<\/a>"],[100,1,"<a href=\"Models\/Call.php.html#25\">App\\Models\\Call::incomingCall<\/a>"],[0,1,"<a href=\"Models\/Call.php.html#29\">App\\Models\\Call::outgoingCall<\/a>"],[100,1,"<a href=\"Models\/Call.php.html#33\">App\\Models\\Call::booted<\/a>"],[100,1,"<a href=\"Models\/ContactPerson.php.html#20\">App\\Models\\ContactPerson::casts<\/a>"],[0,1,"<a href=\"Models\/ContactPerson.php.html#27\">App\\Models\\ContactPerson::patient<\/a>"],[0,1,"<a href=\"Models\/IncomingCall.php.html#17\">App\\Models\\IncomingCall::call<\/a>"],[0,1,"<a href=\"Models\/Language.php.html#13\">App\\Models\\Language::patients<\/a>"],[0,1,"<a href=\"Models\/Language.php.html#18\">App\\Models\\Language::users<\/a>"],[100,1,"<a href=\"Models\/Language.php.html#23\">App\\Models\\Language::getNameAttribute<\/a>"],[100,1,"<a href=\"Models\/Language.php.html#28\">App\\Models\\Language::isValidId<\/a>"],[0,1,"<a href=\"Models\/OutgoingCall.php.html#19\">App\\Models\\OutgoingCall::call<\/a>"],[0,1,"<a href=\"Models\/OutgoingCall.php.html#23\">App\\Models\\OutgoingCall::alert<\/a>"],[100,1,"<a href=\"Models\/Patient.php.html#39\">App\\Models\\Patient::contactPersons<\/a>"],[100,1,"<a href=\"Models\/Patient.php.html#44\">App\\Models\\Patient::languages<\/a>"],[100,1,"<a href=\"Models\/Patient.php.html#49\">App\\Models\\Patient::zone<\/a>"],[100,1,"<a href=\"Models\/Patient.php.html#54\">App\\Models\\Patient::operator<\/a>"],[100,1,"<a href=\"Models\/Patient.php.html#59\">App\\Models\\Patient::calls<\/a>"],[100,1,"<a href=\"Models\/User.php.html#54\">App\\Models\\User::casts<\/a>"],[0,1,"<a href=\"Models\/User.php.html#62\">App\\Models\\User::zones<\/a>"],[0,1,"<a href=\"Models\/User.php.html#67\">App\\Models\\User::patients<\/a>"],[0,1,"<a href=\"Models\/User.php.html#72\">App\\Models\\User::languages<\/a>"],[0,1,"<a href=\"Models\/Zone.php.html#17\">App\\Models\\Zone::operators<\/a>"],[0,1,"<a href=\"Models\/Zone.php.html#22\">App\\Models\\Zone::patients<\/a>"],[0,1,"<a href=\"Models\/Zone.php.html#27\">App\\Models\\Zone::alerts<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#14\">App\\Policies\\DarAltaPolicy::viewAny<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#22\">App\\Policies\\DarAltaPolicy::view<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#30\">App\\Policies\\DarAltaPolicy::create<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#38\">App\\Policies\\DarAltaPolicy::update<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#46\">App\\Policies\\DarAltaPolicy::delete<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#54\">App\\Policies\\DarAltaPolicy::restore<\/a>"],[0,1,"<a href=\"Policies\/DarAltaPolicy.php.html#62\">App\\Policies\\DarAltaPolicy::forceDelete<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#14\">App\\Policies\\ZonePolicy::viewAny<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#22\">App\\Policies\\ZonePolicy::view<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#30\">App\\Policies\\ZonePolicy::create<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#38\">App\\Policies\\ZonePolicy::update<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#46\">App\\Policies\\ZonePolicy::delete<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#54\">App\\Policies\\ZonePolicy::restore<\/a>"],[0,1,"<a href=\"Policies\/ZonePolicy.php.html#62\">App\\Policies\\ZonePolicy::forceDelete<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#17\">App\\Providers\\AppServiceProvider::register<\/a>"],[100,1,"<a href=\"Providers\/AppServiceProvider.php.html#25\">App\\Providers\\AppServiceProvider::boot<\/a>"],[0,1,"<a href=\"View\/Components\/AppLayout.php.html#13\">App\\View\\Components\\AppLayout::render<\/a>"],[0,1,"<a href=\"View\/Components\/GuestLayout.php.html#13\">App\\View\\Components\\GuestLayout::render<\/a>"],[0,1,"<a href=\"View\/Components\/Zones.php.html#15\">App\\View\\Components\\Zones::__construct<\/a>"],[0,1,"<a href=\"View\/Components\/Zones.php.html#24\">App\\View\\Components\\Zones::render<\/a>"],[0,10,"<a href=\"Enums\/AlertType.php.html#16\">App\\Enums\\AlertType::label<\/a>"],[100,1,"<a href=\"Enums\/AlertType.php.html#30\">App\\Enums\\AlertType::values<\/a>"],[0,1,"<a href=\"Enums\/DayOfWeek.php.html#16\">App\\Enums\\DayOfWeek::values<\/a>"],[0,5,"<a href=\"Enums\/EmergencyTypes.php.html#11\">App\\Enums\\EmergencyTypes::label<\/a>"],[0,1,"<a href=\"Enums\/EmergencyTypes.php.html#21\">App\\Enums\\EmergencyTypes::values<\/a>"],[0,13,"<a href=\"Enums\/IncomingCallsType.php.html#23\">App\\Enums\\IncomingCallsType::label<\/a>"],[100,1,"<a href=\"Enums\/IncomingCallsType.php.html#41\">App\\Enums\\IncomingCallsType::values<\/a>"],[100,2,"<a href=\"Enums\/Language.php.html#38\">App\\Enums\\Language::label<\/a>"],[100,1,"<a href=\"Enums\/Language.php.html#45\">App\\Enums\\Language::values<\/a>"],[0,5,"<a href=\"Enums\/OutgoingCallsType.php.html#12\">App\\Enums\\OutgoingCallsType::label<\/a>"],[100,1,"<a href=\"Enums\/OutgoingCallsType.php.html#22\">App\\Enums\\OutgoingCallsType::values<\/a>"],[0,6,"<a href=\"Enums\/PatientStatus.php.html#13\">App\\Enums\\PatientStatus::label<\/a>"],[100,1,"<a href=\"Enums\/PatientStatus.php.html#24\">App\\Enums\\PatientStatus::values<\/a>"],[100,1,"<a href=\"Enums\/Relationship.php.html#15\">App\\Enums\\Relationship::values<\/a>"],[0,9,"<a href=\"Enums\/SocialTypes.php.html#14\">App\\Enums\\SocialTypes::label<\/a>"],[0,1,"<a href=\"Enums\/SocialTypes.php.html#28\">App\\Enums\\SocialTypes::values<\/a>"],[0,5,"<a href=\"Enums\/TypeZones.php.html#10\">App\\Enums\\TypeZones::label<\/a>"],[0,1,"<a href=\"Enums\/TypeZones.php.html#20\">App\\Enums\\TypeZones::values<\/a>"],[0,3,"<a href=\"Enums\/UserRole.php.html#9\">App\\Enums\\UserRole::label<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

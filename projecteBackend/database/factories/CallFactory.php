@@ -21,8 +21,8 @@ class CallFactory extends Factory
     public function definition(): array
     {
         return [
-            'patientId' => Patient::all()->random()->id,
-            'operatorId' => User::where('role', UserRole::OPERATOR)->get()->random()->id,
+            'patientId' => Patient::count() > 0 ? Patient::all()->random()->id : Patient::factory()->create()->id,
+            'operatorId' => User::where('role', UserRole::OPERATOR)->count() > 0 ? User::where('role', UserRole::OPERATOR)->get()->random()->id : User::factory()->create()->id,
             'details' => $this->faker->text,
             'dateTime' => Carbon::now()->subDays(rand(0, 10))->addDays(rand(0, 20))->subMinutes(rand(0, 60 * 24 * 30)),
         ];
