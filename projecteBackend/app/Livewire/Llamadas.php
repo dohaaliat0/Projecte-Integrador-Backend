@@ -14,15 +14,16 @@ class Llamadas extends Component
     public $filterZones = [];
     public $filterDate = null;
 
+    protected $listeners = ['echo:ConectaSalud,LlamadaActualizada' => 'actualizarDesdeEvento'];
+
     public function mount()
     {
         $this->actualizarLlamadas();
     }
     
-    #[On('LlamadaActualizada')]
-    public function actualizarDesdeEvento(){
-        $this->actualizarLlamadas();
-        $this->dispatch('$refresh');
+    public function actualizarDesdeEvento($data)
+    {
+        $this->actualizarLlamadas(); 
     }
     
 
