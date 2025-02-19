@@ -21,3 +21,4 @@ window.Echo.channel('Conectasalud')
     .listen('.LlamadaActualizada', (data) => {
         Livewire.dispatch('LlamadaActualizada',data);
     });
+console.log('hola');
