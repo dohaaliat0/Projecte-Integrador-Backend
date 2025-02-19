@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Partials;
 
 use App\Models\Patient;
 use App\Models\User;

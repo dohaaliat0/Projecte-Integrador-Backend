@@ -12,8 +12,47 @@ use App\Models\Patient;
 use App\Models\Alert;
 use Dompdf\Dompdf;
 
+/**
+ * @OA\Tag(
+ *     name="Reports",
+ *     description="Gestió d'informes PDF de trucades, pacients i alertes"
+ * )
+ */
 class ReportController extends BaseController
 {
+        /**
+     * @OA\Get(
+     *     path="/api/reports/emergencies",
+     *     tags={"Reports"},
+     *     summary="Informe d'emergències",
+     *     description="Genera un PDF amb les trucades d'emergència dins del rang de dates indicat.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="startDate",
+     *         in="query",
+     *         description="Data d'inici (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Parameter(
+     *         name="endDate",
+     *         in="query",
+     *         description="Data de fi (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Error generant l'informe"
+     *     )
+     * )
+     */
     public function getEmergencies(Request $request)
     {
         $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
@@ -43,6 +82,35 @@ class ReportController extends BaseController
         return $response;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/reports/socials",
+     *     tags={"Reports"},
+     *     summary="Informe de trucades socials",
+     *     description="Genera un PDF amb les trucades socials dins del rang de dates indicat.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="startDate",
+     *         in="query",
+     *         description="Data d'inici (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Parameter(
+     *         name="endDate",
+     *         in="query",
+     *         description="Data de fi (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     )
+     * )
+     */
     public function getSocials(Request $request)
     {
 
@@ -73,6 +141,35 @@ class ReportController extends BaseController
         return $response;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/reports/monitoring",
+     *     tags={"Reports"},
+     *     summary="Informe de monitoratges",
+     *     description="Genera un PDF amb les trucades de monitoratge dins del rang de dates indicat.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="startDate",
+     *         in="query",
+     *         description="Data d'inici (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Parameter(
+     *         name="endDate",
+     *         in="query",
+     *         description="Data de fi (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     )
+     * )
+     */
     public function getMonitorings(Request $request)
     {
         $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
@@ -102,6 +199,29 @@ class ReportController extends BaseController
         return $response;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/reports/patients",
+     *     tags={"Reports"},
+     *     summary="Informe de pacients",
+     *     description="Genera un PDF amb tots els pacients filtrats pels paràmetres indicats.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="name",
+     *         in="query",
+     *         description="Nom del pacient",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     )
+     * )
+     */
     public function getAllPatients(Request $request)
     {
         $query = Patient::query();
@@ -126,6 +246,41 @@ class ReportController extends BaseController
         return $response;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/reports/patients/{id}/history",
+     *     tags={"Reports"},
+     *     summary="Historial de trucades d'un pacient",
+     *     description="Genera un PDF amb l'historial de trucades d'un pacient concret.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID del pacient",
+     *         required=true,
+     *     ),
+     *     @OA\Parameter(
+     *         name="startDate",
+     *         in="query",
+     *         description="Data d'inici (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Parameter(
+     *         name="endDate",
+     *         in="query",
+     *         description="Data de fi (format: YYYY-MM-DD)",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     )
+     * )
+     */
     public function getPatientHistory(Request $request, $id)
     {
         $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
@@ -150,6 +305,29 @@ class ReportController extends BaseController
     }
 
 
+     /**
+     * @OA\Get(
+     *     path="/api/reports/scheduled-calls",
+     *     tags={"Reports"},
+     *     summary="Informe de trucades programades",
+     *     description="Genera un PDF amb les trucades programades dins del rang de dates i opcionalment per zona.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="zoneId",
+     *         in="query",
+     *         description="ID de la zona",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     )
+     * )
+     */
     public function getScheduledCalls(Request $request)
     {
         $startDate = $request->query('startDate') ? Carbon::parse($request->query('startDate'))->startOfDay() : Carbon::now()->startOfYear();
@@ -180,6 +358,23 @@ class ReportController extends BaseController
         return $response;
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/reports/done-calls",
+     *     tags={"Reports"},
+     *     summary="Informe de trucades realitzades",
+     *     description="Genera un PDF amb totes les trucades entrants i sortints realitzades dins del rang de dates indicat.",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="PDF generat correctament",
+     *         @OA\MediaType(
+     *             mediaType="application/pdf",
+     *             @OA\Schema(type="string", format="binary")
+     *         )
+     *     )
+     * )
+     */
     public function doneCalls(Request $request)
     {
 

@@ -7,6 +7,28 @@ use App\Enums\IncomingCallsType;
 use App\Enums\OutgoingCallsType;
 use Carbon\Carbon;
 
+/**
+ * @OA\Schema(
+ *     schema="StoreCallRequest",
+ *     description="Validació per a l'emmagatzematge de trucades",
+ *     required={"patientId", "operatorId", "details", "dateTime"},
+ *     @OA\Property(
+ *         property="patientId",
+ *         type="integer",
+ *         description="ID del pacient",
+ *         example=1
+ *     ),
+ *     @OA\Property(
+ *         property="operatorId",
+ *         type="integer",
+ *
+ *         format="email",
+ *         maxLength=255,
+ *         description="Correu electrònic únic de l'usuari",
+ *         example="toni.garcia@example.com"
+ *     )
+ * )
+ */
 class StoreCallRequest extends FormRequest
 {
     /**

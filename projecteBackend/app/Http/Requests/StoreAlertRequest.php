@@ -4,6 +4,84 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="StoreAlertRequest",
+ *     description="Validació per a la creació d'una alerta",
+ *     required={"operatorId", "patientId", "type", "isRecurring", "date", "time", "title"},
+ *     @OA\Property(
+ *         property="operatorId",
+ *         type="integer",
+ *         description="ID de l'operador",
+ *         example=1
+ *     ),
+ *     @OA\Property(
+ *         property="patientId",
+ *         type="integer",
+ *         description="ID del pacient",
+ *         example=1
+ *     ),
+ *     @OA\Property(
+ *         property="isActive",
+ *         type="boolean",
+ *         description="Indica si l'alerta està activa",
+ *         example=true
+ *     ),
+ *     @OA\Property(
+ *         property="type",
+ *         type="string",
+ *         description="Tipus d'alerta",
+ *         example="emergency"
+ *     ),
+ *     @OA\Property(
+ *         property="isRecurring",
+ *         type="boolean",
+ *         description="Indica si l'alerta és recurrent",
+ *         example=false
+ *     ),
+ *     @OA\Property(
+ *         property="date",
+ *         type="string",
+ *         format="date",
+ *         description="Data de l'alerta",
+ *         example="2023-10-01"
+ *     ),
+ *     @OA\Property(
+ *         property="endDate",
+ *         type="string",
+ *         format="date",
+ *         description="Data de finalització de l'alerta",
+ *         example="2023-10-02"
+ *     ),
+ *     @OA\Property(
+ *         property="time",
+ *         type="string",
+ *         format="time",
+ *         description="Hora de l'alerta",
+ *         example="14:30:00"
+ *     ),
+ *     @OA\Property(
+ *         property="title",
+ *         type="string",
+ *         maxLength=255,
+ *         description="Títol de l'alerta",
+ *         example="Reunió amb el metge"
+ *     ),
+ *     @OA\Property(
+ *         property="dayOfWeek",
+ *         type="array",
+ *         @OA\Items(type="string"),
+ *         description="Dies de la setmana per a l'alerta recurrent",
+ *         example={"Monday", "Wednesday"}
+ *     ),
+ *     @OA\Property(
+ *         property="description",
+ *         type="string",
+ *         description="Descripció de l'alerta",
+ *         example="Reunió de seguiment amb el metge"
+ *     )
+ * )
+ */
 class StoreAlertRequest extends FormRequest
 {
     /**

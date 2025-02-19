@@ -1,50 +1,55 @@
-<div>
-    <h2 class="text-lg font-semibold mb-4">Listado de Llamadas</h2>
+<div class="calls-wrapper">
+    <h2 class="calls-title">Listado de Llamadas</h2>
 
     <!-- Filtros -->
-    <div class="mb-4">
-        <label for="zoneFilter">Filtrar por Zona:</label>
-        <div class="filter-container">
-            @foreach ($zones as $zone)
-                <label class="filter-label">
-                    <input type="checkbox" wire:model="filterZones" value="{{ $zone->id }}">
-                    <span>{{ $zone->name }}</span>
-                </label>
-            @endforeach
+    <div class="filters">
+        <div class="filter-group">
+            <label for="zoneSelect" class="filter-label-title">Filtrar por Zona:</label>
+            <select id="zoneSelect" wire:model="filterZones" multiple class="filter-select">
+                @foreach ($zones as $zone)
+                    <option value="{{ $zone->id }}">{{ $zone->name }}</option>
+                @endforeach
+            </select>
         </div>
 
-        <label for="dateFilter" class="ml-4">Filtrar por Fecha:</label>
-        <input type="date" wire:model="filterDate" id="dateFilter" class="border p-2 rounded">
-        
-        <button wire:click="applyFilter" class="bg-blue-500 text-white px-4 py-2 rounded ml-2">Aplicar Filtro</button>
-        <button wire:click="clearFilters" class="bg-gray-500 text-white px-4 py-2 rounded ml-2">Limpiar Filtros</button>
+        <div class="filter-group">
+            <label for="dateFilter" class="filter-label-title">Filtrar por Fecha:</label>
+            <input type="date" wire:model="filterDate" id="dateFilter" class="filter-date-input">
+        </div>
+
+        <div class="filter-buttons">
+            <button wire:click="applyFilter" class="filter-button apply">Aplicar Filtro</button>
+            <button wire:click="clearFilters" class="filter-button clear">Limpiar Filtros</button>
+        </div>
     </div>
 
     <!-- Tabla de Llamadas -->
-    <table class="w-full border-collapse border border-gray-300">
-        <thead>
-            <tr class="bg-gray-200">
-                <th class="border border-gray-300 px-4 py-2">ID</th>
-                <th class="border border-gray-300 px-4 py-2">Paciente</th>
-                <th class="border border-gray-300 px-4 py-2">Operador</th>
-                <th class="border border-gray-300 px-4 py-2">Detalles</th>
-                <th class="border border-gray-300 px-4 py-2">Fecha y Hora</th>
-                <th class="border border-gray-300 px-4 py-2">Tipo de llamada</th>
-                <th class="border border-gray-300 px-4 py-2">Tipo</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($calls as $call)
-                <tr class="border border-gray-300">
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['id'] }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['patient'] }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['operator'] }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['details'] }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['dateTime'] }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['typeCall'] }}</td>
-                    <td class="border border-gray-300 px-4 py-2">{{ $call['type'] }}</td>
+    <div class="table-responsive">
+        <table class="calls-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Paciente</th>
+                    <th>Operador</th>
+                    <th>Detalles</th>
+                    <th>Fecha y Hora</th>
+                    <th>Tipo de llamada</th>
+                    <th>Tipo</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($calls as $call)
+                    <tr>
+                        <td>{{ $call['id'] }}</td>
+                        <td>{{ $call['patient'] }}</td>
+                        <td>{{ $call['operator'] }}</td>
+                        <td>{{ $call['details'] }}</td>
+                        <td>{{ $call['dateTime'] }}</td>
+                        <td>{{ $call['typeCall'] }}</td>
+                        <td>{{ $call['type'] }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>

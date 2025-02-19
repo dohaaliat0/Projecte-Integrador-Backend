@@ -12,6 +12,35 @@ use App\Models\OutgoingCall;
 use App\Models\Patient;
 use App\Models\User;
 
+/**
+ * @OA\Schema(
+ *     schema="CallResource",
+ *     description="Esquema del recurs Call",
+ *     @OA\Property(property="id", type="integer", description="Identificador de la trucada", example=1),
+ *     @OA\Property(property="details", type="string", description="Detalls de la trucada", example="Detalls de la trucada"),
+ *     @OA\Property(property="dateTime", type="string", format="date-time", description="Data i hora de la trucada", example="2025-02-20T14:30:00Z"),
+ *     @OA\Property(
+ *         property="operator",
+ *         ref="#/components/schemas/OperatorResource",
+ *         description="Recurs de l'operador associat a la trucada"
+ *     ),
+ *     @OA\Property(
+ *         property="patient",
+ *         ref="#/components/schemas/PatientSimpleResource",
+ *         description="Recurs del pacient associat a la trucada"
+ *     ),
+ *     @OA\Property(
+ *         property="incomingCall",
+ *         ref="#/components/schemas/IncomingCallResource",
+ *         description="Recurs de la trucada entrant associada"
+ *     ),
+ *     @OA\Property(
+ *         property="outgoingCall",
+ *         ref="#/components/schemas/OutgoingCallResource",
+ *         description="Recurs de la trucada sortint associada"
+ *     )
+ * )
+ */
 class CallResource extends JsonResource
 {
     /**

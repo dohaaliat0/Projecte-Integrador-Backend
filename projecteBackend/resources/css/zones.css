@@ -85,35 +85,61 @@
 /* Responsive */
 @media (max-width: 768px) {
     .container {
-        padding: 10px;
+        padding: 12px;
     }
 
     .create-btn {
-        display: block;
+        width: 100%;
         text-align: center;
     }
 
+    /* Ocultar cabecera en responsive */
     .custom-table thead {
         display: none;
     }
 
-    .custom-table tbody tr {
-        display: block;
-        border-bottom: 2px solid #ddd;
-        margin-bottom: 10px;
-        padding: 10px;
+    .custom-table tbody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
+    .custom-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        background-color: #f9fafb;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        padding: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Estilo general de las celdas */
     .custom-table td {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 8px 0;
-        border: none;
+        font-size: 0.9rem;
+        border-bottom: none;
+    }
+    .custom-table td.zone-name {
+        justify-content: center;
     }
 
-    .custom-table td::before {
+    /* Mostrar data-label en todas menos en la columna de nombre */
+    .custom-table td:not(.zone-name)::before {
         content: attr(data-label);
         font-weight: bold;
         color: #2563eb;
+        margin-right: 10px;
+        text-transform: capitalize;
+
+    }
+
+    /* Acciones alineadas a la derecha */
+    .custom-table td:last-child {
+        justify-content: flex-end;
     }
 }

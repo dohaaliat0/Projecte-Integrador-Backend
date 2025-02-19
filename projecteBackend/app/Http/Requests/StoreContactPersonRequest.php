@@ -4,6 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="StoreContactPersonRequest",
+ *     description="Validació per a l'emmagatzematge de la persona de contacte",
+ * )
+ */
 class StoreContactPersonRequest extends FormRequest
 {
     /**

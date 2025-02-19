@@ -13,6 +13,7 @@ class Llamadas extends Component
     public $calls = [];
     public $filterZones = [];
     public $filterDate = null;
+    
 
     public function mount()
     {
@@ -22,7 +23,6 @@ class Llamadas extends Component
     #[On('LlamadaActualizada')]
     public function actualizarDesdeEvento(){
         $this->actualizarLlamadas();
-        $this->dispatch('$refresh');
     }
     
 
