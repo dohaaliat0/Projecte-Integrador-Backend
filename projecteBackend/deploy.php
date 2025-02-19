@@ -77,6 +77,7 @@ after('deploy:symlink', 'artisan:view:clear');
 after('deploy:symlink', 'artisan:config:clear');
 after('deploy:symlink', 'php-fpm:restart');
 after('deploy:symlink', 'build');
+after('deploy:symlink', 'php artisan l5-swagger:generate');
 
 
 before('deploy:symlink', 'artisan:migrate');
