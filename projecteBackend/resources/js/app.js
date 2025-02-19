@@ -17,3 +17,7 @@ Alpine.start();
 //     cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+window.Echo.channel('Conectasalud')
+    .listen('.LlamadaActualizada', (data) => {
+        Livewire.dispatch('LlamadaActualizada',data);
+    });
