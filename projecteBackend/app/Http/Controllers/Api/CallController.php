@@ -39,7 +39,7 @@ class CallController extends BaseController
                 throw new \Exception('Either incomingCall or outgoingCall must be provided.');
             }
 
-            return $this->sendResponse(new CallResource($call), 201);
+            return $this->sendResponse(new CallResource($call), 'Call created successfully.', 201);
         } catch (\Exception $e) {
             return $this->sendError(['message' => $e->getMessage()], 400);
         }

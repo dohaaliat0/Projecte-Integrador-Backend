@@ -26,7 +26,7 @@ class AuthController extends BaseController
 
             return $this->sendResponse($result, 'User signed in');
         }
-        return $this->sendError('Unauthorised.', ['error' => 'Incorrect Email/Password']);
+        return $this->sendError('Unauthorised.', ['error' => 'Incorrect Email/Password'], 401);
     }
     public function register(Request $request)
     {
