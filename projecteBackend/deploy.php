@@ -60,6 +60,10 @@ task('php-fpm:restart', function () {
     run('sudo systemctl restart php8.3-fpm');
 });
 
+task('php artisan l5-swagger:generate', function () {
+    run('{{release_path}}/artisan l5-swagger:generate');
+});
+
 
 
 after('deploy:shared', 'upload:env');
