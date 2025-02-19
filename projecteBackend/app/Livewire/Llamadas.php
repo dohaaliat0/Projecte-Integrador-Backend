@@ -23,7 +23,6 @@ class Llamadas extends Component
     #[On('echo:ConectaSalud,LlamadaActualizada')]
     public function actualizarDesdeEvento(){
         $this->actualizarLlamadas();
-        $this->dispatch('$refresh');
     }
     
 
