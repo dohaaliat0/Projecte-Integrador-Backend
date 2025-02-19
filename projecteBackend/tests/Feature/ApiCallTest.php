@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\Sanctum;
@@ -78,4 +79,27 @@ it('can delete a call', function () {
     $response = delete("/api/calls/{$call->id}");
 
     $response->assertStatus(200);
+});
+
+it('throws an exception when neither incomingCall nor outgoingCall is provided', function () {
+    Sanctum::actingAs(User::factory()->create());
+    Patient::factory()->create();
+
+    // Prepare call data without incomingCall or outgoingCall
+    $callData = [
+        'patientId' => 1,
+        'operatorId' => 1,
+        'details' => 'someType',
+        'dateTime' => now(),
+        // 'incomingCall' => [], // Not provided
+        // 'outgoingCall' => [], // Not provided
+    ];
+
+    // Send the request to create a call
+    $response = postJson('/api/calls', $callData);
+    // Assert the response status and message
+    $response->assertStatus(422);
+    $response->assertJson([
+        'message' => 'The incoming call field is required when outgoing call is not present. (and 1 more error)'
+    ]);
 });

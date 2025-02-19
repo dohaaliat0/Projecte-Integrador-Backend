@@ -8,6 +8,7 @@ use App\Enums\Language as LanguageEnum;
 class Language extends Model
 {
     protected $fillable = ['name'];
+    public $timestamps = false;
 
     public function patients()
     {
