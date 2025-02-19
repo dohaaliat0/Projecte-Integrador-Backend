@@ -20,7 +20,7 @@ class Llamadas extends Component
         $this->actualizarLlamadas();
     }
     
-    #[On('echo:ConectaSalud,LlamadaActualizada')]
+    #[On('LlamadaActualizada')]
     public function actualizarDesdeEvento(){
         $this->actualizarLlamadas();
     }
