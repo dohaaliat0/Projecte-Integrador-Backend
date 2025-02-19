@@ -12,10 +12,52 @@ use App\Http\Resources\CallResource;
 use App\Models\Language;
 use Illuminate\Http\Request;
 
+/**
+ * @OA\Tag(
+ *     name="Patients",
+ *     description="Gestió de pacients"
+ * )
+ */
 class PatientController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/patients",
+     *     tags={"Patients"},
+     *     summary="Llistar pacients",
+     *     description="Retorna tots els pacients amb opcions de filtratge per zona, operador i estat",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="zoneId",
+     *         in="query",
+     *         description="ID de la zona",
+     *         required=false,
+     *     ),
+     *     @OA\Parameter(
+     *         name="operatorId",
+     *         in="query",
+     *         description="ID de l'operador assignat",
+     *         required=false,
+     *     ),
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="Estat del pacient",
+     *         required=false,
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Pacients recuperats correctament",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/PatientResource")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Error recuperant els pacients"
+     *     )
+     * )
      */
     public function index(Request $request)
     {
@@ -31,7 +73,26 @@ class PatientController extends BaseController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/patients",
+     *     tags={"Patients"},
+     *     summary="Crear pacient",
+     *     description="Crea un nou pacient amb idiomes i persones de contacte",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/StorePatientRequest")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Pacient creat correctament",
+     *         @OA\JsonContent(ref="#/components/schemas/PatientResource")
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Error en la creació del pacient"
+     *     )
+     * )
      */
     public function store(StorePatientRequest $request)
     {
@@ -66,8 +127,30 @@ class PatientController extends BaseController
         }
     }
 
-    /**
-     * Display the specified resource.
+   /**
+     * @OA\Get(
+     *     path="/api/patients/{patient}",
+     *     tags={"Patients"},
+     *     summary="Mostrar pacient",
+     *     description="Mostra els detalls d'un pacient concret",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="patient",
+     *         in="path",
+     *         required=true,
+     *         description="ID del pacient",
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Pacient recuperat correctament",
+     *         @OA\JsonContent(ref="#/components/schemas/PatientResource")
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Pacient no trobat"
+     *     )
+     * )
      */
     public function show(Patient $patient)
     {
@@ -77,7 +160,33 @@ class PatientController extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="/api/patients/{patient}",
+     *     tags={"Patients"},
+     *     summary="Actualitzar pacient",
+     *     description="Actualitza un pacient existent i la seva informació relacionada",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="patient",
+     *         in="path",
+     *         required=true,
+     *         description="ID del pacient",
+     *         @OA\Schema(type="integer", example=2)
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/UpdatePatientRequest")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Pacient actualitzat correctament",
+     *         @OA\JsonContent(ref="#/components/schemas/PatientResource")
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Error actualitzant el pacient"
+     *     )
+     * )
      */
     public function update(UpdatePatientRequest $request, Patient $patient)
     {
@@ -111,7 +220,28 @@ class PatientController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="/api/patients/{patient}",
+     *     tags={"Patients"},
+     *     summary="Eliminar pacient",
+     *     description="Elimina un pacient específic",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="patient",
+     *         in="path",
+     *         required=true,
+     *         description="ID del pacient",
+     *         @OA\Schema(type="integer", example=3)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Pacient eliminat correctament"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Error eliminant el pacient"
+     *     )
+     * )
      */
     public function destroy(Patient $patient)
     {
@@ -119,6 +249,34 @@ class PatientController extends BaseController
         return $this->sendResponse([], 'Patient deleted successfully.', 200);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/patients/{id}/calls",
+     *     tags={"Patients"},
+     *     summary="Historial de trucades per pacient",
+     *     description="Recupera totes les trucades associades a un pacient",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="ID del pacient",
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Historial de trucades recuperat correctament",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/CallResource")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Pacient no trobat"
+     *     )
+     * )
+     */
     public function getCallHistoryByPatient($id)
     {
         $calls = Call::where('patientId', $id)->get();

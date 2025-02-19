@@ -7,6 +7,72 @@ use App\Enums\IncomingCallsType;
 use App\Enums\OutgoingCallsType;
 use Carbon\Carbon;
 
+/**
+ * @OA\Schema(
+ *     schema="UpdateCallRequest",
+ *     description="Validació per a l'actualització de trucades",
+ *     required={"patientId", "operatorId", "details", "dateTime"},
+ *     @OA\Property(
+ *         property="patientId",
+ *         type="integer",
+ *         description="ID del pacient",
+ *         example=1
+ *     ),
+ *     @OA\Property(
+ *         property="operatorId",
+ *         type="integer",
+ *         description="ID de l'operador",
+ *         example=2
+ *     ),
+ *     @OA\Property(
+ *         property="details",
+ *         type="string",
+ *         description="Detalls de la trucada",
+ *         example="Detalls de la trucada"
+ *     ),
+ *     @OA\Property(
+ *         property="dateTime",
+ *         type="string",
+ *         format="date-time",
+ *         description="Data i hora de la trucada",
+ *         example="2023-10-01 12:00:00"
+ *     ),
+ *     @OA\Property(
+ *         property="incomingCall",
+ *         type="object",
+ *         description="Detalls de la trucada entrant",
+ *         @OA\Property(
+ *             property="type",
+ *             type="string",
+ *             description="Tipus de trucada entrant",
+ *             example="emergency"
+ *         ),
+ *         @OA\Property(
+ *             property="emergencyLevel",
+ *             type="integer",
+ *             description="Nivell d'emergència de la trucada entrant",
+ *             example=3
+ *         )
+ *     ),
+ *     @OA\Property(
+ *         property="outgoingCall",
+ *         type="object",
+ *         description="Detalls de la trucada sortint",
+ *         @OA\Property(
+ *             property="type",
+ *             type="string",
+ *             description="Tipus de trucada sortint",
+ *             example="follow-up"
+ *         ),
+ *         @OA\Property(
+ *             property="alertId",
+ *             type="integer",
+ *             description="ID de l'alerta associada",
+ *             example=5
+ *         )
+ *     )
+ * )
+ */
 class UpdateCallRequest extends FormRequest
 {
     /**

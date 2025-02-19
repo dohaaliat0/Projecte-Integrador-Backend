@@ -7,10 +7,37 @@ use Illuminate\Http\Request;
 use App\Enums\Relationship;
 use App\Http\Resources\RelationshipResource;
 
+/**
+ * @OA\Tag(
+ *     name="Relationships",
+ *     description="Gestió de relacions de contacte"
+ * )
+ */
 class RelationshipController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/relationships",
+     *     tags={"Relationships"},
+     *     summary="Llistar relacions",
+     *     description="Retorna totes les relacions definides a l'enum Relationship",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Relacions recuperades correctament",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 type="string",
+     *                 example="Pare"
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Error recuperant les relacions"
+     *     )
+     * )
      */
     public function index()
     {

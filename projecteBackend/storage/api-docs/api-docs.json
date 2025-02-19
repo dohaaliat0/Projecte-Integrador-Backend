@@ -1,0 +1,3659 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Conecta Salud API Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api": {},
+        "/api/alerts": {
+            "get": {
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Llistar alertes",
+                "description": "Retorna una col·lecció d'alertes amb filtres opcionals",
+                "operationId": "4478ffd7354aa9ca6132fb9e74bdde0b",
+                "parameters": [
+                    {
+                        "name": "operatorId",
+                        "in": "query",
+                        "description": "Filtrar per operador",
+                        "required": false
+                    },
+                    {
+                        "name": "patientId",
+                        "in": "query",
+                        "description": "Filtrar per pacient",
+                        "required": false
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Mostrar alertes a partir d'una data",
+                        "required": false
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Mostrar alertes fins a una data",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Llista d'alertes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AlertResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Crear alerta",
+                "description": "Crea una nova alerta",
+                "operationId": "42b5297a4f4f281e294bf8339a0a80d8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreAlertRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Alerta creada correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AlertResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error de validació o de creació"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/alerts/{id}": {
+            "get": {
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Mostrar alerta",
+                "description": "Retorna els detalls d'una alerta específica",
+                "operationId": "48e65a8f03a14c0b36563c5284e726a3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador de l'alerta",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detalls de l'alerta",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AlertResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Alerta no trobada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Actualitzar alerta",
+                "description": "Actualitza una alerta existent",
+                "operationId": "037adc62bb0d80e7c7a153cf2445e337",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador de l'alerta",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreAlertRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Alerta actualitzada correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AlertResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error d'actualització"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Eliminar alerta",
+                "description": "Elimina una alerta específica",
+                "operationId": "6dea41ff5a0bbf10775b84b2275d50e0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador de l'alerta",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Alerta eliminada correctament"
+                    },
+                    "400": {
+                        "description": "Error en l'eliminació"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/calls/alerts/{id}": {
+            "get": {
+                "tags": [
+                    "Alerts"
+                ],
+                "summary": "Obtenir trucades per alerta",
+                "description": "Retorna les trucades associades a una alerta específica",
+                "operationId": "47681a7a5fc557743ae15937a5067068",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador de l'alerta",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Trucades recuperades correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OutgoingCallResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Alerta no trobada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Autenticació"
+                ],
+                "summary": "Autenticació de l'usuari",
+                "operationId": "222b2625838e3c57e017987f73598fda",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "admin@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login correcte",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "jwt-token"
+                                                },
+                                                "user": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "example": "coordinator"
+                                                        },
+                                                        "email": {
+                                                            "type": "string",
+                                                            "format": "email",
+                                                            "example": "admin@example.com"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User signed in"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "No autoritzat",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorised."
+                                        },
+                                        "info": {
+                                            "properties": {
+                                                "error": {
+                                                    "type": "string",
+                                                    "example": "Incorrect Email/Password"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Autenticació"
+                ],
+                "summary": "Registrar un nou usuari",
+                "operationId": "8e4e3cb7b46126f4696379d3c7eeb4ad",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "confirm_password"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Marc"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "marcmolla123@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    },
+                                    "confirm_password": {
+                                        "type": "string",
+                                        "example": "password"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuari registrat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "jwt-token"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Marc"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User created successfully."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error de validació",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error validation"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "email": [
+                                                    "The email field is required."
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Autenticació"
+                ],
+                "summary": "Tanca la sessió de l'usuari",
+                "operationId": "ad65cbbd4e9f201619eae184a5961a98",
+                "responses": {
+                    "200": {
+                        "description": "Usuari desconnectat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Marc"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User successfully signed out."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "No autoritzat",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthorised."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login/google/callback": {
+            "get": {
+                "tags": [
+                    "Autenticació"
+                ],
+                "summary": "Callback d'autenticació de Google",
+                "operationId": "58c9db23ae190482270d0ff8f3130a75",
+                "responses": {
+                    "200": {
+                        "description": "Autenticació correcta via Google",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "jwt-token"
+                                        },
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "example": 15
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "Toni"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email",
+                                                    "example": "jsegura@bolsa.lana"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuari no trobat",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User not found in the system. Please, contact the coordinator."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/google/callback": {
+            "get": {
+                "tags": [
+                    "Autenticació"
+                ],
+                "summary": "Gestiona la resposta de Google OAuth i autentica l'usuari",
+                "operationId": "210885a42fb8000ebe58f4de134154c5",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "query",
+                        "description": "Codi d'autorització rebut de Google",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "4/0AX4XfW..."
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Autenticació correcta",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "access_token": {
+                                            "type": "string",
+                                            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+                                        },
+                                        "token_type": {
+                                            "type": "string",
+                                            "example": "Bearer"
+                                        },
+                                        "expires_in": {
+                                            "type": "integer",
+                                            "example": 3600
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Codi d'autorització invàlid o no proporcionat",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid authorization code."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/calls": {
+            "get": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Obté totes les trucades",
+                "operationId": "9a23d14f999134958731dd0346155df0",
+                "responses": {
+                    "200": {
+                        "description": "Llista de trucades obtinguda correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CallResource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Crea una nova trucada",
+                "operationId": "db4e93d17f5ef9ad4a6f3a161cf30a45",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreCallRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Trucada creada correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error de validació o falta d'informació"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/calls/{id}": {
+            "get": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Obté una trucada per ID",
+                "operationId": "e72c3e9ae2eed11b9dce29f58032517b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la trucada",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 3
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Trucada trobada",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Trucada no trobada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Actualitza una trucada existent",
+                "operationId": "0104abb19faaa5bca335c22b0762e2d6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la trucada a actualitzar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 3
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateCallRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Trucada actualitzada correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error en actualitzar la trucada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Calls"
+                ],
+                "summary": "Elimina una trucada",
+                "operationId": "7ea28db82b97c7b3fe159f3c394be63d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la trucada a eliminar",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 3
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Trucada eliminada correctament"
+                    },
+                    "404": {
+                        "description": "Trucada no trobada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/languages": {
+            "get": {
+                "tags": [
+                    "Languages"
+                ],
+                "summary": "Llistar llengües",
+                "description": "Retorna totes les llengües disponibles",
+                "operationId": "1cb1ddff581b67412e8c4d53e8a5286d",
+                "responses": {
+                    "200": {
+                        "description": "Llengües recuperades correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LanguageResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error recuperant les llengües"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/languages/{language}": {
+            "get": {
+                "tags": [
+                    "Languages"
+                ],
+                "summary": "Mostrar llengua",
+                "description": "Retorna els detalls d'una llengua específica",
+                "operationId": "bd1c1fca069c338debc57f3a7f94de99",
+                "parameters": [
+                    {
+                        "name": "language",
+                        "in": "path",
+                        "description": "Identificador de la llengua",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Llengua recuperada correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LanguageResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Llengua no trobada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/operators": {
+            "get": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Llistar operadors",
+                "description": "Retorna tots els usuaris amb el rol d'operador",
+                "operationId": "b196aa4b318bf0cbfb2d155eb4a9cb9f",
+                "responses": {
+                    "200": {
+                        "description": "Operadors recuperats correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OperatorResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error recuperant els operadors"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Crear operador",
+                "description": "Crea un nou operador",
+                "operationId": "25914b4c3e4e4ff8dc06685051d9d1cf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StoreOperatorRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Operador creat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperatorResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error en la creació de l'operador"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/operators/{operator}": {
+            "get": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Mostrar operador",
+                "description": "Retorna els detalls d'un operador específic",
+                "operationId": "b7cad6cd8d97d4580ad98e53d0c530ec",
+                "parameters": [
+                    {
+                        "name": "operator",
+                        "in": "path",
+                        "description": "Identificador de l'operador",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operador recuperat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperatorResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Operador no trobat"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Actualitzar operador",
+                "description": "Actualitza un operador existent",
+                "operationId": "4802c394f1af03605d53e7da1f763fc1",
+                "parameters": [
+                    {
+                        "name": "operator",
+                        "in": "path",
+                        "description": "Identificador de l'operador",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 2
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateOperatorRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Operador actualitzat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OperatorResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error actualitzant l'operador"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Eliminar operador",
+                "description": "Elimina un operador específic",
+                "operationId": "87c6aa5f54cbb12522ae7d3c0611c0e3",
+                "parameters": [
+                    {
+                        "name": "operator",
+                        "in": "path",
+                        "description": "Identificador de l'operador",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 3
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Operador eliminat correctament"
+                    },
+                    "400": {
+                        "description": "Error eliminant l'operador"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/operators/{id}/calls": {
+            "get": {
+                "tags": [
+                    "Operators"
+                ],
+                "summary": "Historial de trucades per operador",
+                "description": "Recupera totes les trucades associades a un operador",
+                "operationId": "4e479672959709005840f89ec003a779",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identificador de l'operador",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Historial de trucades recuperat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CallResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Operador no trobat"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/patients": {
+            "get": {
+                "tags": [
+                    "Patients"
+                ],
+                "summary": "Llistar pacients",
+                "description": "Retorna tots els pacients amb opcions de filtratge per zona, operador i estat",
+                "operationId": "0df0d65f049161931654c3e188ca8f93",
+                "parameters": [
+                    {
+                        "name": "zoneId",
+                        "in": "query",
+                        "description": "ID de la zona",
+                        "required": false
+                    },
+                    {
+                        "name": "operatorId",
+                        "in": "query",
+                        "description": "ID de l'operador assignat",
+                        "required": false
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "Estat del pacient",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pacients recuperats correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PatientResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error recuperant els pacients"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Patients"
+                ],
+                "summary": "Crear pacient",
+                "description": "Crea un nou pacient amb idiomes i persones de contacte",
+                "operationId": "2149729f1bf1af8877352f04be3a683f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StorePatientRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Pacient creat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PatientResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error en la creació del pacient"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/patients/{patient}": {
+            "get": {
+                "tags": [
+                    "Patients"
+                ],
+                "summary": "Mostrar pacient",
+                "description": "Mostra els detalls d'un pacient concret",
+                "operationId": "1aee48d18288527e7444c4af98753647",
+                "parameters": [
+                    {
+                        "name": "patient",
+                        "in": "path",
+                        "description": "ID del pacient",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pacient recuperat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PatientResource"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pacient no trobat"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Patients"
+                ],
+                "summary": "Actualitzar pacient",
+                "description": "Actualitza un pacient existent i la seva informació relacionada",
+                "operationId": "35a55f91c065962f3ab252b99c5ce17e",
+                "parameters": [
+                    {
+                        "name": "patient",
+                        "in": "path",
+                        "description": "ID del pacient",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 2
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdatePatientRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pacient actualitzat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PatientResource"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error actualitzant el pacient"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Patients"
+                ],
+                "summary": "Eliminar pacient",
+                "description": "Elimina un pacient específic",
+                "operationId": "4d33007c68e93fcbc05bdbb7da29d89e",
+                "parameters": [
+                    {
+                        "name": "patient",
+                        "in": "path",
+                        "description": "ID del pacient",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 3
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Pacient eliminat correctament"
+                    },
+                    "400": {
+                        "description": "Error eliminant el pacient"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/patients/{id}/calls": {
+            "get": {
+                "tags": [
+                    "Patients"
+                ],
+                "summary": "Historial de trucades per pacient",
+                "description": "Recupera totes les trucades associades a un pacient",
+                "operationId": "ddb952213ecea2d6aff23799b20eac97",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pacient",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Historial de trucades recuperat correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CallResource"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Pacient no trobat"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/relationships": {
+            "get": {
+                "tags": [
+                    "Relationships"
+                ],
+                "summary": "Llistar relacions",
+                "description": "Retorna totes les relacions definides a l'enum Relationship",
+                "operationId": "704491c9835ef01fd5a880c47c7d7b38",
+                "responses": {
+                    "200": {
+                        "description": "Relacions recuperades correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "example": "Pare"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error recuperant les relacions"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/emergencies": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Informe d'emergències",
+                "description": "Genera un PDF amb les trucades d'emergència dins del rang de dates indicat.",
+                "operationId": "781744b2d1a9bec57f02463a5d1c9bf9",
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "Data d'inici (format: YYYY-MM-DD)",
+                        "required": false
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Data de fi (format: YYYY-MM-DD)",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error generant l'informe"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/socials": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Informe de trucades socials",
+                "description": "Genera un PDF amb les trucades socials dins del rang de dates indicat.",
+                "operationId": "66f545988cab9c88179eee0a7e176fe3",
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "Data d'inici (format: YYYY-MM-DD)",
+                        "required": false
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Data de fi (format: YYYY-MM-DD)",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/monitoring": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Informe de monitoratges",
+                "description": "Genera un PDF amb les trucades de monitoratge dins del rang de dates indicat.",
+                "operationId": "614ccb0b506e8e278ecb1338278b2e77",
+                "parameters": [
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "Data d'inici (format: YYYY-MM-DD)",
+                        "required": false
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Data de fi (format: YYYY-MM-DD)",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/patients": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Informe de pacients",
+                "description": "Genera un PDF amb tots els pacients filtrats pels paràmetres indicats.",
+                "operationId": "e9d515d38518a3c265e17ef643908937",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Nom del pacient",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/patients/{id}/history": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Historial de trucades d'un pacient",
+                "description": "Genera un PDF amb l'historial de trucades d'un pacient concret.",
+                "operationId": "c6312e01442513b7624f95512ca4bed7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID del pacient",
+                        "required": true
+                    },
+                    {
+                        "name": "startDate",
+                        "in": "query",
+                        "description": "Data d'inici (format: YYYY-MM-DD)",
+                        "required": false
+                    },
+                    {
+                        "name": "endDate",
+                        "in": "query",
+                        "description": "Data de fi (format: YYYY-MM-DD)",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/scheduled-calls": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Informe de trucades programades",
+                "description": "Genera un PDF amb les trucades programades dins del rang de dates i opcionalment per zona.",
+                "operationId": "672a5aaa7824718c17c9e4d7d06d220f",
+                "parameters": [
+                    {
+                        "name": "zoneId",
+                        "in": "query",
+                        "description": "ID de la zona",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/reports/done-calls": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Informe de trucades realitzades",
+                "description": "Genera un PDF amb totes les trucades entrants i sortints realitzades dins del rang de dates indicat.",
+                "operationId": "40f88997d317e68bd0e4018c23144b2c",
+                "responses": {
+                    "200": {
+                        "description": "PDF generat correctament",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/zones": {
+            "get": {
+                "tags": [
+                    "Zones"
+                ],
+                "summary": "Obtenir totes les zones",
+                "description": "Recupera un llistat de totes les zones disponibles.",
+                "operationId": "0f732fe44c20996cd9dd342f722cb156",
+                "responses": {
+                    "200": {
+                        "description": "Zones recuperades correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Zone"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/zones/{id}": {
+            "get": {
+                "tags": [
+                    "Zones"
+                ],
+                "summary": "Obtenir una zona per ID",
+                "description": "Recupera la informació detallada d'una zona específica pel seu ID.",
+                "operationId": "9fbd7dbdda1909cd7ebc9bb4167293d9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de la zona",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Zona recuperada correctament",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Zone"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Zona no trobada"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ProfileUpdateRequest": {
+                "description": "Validació per a l'actualització del perfil d'usuari",
+                "required": [
+                    "name",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de l'usuari",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Toni García"
+                    },
+                    "email": {
+                        "description": "Correu electrònic únic de l'usuari",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "toni.garcia@example.com"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreAlertRequest": {
+                "description": "Validació per a la creació d'una alerta",
+                "required": [
+                    "operatorId",
+                    "patientId",
+                    "type",
+                    "isRecurring",
+                    "date",
+                    "time",
+                    "title"
+                ],
+                "properties": {
+                    "operatorId": {
+                        "description": "ID de l'operador",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "patientId": {
+                        "description": "ID del pacient",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "isActive": {
+                        "description": "Indica si l'alerta està activa",
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "type": {
+                        "description": "Tipus d'alerta",
+                        "type": "string",
+                        "example": "emergency"
+                    },
+                    "isRecurring": {
+                        "description": "Indica si l'alerta és recurrent",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "date": {
+                        "description": "Data de l'alerta",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-10-01"
+                    },
+                    "endDate": {
+                        "description": "Data de finalització de l'alerta",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-10-02"
+                    },
+                    "time": {
+                        "description": "Hora de l'alerta",
+                        "type": "string",
+                        "format": "time",
+                        "example": "14:30:00"
+                    },
+                    "title": {
+                        "description": "Títol de l'alerta",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Reunió amb el metge"
+                    },
+                    "dayOfWeek": {
+                        "description": "Dies de la setmana per a l'alerta recurrent",
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "Monday",
+                            "Wednesday"
+                        ]
+                    },
+                    "description": {
+                        "description": "Descripció de l'alerta",
+                        "type": "string",
+                        "example": "Reunió de seguiment amb el metge"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreCallRequest": {
+                "description": "Validació per a l'emmagatzematge de trucades",
+                "required": [
+                    "patientId",
+                    "operatorId",
+                    "details",
+                    "dateTime"
+                ],
+                "properties": {
+                    "patientId": {
+                        "description": "ID del pacient",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "operatorId": {
+                        "description": "Correu electrònic únic de l'usuari",
+                        "type": "integer",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "toni.garcia@example.com"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreContactPersonRequest": {
+                "description": "Validació per a l'emmagatzematge de la persona de contacte"
+            },
+            "StoreDarAltaRequest": {
+                "description": "Validació per a la creació d'un nou usuari",
+                "required": [
+                    "name",
+                    "surnames",
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de l'usuari",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Toni García"
+                    },
+                    "surnames": {
+                        "description": "Cognoms de l'usuari",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "García Pérez"
+                    },
+                    "phone": {
+                        "description": "Telèfon de l'usuari",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "123456789"
+                    },
+                    "email": {
+                        "description": "Correu electrònic únic de l'usuari",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "toni.garcia@example.com"
+                    },
+                    "password": {
+                        "description": "Contrasenya de l'usuari",
+                        "type": "string",
+                        "minLength": 8,
+                        "example": "password123"
+                    }
+                },
+                "type": "object"
+            },
+            "StoreOperatorRequest": {
+                "description": "Validació per a la creació d'un nou operador",
+                "required": [
+                    "name",
+                    "email",
+                    "password",
+                    "role",
+                    "surnames",
+                    "hireDate",
+                    "username"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de l'operador",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Toni García"
+                    },
+                    "email": {
+                        "description": "Correu electrònic únic de l'operador",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "toni.garcia@example.com"
+                    },
+                    "password": {
+                        "description": "Contrasenya de l'operador",
+                        "type": "string",
+                        "format": "password",
+                        "minLength": 8,
+                        "example": "password123"
+                    },
+                    "role": {
+                        "description": "Rol de l'usuari",
+                        "type": "string",
+                        "example": "operator"
+                    },
+                    "surnames": {
+                        "description": "Cognoms de l'operador",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "García Pérez"
+                    },
+                    "phone": {
+                        "description": "Telèfon de l'operador",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "123456789"
+                    },
+                    "hireDate": {
+                        "description": "Data de contractació de l'operador",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-01-01"
+                    },
+                    "terminationDate": {
+                        "description": "Data de finalització de contracte de l'operador",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-01-01"
+                    },
+                    "username": {
+                        "description": "Nom d'usuari únic de l'operador",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "toni.garcia"
+                    }
+                },
+                "type": "object"
+            },
+            "StorePatientRequest": {
+                "description": "Validació per a l'emmagatzematge de pacients",
+                "required": [
+                    "fullName",
+                    "birthDate",
+                    "fullAddress",
+                    "dni",
+                    "healthCardNumber",
+                    "phone",
+                    "email",
+                    "zoneId",
+                    "operatorId",
+                    "languages"
+                ],
+                "properties": {
+                    "fullName": {
+                        "description": "Nom complet del pacient",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Joan Pérez"
+                    },
+                    "birthDate": {
+                        "description": "Data de naixement del pacient",
+                        "type": "string",
+                        "format": "date",
+                        "example": "1980-01-01"
+                    },
+                    "fullAddress": {
+                        "description": "Adreça completa del pacient",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Carrer de l'Example, 123, 08001 Barcelona"
+                    },
+                    "dni": {
+                        "description": "DNI del pacient",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "12345678A"
+                    },
+                    "healthCardNumber": {
+                        "description": "Número de targeta sanitària del pacient",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "12345678901234567890"
+                    },
+                    "phone": {
+                        "description": "Telèfon del pacient",
+                        "type": "string",
+                        "maxLength": 15,
+                        "example": "600123456"
+                    },
+                    "email": {
+                        "description": "Correu electrònic únic del pacient",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "joan.perez@example.com"
+                    },
+                    "zoneId": {
+                        "description": "Identificador de la zona",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "operatorId": {
+                        "description": "Identificador de l'operador",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "languages": {
+                        "type": "array",
+                        "items": {
+                            "description": "Idiomes parlats pel pacient",
+                            "type": "string",
+                            "example": "ca"
+                        }
+                    },
+                    "status": {
+                        "description": "Estat del pacient",
+                        "type": "string",
+                        "example": "admitted"
+                    },
+                    "contactPersons": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "firstName": {
+                                    "description": "Nom de la persona de contacte",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "example": "Maria"
+                                },
+                                "lastName": {
+                                    "description": "Cognom de la persona de contacte",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "example": "García"
+                                },
+                                "phone": {
+                                    "description": "Telèfon de la persona de contacte",
+                                    "type": "string",
+                                    "maxLength": 15,
+                                    "example": "600123456"
+                                },
+                                "relationship": {
+                                    "description": "Relació amb el pacient",
+                                    "type": "string",
+                                    "example": "parent"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "StoreZoneRequest": {
+                "description": "Validació per a la creació d'una zona",
+                "required": [
+                    "name",
+                    "status"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de la zona",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Zona Nord"
+                    },
+                    "status": {
+                        "description": "Estat de la zona",
+                        "type": "string",
+                        "example": "active"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateAlertRequest": {
+                "description": "Validation for updating an alert",
+                "required": [
+                    "id",
+                    "time"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Unique identifier of the alert",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "operatorId": {
+                        "description": "Identifier of the operator",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "patientId": {
+                        "description": "Identifier of the patient",
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "isActive": {
+                        "description": "Status of the alert",
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "type": {
+                        "description": "Type of the alert",
+                        "type": "string",
+                        "example": "emergency"
+                    },
+                    "isRecurring": {
+                        "description": "Whether the alert is recurring",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "date": {
+                        "description": "Date of the alert",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-10-01"
+                    },
+                    "endDate": {
+                        "description": "End date of the alert",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-10-02"
+                    },
+                    "time": {
+                        "description": "Time of the alert",
+                        "type": "string",
+                        "format": "time",
+                        "example": "14:30:00"
+                    },
+                    "title": {
+                        "description": "Title of the alert",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Doctor Appointment"
+                    },
+                    "dayOfWeek": {
+                        "description": "Days of the week for recurring alerts",
+                        "type": "array",
+                        "items": {
+                            "description": "Day of the week",
+                            "type": "string",
+                            "example": "Monday"
+                        }
+                    },
+                    "description": {
+                        "description": "Description of the alert",
+                        "type": "string",
+                        "example": "Monthly check-up"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateCallRequest": {
+                "description": "Validació per a l'actualització de trucades",
+                "required": [
+                    "patientId",
+                    "operatorId",
+                    "details",
+                    "dateTime"
+                ],
+                "properties": {
+                    "patientId": {
+                        "description": "ID del pacient",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "operatorId": {
+                        "description": "ID de l'operador",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "details": {
+                        "description": "Detalls de la trucada",
+                        "type": "string",
+                        "example": "Detalls de la trucada"
+                    },
+                    "dateTime": {
+                        "description": "Data i hora de la trucada",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-10-01 12:00:00"
+                    },
+                    "incomingCall": {
+                        "description": "Detalls de la trucada entrant",
+                        "properties": {
+                            "type": {
+                                "description": "Tipus de trucada entrant",
+                                "type": "string",
+                                "example": "emergency"
+                            },
+                            "emergencyLevel": {
+                                "description": "Nivell d'emergència de la trucada entrant",
+                                "type": "integer",
+                                "example": 3
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "outgoingCall": {
+                        "description": "Detalls de la trucada sortint",
+                        "properties": {
+                            "type": {
+                                "description": "Tipus de trucada sortint",
+                                "type": "string",
+                                "example": "follow-up"
+                            },
+                            "alertId": {
+                                "description": "ID de l'alerta associada",
+                                "type": "integer",
+                                "example": 5
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateContactPersonRequest": {
+                "description": "Validació per a l'actualització de la persona de contacte",
+                "required": [
+                    "name",
+                    "email"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de la persona de contacte",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Toni García"
+                    },
+                    "email": {
+                        "description": "Correu electrònic únic de la persona de contacte",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "toni.garcia@example.com"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateDarAltaNuevoRequest": {
+                "description": "Validació per a l'actualització del perfil d'usuari"
+            },
+            "UpdateDasAltaAntiguoRequest": {
+                "description": "Validació per a l'actualització de Das Alta Antiguo",
+                "required": [
+                    "user_id"
+                ],
+                "properties": {
+                    "user_id": {
+                        "description": "ID de l'usuari",
+                        "type": "integer",
+                        "example": 1
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateOperatorRequest": {
+                "description": "Validació per a l'actualització de l'operador",
+                "required": [
+                    "name",
+                    "email",
+                    "password",
+                    "role",
+                    "surnames",
+                    "hireDate",
+                    "username"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de l'operador",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Toni García"
+                    },
+                    "email": {
+                        "description": "Correu electrònic únic de l'operador",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "toni.garcia@example.com"
+                    },
+                    "password": {
+                        "description": "Contrasenya de l'operador",
+                        "type": "string",
+                        "format": "password",
+                        "minLength": 8,
+                        "example": "password123"
+                    },
+                    "role": {
+                        "description": "Rol de l'operador",
+                        "type": "string",
+                        "example": "operator"
+                    },
+                    "surnames": {
+                        "description": "Cognoms de l'operador",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "García López"
+                    },
+                    "phone": {
+                        "description": "Telèfon de l'operador",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "123456789"
+                    },
+                    "hireDate": {
+                        "description": "Data de contractació de l'operador",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-01-01"
+                    },
+                    "terminationDate": {
+                        "description": "Data de finalització de contracte de l'operador",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-12-31"
+                    },
+                    "username": {
+                        "description": "Nom d'usuari únic de l'operador",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "toni.garcia"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdatePatientRequest": {
+                "description": "Validation for updating a patient",
+                "required": [
+                    "fullName",
+                    "birthDate",
+                    "fullAddress",
+                    "dni",
+                    "healthCardNumber",
+                    "phone",
+                    "email",
+                    "zoneId",
+                    "operatorId",
+                    "languages"
+                ],
+                "properties": {
+                    "fullName": {
+                        "description": "Full name of the patient",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "John Doe"
+                    },
+                    "birthDate": {
+                        "description": "Birth date of the patient",
+                        "type": "string",
+                        "format": "date",
+                        "example": "1990-01-01"
+                    },
+                    "fullAddress": {
+                        "description": "Full address of the patient",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "123 Main St, Anytown, USA"
+                    },
+                    "dni": {
+                        "description": "DNI of the patient",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "12345678A"
+                    },
+                    "healthCardNumber": {
+                        "description": "Health card number of the patient",
+                        "type": "string",
+                        "maxLength": 20,
+                        "example": "HC123456789"
+                    },
+                    "phone": {
+                        "description": "Phone number of the patient",
+                        "type": "string",
+                        "maxLength": 15,
+                        "example": "+1234567890"
+                    },
+                    "email": {
+                        "description": "Unique email of the patient",
+                        "type": "string",
+                        "format": "email",
+                        "maxLength": 255,
+                        "example": "john.doe@example.com"
+                    },
+                    "zoneId": {
+                        "description": "Zone ID where the patient resides",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "personalFamilySituation": {
+                        "description": "Personal family situation of the patient",
+                        "type": "string",
+                        "example": "Single"
+                    },
+                    "healthSituation": {
+                        "description": "Health situation of the patient",
+                        "type": "string",
+                        "example": "Good"
+                    },
+                    "housingSituation": {
+                        "description": "Housing situation of the patient",
+                        "type": "string",
+                        "example": "Own house"
+                    },
+                    "personalAutonomy": {
+                        "description": "Personal autonomy of the patient",
+                        "type": "string",
+                        "example": "Independent"
+                    },
+                    "economicSituation": {
+                        "description": "Economic situation of the patient",
+                        "type": "string",
+                        "example": "Stable"
+                    },
+                    "operatorId": {
+                        "description": "ID of the operator handling the patient",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "languages": {
+                        "type": "array",
+                        "items": {
+                            "description": "Languages spoken by the patient",
+                            "type": "string",
+                            "example": "en"
+                        }
+                    },
+                    "status": {
+                        "description": "Status of the patient",
+                        "type": "string",
+                        "example": "admitted"
+                    },
+                    "contactPersons": {
+                        "type": "array",
+                        "items": {
+                            "properties": {
+                                "firstName": {
+                                    "description": "First name of the contact person",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "example": "Jane"
+                                },
+                                "lastName": {
+                                    "description": "Last name of the contact person",
+                                    "type": "string",
+                                    "maxLength": 255,
+                                    "example": "Doe"
+                                },
+                                "phone": {
+                                    "description": "Phone number of the contact person",
+                                    "type": "string",
+                                    "maxLength": 15,
+                                    "example": "+1234567890"
+                                },
+                                "relationship": {
+                                    "description": "Relationship of the contact person to the patient",
+                                    "type": "string",
+                                    "example": "Sibling"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateZoneRequest": {
+                "description": "Validació per a l'actualització de la zona",
+                "required": [
+                    "name",
+                    "status"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "Nom de la zona",
+                        "type": "string",
+                        "maxLength": 255,
+                        "example": "Zona Nord"
+                    },
+                    "status": {
+                        "description": "Estat de la zona",
+                        "type": "string",
+                        "example": "active"
+                    }
+                },
+                "type": "object"
+            },
+            "AlertResource": {
+                "description": "Esquema del recurs Alert",
+                "properties": {
+                    "id": {
+                        "description": "Identificador de l'alerta",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "operatorId": {
+                        "description": "Identificador de l'operador",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/OperatorResource"
+                    },
+                    "patientId": {
+                        "description": "Identificador del pacient",
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "patient": {
+                        "$ref": "#/components/schemas/PatientSimpleResource"
+                    },
+                    "zoneId": {
+                        "description": "Identificador de la zona",
+                        "type": "integer",
+                        "example": 3,
+                        "nullable": true
+                    },
+                    "zone": {
+                        "$ref": "#/components/schemas/ZoneResource"
+                    },
+                    "isActive": {
+                        "description": "Estat actiu de l'alerta",
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "type": {
+                        "description": "Tipus d'alerta",
+                        "type": "string",
+                        "example": "mèdica"
+                    },
+                    "isRecurring": {
+                        "description": "Indica si l'alerta és recurrent",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "date": {
+                        "description": "Data de l'alerta",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-02-20"
+                    },
+                    "endDate": {
+                        "description": "Data de finalització de l'alerta (si és recurrent)",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-03-20",
+                        "nullable": true
+                    },
+                    "time": {
+                        "description": "Hora de l'alerta",
+                        "type": "string",
+                        "format": "time",
+                        "example": "14:30:00"
+                    },
+                    "dayOfWeek": {
+                        "description": "Dies de la setmana per a alertes recurrents",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "dilluns",
+                                "dimarts",
+                                "dimecres",
+                                "dijous",
+                                "divendres",
+                                "dissabte",
+                                "diumenge"
+                            ]
+                        },
+                        "example": [
+                            "dilluns",
+                            "dimecres",
+                            "divendres"
+                        ]
+                    },
+                    "description": {
+                        "description": "Descripció de l'alerta",
+                        "type": "string",
+                        "example": "Visita mèdica programada",
+                        "nullable": true
+                    },
+                    "title": {
+                        "description": "Títol de l'alerta",
+                        "type": "string",
+                        "example": "Control de tensió"
+                    }
+                },
+                "type": "object"
+            },
+            "CallResource": {
+                "description": "Esquema del recurs Call",
+                "properties": {
+                    "id": {
+                        "description": "Identificador de la trucada",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "details": {
+                        "description": "Detalls de la trucada",
+                        "type": "string",
+                        "example": "Detalls de la trucada"
+                    },
+                    "dateTime": {
+                        "description": "Data i hora de la trucada",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-20T14:30:00Z"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/OperatorResource"
+                    },
+                    "patient": {
+                        "$ref": "#/components/schemas/PatientSimpleResource"
+                    },
+                    "incomingCall": {
+                        "$ref": "#/components/schemas/IncomingCallResource"
+                    },
+                    "outgoingCall": {
+                        "$ref": "#/components/schemas/OutgoingCallResource"
+                    }
+                },
+                "type": "object"
+            },
+            "ContactPersonResource": {
+                "description": "Esquema del recurs ContactPerson",
+                "properties": {
+                    "id": {
+                        "description": "Identificador de la persona de contacte",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "firstName": {
+                        "description": "Nom de la persona de contacte",
+                        "type": "string",
+                        "example": "John"
+                    },
+                    "lastName": {
+                        "description": "Cognom de la persona de contacte",
+                        "type": "string",
+                        "example": "Doe"
+                    },
+                    "phone": {
+                        "description": "Telèfon de la persona de contacte",
+                        "type": "string",
+                        "example": "+123456789"
+                    },
+                    "relationship": {
+                        "description": "Relació amb el pacient",
+                        "type": "string",
+                        "example": "Germà"
+                    },
+                    "patient": {
+                        "$ref": "#/components/schemas/PatientResource"
+                    }
+                },
+                "type": "object"
+            },
+            "IncomingCallResource": {
+                "description": "Esquema del recurs IncomingCall",
+                "properties": {
+                    "callId": {
+                        "description": "Identificador de la trucada",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "type": {
+                        "description": "Tipus de trucada",
+                        "type": "string",
+                        "example": "emergència"
+                    },
+                    "emergencyLevel": {
+                        "description": "Nivell d'emergència",
+                        "type": "integer",
+                        "example": 3
+                    }
+                },
+                "type": "object"
+            },
+            "LanguageResource": {
+                "description": "Esquema del recurs Language",
+                "properties": {
+                    "id": {
+                        "description": "Identificador de l'idioma",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Nom de l'idioma",
+                        "type": "string",
+                        "example": "Català"
+                    }
+                },
+                "type": "object"
+            },
+            "OperatorResource": {
+                "description": "Esquema del recurs Operator",
+                "properties": {
+                    "id": {
+                        "description": "Identificador de l'operador",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Nom de l'operador",
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "email": {
+                        "description": "Correu electrònic de l'operador",
+                        "type": "string",
+                        "example": "john.doe@example.com"
+                    },
+                    "role": {
+                        "description": "Rol de l'operador",
+                        "type": "string",
+                        "example": "admin"
+                    },
+                    "surnames": {
+                        "description": "Cognoms de l'operador",
+                        "type": "string",
+                        "example": "Doe"
+                    },
+                    "phone": {
+                        "description": "Telèfon de l'operador",
+                        "type": "string",
+                        "example": "123456789"
+                    },
+                    "hireDate": {
+                        "description": "Data de contractació de l'operador",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2022-01-01"
+                    },
+                    "terminationDate": {
+                        "description": "Data de finalització de l'operador",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-01-01",
+                        "nullable": true
+                    },
+                    "zones": {
+                        "description": "Zones associades a l'operador",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ZoneResource"
+                        }
+                    },
+                    "patients": {
+                        "description": "Pacients associats a l'operador",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PatientResource"
+                        }
+                    },
+                    "languages": {
+                        "description": "Idiomes parlats per l'operador",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LanguageResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "OutgoingCallResource": {
+                "description": "Esquema del recurs OutgoingCall",
+                "properties": {
+                    "callId": {
+                        "description": "Identificador de la trucada",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "type": {
+                        "description": "Tipus de trucada",
+                        "type": "string",
+                        "example": "emergència"
+                    },
+                    "alert": {
+                        "$ref": "#/components/schemas/AlertResource"
+                    }
+                },
+                "type": "object"
+            },
+            "PatientSimpleResource": {
+                "description": "Informació simplificada del pacient",
+                "properties": {
+                    "id": {
+                        "description": "Identificador del pacient",
+                        "type": "integer",
+                        "example": 12
+                    },
+                    "fullName": {
+                        "description": "Nom complet del pacient",
+                        "type": "string",
+                        "example": "Ana García López"
+                    },
+                    "birthDate": {
+                        "description": "Data de naixement",
+                        "type": "string",
+                        "format": "date",
+                        "example": "1985-07-22"
+                    },
+                    "fullAddress": {
+                        "description": "Adreça completa",
+                        "type": "string",
+                        "example": "Carrer Major, 45, 2n A, Alcoi, 03801"
+                    },
+                    "dni": {
+                        "description": "DNI del pacient",
+                        "type": "string",
+                        "example": "12345678A"
+                    },
+                    "healthCardNumber": {
+                        "description": "Número de la targeta sanitària",
+                        "type": "string",
+                        "example": "SIP87654321"
+                    },
+                    "phone": {
+                        "description": "Número de telèfon",
+                        "type": "string",
+                        "example": "+34 654 321 987"
+                    },
+                    "email": {
+                        "description": "Correu electrònic",
+                        "type": "string",
+                        "format": "email",
+                        "example": "ana.garcia@example.com"
+                    },
+                    "personalFamilySituation": {
+                        "description": "Situació personal i familiar",
+                        "type": "string",
+                        "example": "Viu sola, té dos fills que viuen a prop."
+                    },
+                    "healthSituation": {
+                        "description": "Situació de salut",
+                        "type": "string",
+                        "example": "Diabetis tipus 2 controlada amb medicació."
+                    },
+                    "housingSituation": {
+                        "description": "Situació d'habitatge",
+                        "type": "string",
+                        "example": "Habitatge propi amb ascensor."
+                    },
+                    "personalAutonomy": {
+                        "description": "Autonomia personal",
+                        "type": "string",
+                        "example": "Autònoma per a activitats bàsiques, necessita ajuda per a la compra."
+                    },
+                    "economicSituation": {
+                        "description": "Situació econòmica",
+                        "type": "string",
+                        "example": "Pensió contributiva de 800€ mensuals."
+                    }
+                },
+                "type": "object"
+            },
+            "PatientResource": {
+                "description": "Esquema del recurs Patient",
+                "properties": {
+                    "id": {
+                        "description": "Identificador del pacient",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "fullName": {
+                        "description": "Nom complet del pacient",
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "birthDate": {
+                        "description": "Data de naixement del pacient",
+                        "type": "string",
+                        "format": "date",
+                        "example": "1980-01-01"
+                    },
+                    "fullAddress": {
+                        "description": "Adreça completa del pacient",
+                        "type": "string",
+                        "example": "123 Main St, City, Country"
+                    },
+                    "dni": {
+                        "description": "DNI del pacient",
+                        "type": "string",
+                        "example": "12345678A"
+                    },
+                    "healthCardNumber": {
+                        "description": "Número de targeta sanitària del pacient",
+                        "type": "string",
+                        "example": "HC123456789"
+                    },
+                    "phone": {
+                        "description": "Telèfon del pacient",
+                        "type": "string",
+                        "example": "+123456789"
+                    },
+                    "email": {
+                        "description": "Correu electrònic del pacient",
+                        "type": "string",
+                        "format": "email",
+                        "example": "johndoe@example.com"
+                    },
+                    "personalFamilySituation": {
+                        "description": "Situació familiar personal del pacient",
+                        "type": "string",
+                        "example": "Single"
+                    },
+                    "healthSituation": {
+                        "description": "Situació de salut del pacient",
+                        "type": "string",
+                        "example": "Healthy"
+                    },
+                    "housingSituation": {
+                        "description": "Situació d'habitatge del pacient",
+                        "type": "string",
+                        "example": "Own house"
+                    },
+                    "personalAutonomy": {
+                        "description": "Autonomia personal del pacient",
+                        "type": "string",
+                        "example": "Independent"
+                    },
+                    "economicSituation": {
+                        "description": "Situació econòmica del pacient",
+                        "type": "string",
+                        "example": "Stable"
+                    },
+                    "operatorId": {
+                        "description": "Identificador de l'operador",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "languages": {
+                        "description": "Llengües parlades pel pacient",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LanguageResource"
+                        }
+                    },
+                    "contactPersons": {
+                        "description": "Persones de contacte del pacient",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ContactPersonResource"
+                        }
+                    },
+                    "zone": {
+                        "$ref": "#/components/schemas/ZoneResource"
+                    },
+                    "operator": {
+                        "$ref": "#/components/schemas/OperatorResource"
+                    },
+                    "calls": {
+                        "description": "Trucades associades al pacient",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CallResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "ZoneResource": {
+                "description": "Esquema del recurs Zone",
+                "properties": {
+                    "id": {
+                        "description": "Identificador de la zona",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Nom de la zona",
+                        "type": "string",
+                        "example": "Zona 1"
+                    },
+                    "status": {
+                        "description": "Estat de la zona",
+                        "type": "string",
+                        "example": "activa"
+                    },
+                    "created_at": {
+                        "description": "Data de creació",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-01-01T00:00:00Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-01-02T00:00:00Z"
+                    },
+                    "operators": {
+                        "description": "Llista d'operadors associats a la zona",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OperatorResource"
+                        }
+                    },
+                    "patients": {
+                        "description": "Llista de pacients associats a la zona",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PatientResource"
+                        }
+                    },
+                    "alerts": {
+                        "description": "Llista d'alertes associades a la zona",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AlertResource"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Alert": {
+                "description": "Esquema del model Alert",
+                "properties": {
+                    "id": {
+                        "description": "ID de l'alerta",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "operatorId": {
+                        "description": "ID de l'operador",
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "zoneId": {
+                        "description": "ID de la zona",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "patientId": {
+                        "description": "ID del pacient",
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "isActive": {
+                        "description": "Indica si l'alerta està activa",
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "type": {
+                        "description": "Tipus d'alerta",
+                        "type": "string",
+                        "example": "caiguda"
+                    },
+                    "isRecurring": {
+                        "description": "Indica si l'alerta és recurrent",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "date": {
+                        "description": "Data de l'alerta",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-02-20"
+                    },
+                    "endDate": {
+                        "description": "Data de finalització de l'alerta",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-02-25"
+                    },
+                    "time": {
+                        "description": "Hora de l'alerta",
+                        "type": "string",
+                        "format": "time",
+                        "example": "14:30"
+                    },
+                    "dayOfWeek": {
+                        "description": "Dies de la setmana en què es repeteix l'alerta",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "example": "Monday"
+                        }
+                    },
+                    "title": {
+                        "description": "Títol de l'alerta",
+                        "type": "string",
+                        "example": "Revisió mèdica"
+                    },
+                    "description": {
+                        "description": "Descripció de l'alerta",
+                        "type": "string",
+                        "example": "Recordatori per la visita al metge."
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T10:15:30Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T12:45:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Call": {
+                "description": "Esquema del model Call",
+                "properties": {
+                    "id": {
+                        "description": "ID de la trucada",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "patientId": {
+                        "description": "ID del pacient",
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "operatorId": {
+                        "description": "ID de l'operador",
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "details": {
+                        "description": "Detalls de la trucada",
+                        "type": "string",
+                        "example": "Consulta mèdica"
+                    },
+                    "dateTime": {
+                        "description": "Data i hora de la trucada",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-20T14:30:00Z"
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T10:15:30Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T12:45:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "ContactPerson": {
+                "description": "Esquema del model ContactPerson",
+                "properties": {
+                    "id": {
+                        "description": "ID de la persona de contacte",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "firstName": {
+                        "description": "Nom de la persona de contacte",
+                        "type": "string",
+                        "example": "John"
+                    },
+                    "lastName": {
+                        "description": "Cognom de la persona de contacte",
+                        "type": "string",
+                        "example": "Doe"
+                    },
+                    "phone": {
+                        "description": "Telèfon de la persona de contacte",
+                        "type": "string",
+                        "example": "+123456789"
+                    },
+                    "relationship": {
+                        "description": "Relació amb el pacient",
+                        "type": "string",
+                        "example": "Germà"
+                    },
+                    "patientId": {
+                        "description": "ID del pacient associat",
+                        "type": "integer",
+                        "example": 5
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T10:15:30Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T12:45:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "IncomingCall": {
+                "description": "Esquema del model IncomingCall",
+                "properties": {
+                    "callId": {
+                        "description": "ID de la trucada",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "type": {
+                        "description": "Tipus de trucada",
+                        "type": "string",
+                        "example": "emergència"
+                    },
+                    "emergencyLevel": {
+                        "description": "Nivell d'emergència",
+                        "type": "integer",
+                        "example": 3
+                    }
+                },
+                "type": "object"
+            },
+            "Language": {
+                "description": "Esquema del model Language",
+                "properties": {
+                    "id": {
+                        "description": "ID del llenguatge",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Nom del llenguatge",
+                        "type": "string",
+                        "example": "Català"
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T10:15:30Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T12:45:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "OutgoingCall": {
+                "description": "Esquema del model OutgoingCall",
+                "properties": {
+                    "callId": {
+                        "description": "ID de la trucada",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "type": {
+                        "description": "Tipus de trucada",
+                        "type": "string",
+                        "example": "emergency"
+                    },
+                    "alertId": {
+                        "description": "ID de l'alerta associada",
+                        "type": "integer",
+                        "example": 2
+                    }
+                },
+                "type": "object"
+            },
+            "Patient": {
+                "description": "Esquema del model Patient",
+                "properties": {
+                    "id": {
+                        "description": "ID del pacient",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "fullName": {
+                        "description": "Nom complet del pacient",
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "birthDate": {
+                        "description": "Data de naixement del pacient",
+                        "type": "string",
+                        "format": "date",
+                        "example": "1980-01-01"
+                    },
+                    "fullAddress": {
+                        "description": "Adreça completa del pacient",
+                        "type": "string",
+                        "example": "123 Main St, City, Country"
+                    },
+                    "dni": {
+                        "description": "DNI del pacient",
+                        "type": "string",
+                        "example": "12345678A"
+                    },
+                    "healthCardNumber": {
+                        "description": "Número de targeta sanitària del pacient",
+                        "type": "string",
+                        "example": "HC123456789"
+                    },
+                    "phone": {
+                        "description": "Telèfon del pacient",
+                        "type": "string",
+                        "example": "+123456789"
+                    },
+                    "email": {
+                        "description": "Correu electrònic del pacient",
+                        "type": "string",
+                        "example": "johndoe@example.com"
+                    },
+                    "zoneId": {
+                        "description": "ID de la zona",
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "personalFamilySituation": {
+                        "description": "Situació familiar personal del pacient",
+                        "type": "string",
+                        "example": "Single"
+                    },
+                    "healthSituation": {
+                        "description": "Situació de salut del pacient",
+                        "type": "string",
+                        "example": "Good"
+                    },
+                    "housingSituation": {
+                        "description": "Situació d'habitatge del pacient",
+                        "type": "string",
+                        "example": "Own house"
+                    },
+                    "personalAutonomy": {
+                        "description": "Autonomia personal del pacient",
+                        "type": "string",
+                        "example": "Independent"
+                    },
+                    "economicSituation": {
+                        "description": "Situació econòmica del pacient",
+                        "type": "string",
+                        "example": "Stable"
+                    },
+                    "operatorId": {
+                        "description": "ID de l'operador",
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "language": {
+                        "description": "Idioma del pacient",
+                        "type": "string",
+                        "example": "English"
+                    },
+                    "status": {
+                        "description": "Estat del pacient",
+                        "type": "string",
+                        "example": "Active"
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T10:15:30Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T12:45:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "description": "Esquema del model User",
+                "properties": {
+                    "id": {
+                        "description": "ID de l'usuari",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Nom de l'usuari",
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "email": {
+                        "description": "Correu electrònic de l'usuari",
+                        "type": "string",
+                        "format": "email",
+                        "example": "john.doe@example.com"
+                    },
+                    "password": {
+                        "description": "Contrasenya de l'usuari",
+                        "type": "string",
+                        "example": "hashed_password"
+                    },
+                    "role": {
+                        "description": "Rol de l'usuari",
+                        "type": "string",
+                        "example": "admin"
+                    },
+                    "surnames": {
+                        "description": "Cognoms de l'usuari",
+                        "type": "string",
+                        "example": "Doe"
+                    },
+                    "phone": {
+                        "description": "Telèfon de l'usuari",
+                        "type": "string",
+                        "example": "123456789"
+                    },
+                    "hireDate": {
+                        "description": "Data de contractació de l'usuari",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-01-01"
+                    },
+                    "terminationDate": {
+                        "description": "Data de finalització del contracte de l'usuari",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2023-12-31"
+                    },
+                    "username": {
+                        "description": "Nom d'usuari",
+                        "type": "string",
+                        "example": "johndoe"
+                    },
+                    "google_id": {
+                        "description": "ID de Google de l'usuari",
+                        "type": "string",
+                        "example": "1234567890"
+                    },
+                    "avatar": {
+                        "description": "URL de l'avatar de l'usuari",
+                        "type": "string",
+                        "example": "http://example.com/avatar.jpg"
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-01-01T10:00:00Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-01-01T12:00:00Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Zone": {
+                "description": "Esquema del model Zone",
+                "properties": {
+                    "id": {
+                        "description": "ID de la zona",
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "description": "Nom de la zona",
+                        "type": "string",
+                        "example": "Zona Nord"
+                    },
+                    "status": {
+                        "description": "Estat de la zona",
+                        "type": "string",
+                        "example": "activa"
+                    },
+                    "created_at": {
+                        "description": "Data de creació del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T10:15:30Z"
+                    },
+                    "updated_at": {
+                        "description": "Data d'actualització del registre",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-02-19T12:45:00Z"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Alerts",
+            "description": "Gestió d'alertes"
+        },
+        {
+            "name": "Calls",
+            "description": "Gestió de trucades"
+        },
+        {
+            "name": "Languages",
+            "description": "Gestió de llengües"
+        },
+        {
+            "name": "Operators",
+            "description": "Gestió d'operadors"
+        },
+        {
+            "name": "Patients",
+            "description": "Gestió de pacients"
+        },
+        {
+            "name": "Relationships",
+            "description": "Gestió de relacions de contacte"
+        },
+        {
+            "name": "Reports",
+            "description": "Gestió d'informes PDF de trucades, pacients i alertes"
+        },
+        {
+            "name": "Zones",
+            "description": "Gestió de zones per gestionar àrees de cobertura i operacions relacionades"
+        },
+        {
+            "name": "Autenticació",
+            "description": "Autenticació"
+        }
+    ]
+}

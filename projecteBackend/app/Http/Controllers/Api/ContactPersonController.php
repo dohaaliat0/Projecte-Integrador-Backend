@@ -7,11 +7,10 @@ use App\Http\Requests\StoreContactPersonRequest;
 use App\Http\Resources\ContactPersonResource;
 use App\Http\Controllers\Api\BaseController;
 
+
 class ContactPersonController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         try {
@@ -22,9 +21,6 @@ class ContactPersonController extends BaseController
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreContactPersonRequest $request)
     {
         try {
@@ -36,9 +32,7 @@ class ContactPersonController extends BaseController
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(ContactPerson $contactPerson)
     {
         try {
@@ -48,9 +42,6 @@ class ContactPersonController extends BaseController
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(StoreContactPersonRequest $request, ContactPerson $contactPerson)
     {
 
@@ -64,9 +55,6 @@ class ContactPersonController extends BaseController
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(ContactPerson $contactPerson)
     {
         try {
