@@ -61,7 +61,7 @@ task('php-fpm:restart', function () {
 });
 
 task('php artisan l5-swagger:generate', function () {
-    run('{{release_path}}/artisan l5-swagger:generate');
+    run('cd {{release_path}} && sudo php artisan l5-swagger:generate');
 });
 
 
