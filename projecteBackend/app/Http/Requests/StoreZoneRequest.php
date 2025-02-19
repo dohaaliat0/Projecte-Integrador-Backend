@@ -8,6 +8,26 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\UserRole;
 
+/**
+ * @OA\Schema(
+ *     schema="StoreZoneRequest",
+ *     description="Validació per a la creació d'una zona",
+ *     required={"name", "status"},
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         maxLength=255,
+ *         description="Nom de la zona",
+ *         example="Zona Nord"
+ *     ),
+ *     @OA\Property(
+ *         property="status",
+ *         type="string",
+ *         description="Estat de la zona",
+ *         example="active"
+ *     )
+ * )
+ */
 class StoreZoneRequest extends FormRequest
 {
     /**

@@ -12,10 +12,35 @@ use App\Models\Call;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+
+/**
+ * @OA\Tag(
+ *     name="Operators",
+ *     description="Gestió d'operadors"
+ * )
+ */
 class OperatorController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/operators",
+     *     tags={"Operators"},
+     *     summary="Llistar operadors",
+     *     description="Retorna tots els usuaris amb el rol d'operador",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Operadors recuperats correctament",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/OperatorResource")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Error recuperant els operadors"
+     *     )
+     * )
      */
     public function index()
     {
@@ -23,7 +48,26 @@ class OperatorController extends BaseController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/operators",
+     *     tags={"Operators"},
+     *     summary="Crear operador",
+     *     description="Crea un nou operador",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/StoreOperatorRequest")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Operador creat correctament",
+     *         @OA\JsonContent(ref="#/components/schemas/OperatorResource")
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Error en la creació de l'operador"
+     *     )
+     * )
      */
     public function store(StoreOperatorRequest $request)
     {
@@ -36,7 +80,29 @@ class OperatorController extends BaseController
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="/api/operators/{operator}",
+     *     tags={"Operators"},
+     *     summary="Mostrar operador",
+     *     description="Retorna els detalls d'un operador específic",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="operator",
+     *         in="path",
+     *         required=true,
+     *         description="Identificador de l'operador",
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Operador recuperat correctament",
+     *         @OA\JsonContent(ref="#/components/schemas/OperatorResource")
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Operador no trobat"
+     *     )
+     * )
      */
     public function show($id)
     {
@@ -51,7 +117,33 @@ class OperatorController extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * @OA\Put(
+     *     path="/api/operators/{operator}",
+     *     tags={"Operators"},
+     *     summary="Actualitzar operador",
+     *     description="Actualitza un operador existent",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="operator",
+     *         in="path",
+     *         required=true,
+     *         description="Identificador de l'operador",
+     *         @OA\Schema(type="integer", example=2)
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/UpdateOperatorRequest")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Operador actualitzat correctament",
+     *         @OA\JsonContent(ref="#/components/schemas/OperatorResource")
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Error actualitzant l'operador"
+     *     )
+     * )
      */
     public function update(UpdateOperatorRequest $request, $id)
     {
@@ -66,7 +158,28 @@ class OperatorController extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * @OA\Delete(
+     *     path="/api/operators/{operator}",
+     *     tags={"Operators"},
+     *     summary="Eliminar operador",
+     *     description="Elimina un operador específic",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="operator",
+     *         in="path",
+     *         required=true,
+     *         description="Identificador de l'operador",
+     *         @OA\Schema(type="integer", example=3)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Operador eliminat correctament"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Error eliminant l'operador"
+     *     )
+     * )
      */
     public function destroy($id)
     {
@@ -80,6 +193,34 @@ class OperatorController extends BaseController
         return $this->sendResponse([], 'Operator deleted successfully.', 200);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/operators/{id}/calls",
+     *     tags={"Operators"},
+     *     summary="Historial de trucades per operador",
+     *     description="Recupera totes les trucades associades a un operador",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Identificador de l'operador",
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Historial de trucades recuperat correctament",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/CallResource")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Operador no trobat"
+     *     )
+     * )
+     */
     public function getCallHistoryByOperator($id)
     {
         $calls = Call::where('operatorId', $id)->get();

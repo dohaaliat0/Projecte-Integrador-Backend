@@ -8,6 +8,26 @@ use App\Enums\UserRole;
 use App\Enums\TypeZones;
 use Illuminate\Validation\Rule;
 
+/**
+ * @OA\Schema(
+ *     schema="UpdateZoneRequest",
+ *     description="Validació per a l'actualització de la zona",
+ *     required={"name", "status"},
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         maxLength=255,
+ *         description="Nom de la zona",
+ *         example="Zona Nord"
+ *     ),
+ *     @OA\Property(
+ *         property="status",
+ *         type="string",
+ *         description="Estat de la zona",
+ *         example="active"
+ *     )
+ * )
+ */
 class UpdateZoneRequest extends FormRequest
 {
     /**

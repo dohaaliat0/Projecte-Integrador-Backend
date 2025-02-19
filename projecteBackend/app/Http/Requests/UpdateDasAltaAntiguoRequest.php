@@ -4,6 +4,19 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *     schema="UpdateDasAltaAntiguoRequest",
+ *     description="Validació per a l'actualització de Das Alta Antiguo",
+ *     required={"user_id"},
+ *     @OA\Property(
+ *         property="user_id",
+ *         type="integer",
+ *         description="ID de l'usuari",
+ *         example=1
+ *     )
+ * )
+ */
 class UpdateDasAltaAntiguoRequest extends FormRequest
 {
     /**

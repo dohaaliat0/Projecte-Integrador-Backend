@@ -3,7 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+/**
+ * @OA\Schema(
+ *     schema="UpdateDarAltaNuevoRequest",
+ *     description="Validació per a l'actualització del perfil d'usuari",
+ * )
+ */
 class UpdateDarAltaNuevoRequest extends FormRequest
 {
     /**
