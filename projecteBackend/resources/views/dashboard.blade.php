@@ -10,6 +10,7 @@
                 <a href="altabaja" @mouseover="imageSrc = '/images/DownUsers.jpg'" class="link">Dar de baja y alta</a>
                 <a href="webzones" @mouseover="imageSrc = '/images/UpUsers.jpg'" class="link">Zonas</a>
                 <a href="assignusers" @mouseover="imageSrc = '/images/ModifiUser.jpg'" class="link">Asignar usuarios</a>
+                <a href="llamadas" @mouseover="imageSrc = '/images/ModifiZone.jpg'" class="link">Llamadas</a>
             </div>
         </div>
 </x-app-layout>
