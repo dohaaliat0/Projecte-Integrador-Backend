@@ -1,5 +1,5 @@
 <x-app-layout>
-    @vite('resources/css/zones.css');
+    @vite('resources/css/zones.css')
     <div class="container">
         @auth
             <a href="{{ route('webzones.create') }}" class="create-btn">Crear Equip</a>
@@ -15,7 +15,7 @@
             <tbody>
                 @foreach ($zones as $zone)
                     <tr>
-                        <td data-label="Name">
+                        <td class="zone-name">
                             <a href="{{ route('webzones.show', $zone->id) }}" class="action-link show">{{ $zone->name }}</a>
                         </td>
                         <td data-label="Acciones" class="flex space-x-2">
@@ -29,7 +29,7 @@
                         </td>
                     </tr>
                 @endforeach
-            </tbody>
+            </tbody>            
         </table>
     </div>
 </x-app-layout>

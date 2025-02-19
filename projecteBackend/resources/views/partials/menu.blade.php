@@ -1,4 +1,4 @@
-<div class="flex space-x-4 ">
+<div class="flex flex-wrap sm:space-x-4 menu-container">
     <div class="menu-item hidden sm:flex items-center">
         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="menuCustom text-white font-semibold hover:text-gray-300 transition duration-300 ease-in-out">
             {{ __('Dashboard') }}
