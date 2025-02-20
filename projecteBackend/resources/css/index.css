@@ -1,70 +1,34 @@
-.user-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 10px; /* Reducido */
-    border-radius: 6px; /* Reducido */
-    font-size: 12px; /* Reducido */
-    font-weight: 500;
-    color: black;
-    background: white;
-    transition: background 0.2s ease, transform 0.1s ease;
-    border: none;
-    cursor: pointer;
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.layout-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
-.user-button:hover {
-    background: linear-gradient(to right, #f6e05e, #f6ad55);
-    transform: scale(1.05);
-}
-
-.user-button:focus {
-    outline: none;
-    box-shadow: 0 0 6px rgba(99, 102, 241, 0.5); /* Reducido */
-}
-
-.user-button svg {
-    margin-left: 6px; /* Reducido */
-    width: 14px; /* Reducido */
-    height: 14px; /* Reducido */
-    fill: currentColor;
-}
-
-.dropdown-menu {
-    background: white;
-    border-radius: 6px; /* Reducido */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Reducido */
-    padding: 8px; /* Reducido */
-    width: 180px; /* Reducido */
-    right: 0;
-    z-index: 50;
-    opacity: 0;
-    transform: translateY(18px); /* Reducido */
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.dropdown-menu.block {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.dropdown-menu.hidden {
-    display: none;
+/* --- SIDEBAR (Enlaces a la izquierda) --- */
+.sidebar {
+    width: 40%;
+    height: 100vh; /* Asegura altura completa */
+    padding: 2rem;
+    background-color: #f4f4f4; /* Contraste con el fondo gris */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra los enlaces verticalmente */
+    gap: 1.2rem;
+    z-index: 2;
 }
 
 .link {
-    color: black;
-    cursor: pointer;
-    display: block;
+    color: #333;
     font-family: 'Ibarra Real Nova', serif;
-    font-size: clamp(1.5rem, 4vw, 4rem); /* Reducido */
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     text-decoration: none;
-    transition: all 400ms ease;
-    margin-left: clamp(1.5rem, 8vw, 20rem); /* Reducido */
-    position: relative;
+    transition: all 0.4s ease;
 }
 
 .link:hover {
-    color: white;
+    color: #007BFF;
     transform: scale(1.05);
 }
 
@@ -73,9 +37,9 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    bottom: 0px;
+    bottom: 0;
     left: 0;
-    background-color: white;
+    background-color: #007BFF;
     transform: scaleX(0);
     transform-origin: bottom left;
     transition: transform 0.65s ease-out;
@@ -85,89 +49,47 @@
     transform: scaleX(1);
 }
 
-.background-container {
-    position: absolute;
-    width: 100%;
-    height: 85.5%;
-    overflow: hidden;
-}
-
-.sidebar {
+/* --- CONTENEDOR DE IMÁGENES (Derecha) --- */
+.image-container {
+    width: 60%;
+    height: 100vh; /* Ocupa toda la altura */
     position: relative;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    min-height: 85vh;
-    width: 45%;
-    padding: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    overflow: hidden;
 }
 
 .background-image {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center;
     width: 100%;
     height: 100%;
-    position: absolute;
-    margin-top: 0;
-    left: 0;
-    z-index: 0;
     transition: background-image 0.5s ease-in-out;
 }
 
-.dark-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
 
-.sidebar:hover ~ .pattern-overlay {
-    background-size: 9vmin 9vmin;
-    opacity: 0.5;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-}
-
-.menuCustom {
-    position: relative;
-    font-weight: 600;
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.menuCustom:hover {
-    color: #d1d1d1;
-}
-
-
+/* --- RESPONSIVIDAD --- */
 @media (max-width: 1024px) {
-    .menuCustom {
-        font-size: 16px;
-        padding: 8px 12px;
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .sidebar, .image-container {
+        width: 100%;
+        height: 50vh; /* Se ajusta mejor en pantallas medianas */
     }
 }
 
-@media (max-width: 768px) {
-    .menuCustom {
-        font-size: 14px;
-        padding: 6px 10px;
+@media (max-width: 600px) {
+    .link {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .sidebar {
+        padding: 1.2rem;
+        height: 40vh;
+    }
+
+    .image-container {
+        height: 40vh;
     }
 }
-
-@media (max-width: 480px) {
-    .menuCustom {
-        font-size: 12px;
-        padding: 4px 8px;
-    }
-}
-
