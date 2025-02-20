@@ -8,7 +8,6 @@ Alpine.start();
 
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
-import Livewire from 'livewire';
 
 window.Pusher = Pusher;
 console.log(import.meta.env.VITE_PUSHER_APP_KEY);
