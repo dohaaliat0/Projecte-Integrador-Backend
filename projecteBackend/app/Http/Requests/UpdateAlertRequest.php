@@ -88,6 +88,12 @@ use Illuminate\Foundation\Http\FormRequest;
  *         type="string",
  *         description="Description of the alert",
  *         example="Monthly check-up"
+ *     ),
+ *    @OA\Property(
+ *        property="zoneId",
+ *        type="integer",
+ *        description="Identifier of the zone",
+ *        example=4
  *     )
  * )
  */
@@ -167,6 +173,7 @@ class UpdateAlertRequest extends FormRequest
                 },
             ],
             'description' => 'nullable|string',
+            'zoneId' => 'nullable|integer',
         ];
     }
 }

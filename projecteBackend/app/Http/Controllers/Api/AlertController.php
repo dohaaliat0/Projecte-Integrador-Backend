@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAlertRequest;
+use App\Http\Requests\UpdateAlertRequest;
 use App\Http\Resources\AlertResource;
 use App\Models\Alert;
 use Illuminate\Http\Request;
@@ -172,7 +173,7 @@ class AlertController extends BaseController
      *     ),
      *     @OA\RequestBody(
      *         required=true,
-     *         @OA\JsonContent(ref="#/components/schemas/StoreAlertRequest")
+     *         @OA\JsonContent(ref="#/components/schemas/UpdateAlertRequest")
      *     ),
      *     @OA\Response(
      *         response=200,
@@ -185,11 +186,12 @@ class AlertController extends BaseController
      *     )
      * )
      */
-    public function update(StoreAlertRequest $request, Alert $alert)
+    public function update(UpdateAlertRequest $request, Alert $alert)
     {
         try{
             $validated = $request->validated();
             $alert->update($validated);
+
             return $this->sendResponse(new AlertResource($alert), 200);
         }catch (\Exception $e) {
             return $this->sendError(['message' => $e->getMessage()], $e->status ?? 400);
