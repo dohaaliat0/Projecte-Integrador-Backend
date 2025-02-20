@@ -79,7 +79,13 @@ use Illuminate\Foundation\Http\FormRequest;
  *         type="string",
  *         description="Descripció de l'alerta",
  *         example="Reunió de seguiment amb el metge"
- *     )
+ *     ),
+ *    @OA\Property(
+ *        property="zoneId",
+ *        type="integer",
+ *        description="ID de la zona",
+ *        example=1
+ *   ),
  * )
  */
 class StoreAlertRequest extends FormRequest
@@ -99,7 +105,6 @@ class StoreAlertRequest extends FormRequest
      */
     public function rules(): array
     {
-
         return [
             'operatorId' => 'required|integer',
             'patientId' => 'required|integer',
@@ -157,6 +162,7 @@ class StoreAlertRequest extends FormRequest
                 },
             ],
             'description' => 'nullable|string',
+            'zoneId' => 'nullable|integer',
         ];
 
 

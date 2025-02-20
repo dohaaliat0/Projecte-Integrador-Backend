@@ -165,7 +165,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/StoreAlertRequest"
+                                "$ref": "#/components/schemas/UpdateAlertRequest"
                             }
                         }
                     }
@@ -1918,6 +1918,11 @@
                         "description": "Descripció de l'alerta",
                         "type": "string",
                         "example": "Reunió de seguiment amb el metge"
+                    },
+                    "zoneId": {
+                        "description": "ID de la zona",
+                        "type": "integer",
+                        "example": 1
                     }
                 },
                 "type": "object"
@@ -2272,6 +2277,11 @@
                         "description": "Description of the alert",
                         "type": "string",
                         "example": "Monthly check-up"
+                    },
+                    "zoneId": {
+                        "description": "Identifier of the zone",
+                        "type": "integer",
+                        "example": 4
                     }
                 },
                 "type": "object"
