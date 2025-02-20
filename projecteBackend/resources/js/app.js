@@ -8,6 +8,7 @@ Alpine.start();
 
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
+import Livewire from 'livewire';
 
 window.Pusher = Pusher;
 console.log(import.meta.env.VITE_PUSHER_APP_KEY);
@@ -27,6 +28,7 @@ window.Echo.channel('ConectaSalud')
       let message = '';
       if(e.call){
         message = `Llamada ${e.call.id} actualizada. Realizada en ${e.call.dateTime}`
+        Livewire.dispatch('PartitActualitzat', data);
       } 
 
       if(e.patient){
@@ -38,6 +40,7 @@ window.Echo.channel('ConectaSalud')
       }
 
       console.log(message)
+
 
     });
     console.log('Escuchando mensajes')
