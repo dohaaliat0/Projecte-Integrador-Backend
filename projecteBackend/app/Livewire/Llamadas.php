@@ -22,6 +22,7 @@ class Llamadas extends Component
     
     #[On('LlamadaActualizada')]
     public function actualizarDesdeEvento(){
+        dd('Evento recibido');
         $this->actualizarLlamadas();
     }
     
