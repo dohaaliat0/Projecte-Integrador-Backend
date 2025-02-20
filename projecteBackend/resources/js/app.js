@@ -27,7 +27,7 @@ window.Echo.channel('ConectaSalud')
       let message = '';
       if(e.call){
         message = `Llamada ${e.call.id} actualizada. Realizada en ${e.call.dateTime}`
-        Livewire.dispatch('PartitActualitzat', e);
+        Livewire.dispatch('LlamadaActualizada', e);
       } 
 
       if(e.patient){
