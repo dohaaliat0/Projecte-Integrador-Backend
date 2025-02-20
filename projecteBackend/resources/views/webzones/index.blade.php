@@ -2,7 +2,7 @@
     @vite('resources/css/zones.css')
     <div class="container">
         @auth
-            <a href="{{ route('webzones.create') }}" class="create-btn">Crear Equip</a>
+            <a href="{{ route('webzones.create') }}" class="create-btn">Crear Zona</a>
         @endauth
 
         <table class="custom-table">
