@@ -1,0 +1,104 @@
+/* Contenedor principal */
+.zone-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Estilos para la tarjeta de detalles */
+.zone-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+.zone-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e40af; /* Azul */
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+/* Secciones (Pacientes, Teleoperadores) */
+.zone-section {
+    font-size: 20px;
+    font-weight: bold;
+    color: #374151; /* Gris oscuro */
+    margin-top: 16px;
+    border-bottom: 2px solid #e5e7eb; /* Línea separadora */
+    padding-bottom: 5px;
+}
+
+/* Elementos de la lista */
+.zone-item {
+    padding: 10px;
+    background: #f9fafb;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border-left: 4px solid #2563eb; /* Azul */
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937; /* Gris oscuro */
+}
+
+/* Botones */
+.zone-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.zone-button {
+    display: inline-block;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.zone-button.back {
+    background-color: #d1d5db; /* Gris */
+    color: #374151;
+}
+
+.zone-button.back:hover {
+    background-color: #9ca3af;
+}
+
+.zone-button.edit {
+    background-color: #f59e0b; /* Amarillo */
+    color: white;
+}
+
+.zone-button.edit:hover {
+    background-color: #d97706;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .zone-container {
+        padding: 15px;
+    }
+
+    .zone-card {
+        padding: 15px;
+    }
+
+    .zone-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .zone-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+    

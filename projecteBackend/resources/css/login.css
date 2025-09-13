@@ -1,0 +1,120 @@
+/* Fondo de la página */
+body {
+    background-image: url('../../public/images/backgroundLogin.jpg');
+    background-size: cover;
+}
+/* Estilo del formulario de login */
+.cardLogin {
+    backdrop-filter: blur(17px) saturate(200%);
+    -webkit-backdrop-filter: blur(17px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.79);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    padding: 20px;
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+/* Etiquetas y campos */
+.cardLogin label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 5px;
+}
+
+.cardLogin input[type="email"],
+.cardLogin input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.cardLogin input:focus {
+    border-color: #6366f1;
+    outline: none;
+}
+
+/* Mensajes de error */
+.cardLogin .mt-2 {
+    font-size: 12px;
+    color: #dc2626;
+}
+
+/* Sección "Remember me" */
+.cardLogin .inline-flex {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cardLogin input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+/* Acciones del formulario */
+.cardLogin .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardLogin a {
+    font-size: 13px;
+    color: #6366f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cardLogin a:hover {
+    color: #4f46e5;
+}
+
+/* Botón de login */
+.cardLogin button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #4f46e5;
+    color: #fff;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.cardLogin button:hover {
+    background-color: #4338ca;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .cardLogin {
+        width: 100%;
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    .cardLogin .flex {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .cardLogin button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .cardLogin {
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 70px;
+    }
+
+}

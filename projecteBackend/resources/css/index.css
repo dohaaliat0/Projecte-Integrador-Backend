@@ -1,0 +1,95 @@
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.layout-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+/* --- SIDEBAR (Enlaces a la izquierda) --- */
+.sidebar {
+    width: 40%;
+    height: 100vh; /* Asegura altura completa */
+    padding: 2rem;
+    background-color: #f4f4f4; /* Contraste con el fondo gris */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra los enlaces verticalmente */
+    gap: 1.2rem;
+    z-index: 2;
+}
+
+.link {
+    color: #333;
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.link:hover {
+    color: #007BFF;
+    transform: scale(1.05);
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #007BFF;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.65s ease-out;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- CONTENEDOR DE IMÁGENES (Derecha) --- */
+.image-container {
+    width: 60%;
+    height: 100vh; /* Ocupa toda la altura */
+    position: relative;
+    overflow: hidden;
+}
+
+.background-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    transition: background-image 0.5s ease-in-out;
+}
+
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 1024px) {
+    .layout-container {
+        flex-direction: column;
+    }
+
+    .sidebar, .image-container {
+        width: 100%;
+        height: 50vh; /* Se ajusta mejor en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .link {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .sidebar {
+        padding: 1.2rem;
+        height: 40vh;
+    }
+
+    .image-container {
+        height: 40vh;
+    }
+}

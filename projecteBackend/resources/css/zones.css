@@ -1,0 +1,145 @@
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón de crear equipo */
+.create-btn {
+    display: inline-block;
+    background-color: #2563eb; /* Azul */
+    color: white;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.create-btn:hover {
+    background-color: #1e40af; /* Azul oscuro */
+}
+
+/* Estilos de la tabla */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera de la tabla */
+.custom-table thead {
+    background-color: #2563eb; /* Azul */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.custom-table th {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Celdas */
+.custom-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Hover en filas */
+.custom-table tbody tr:hover {
+    background-color: #f3f4f6; /* Gris claro */
+}
+
+/* Estilos para los enlaces de acciones */
+.action-link {
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.action-link.show {
+    color: #059669; /* Verde */
+}
+
+.action-link.edit {
+    color: #f59e0b; /* Amarillo */
+}
+
+.action-link.delete {
+    color: #dc2626; /* Rojo */
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+
+    .create-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ocultar cabecera en responsive */
+    .custom-table thead {
+        display: none;
+    }
+
+    .custom-table tbody {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .custom-table tbody tr {
+        display: flex;
+        flex-direction: column;
+        background-color: #f9fafb;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        padding: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Estilo general de las celdas */
+    .custom-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        border-bottom: none;
+    }
+    .custom-table td.zone-name {
+        justify-content: center;
+    }
+
+    /* Mostrar data-label en todas menos en la columna de nombre */
+    .custom-table td:not(.zone-name)::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #2563eb;
+        margin-right: 10px;
+        text-transform: capitalize;
+
+    }
+
+    /* Acciones alineadas a la derecha */
+    .custom-table td:last-child {
+        justify-content: flex-end;
+    }
+}

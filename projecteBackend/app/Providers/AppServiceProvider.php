@@ -2,9 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Zone;
+use App\Policies\DarAltaPolicy;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
+use App\Policies\ZonePolicy;
 
-class AppServiceProvider extends ServiceProvider
+ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -19,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Gate::policy(User::class, DarAltaPolicy::class);
+        Gate::policy(Zone::class,   ZonePolicy::class);
     }
+
 }

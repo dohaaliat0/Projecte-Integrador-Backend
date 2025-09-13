@@ -1,0 +1,81 @@
+header {
+    background-color: #007BFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: white;
+}
+
+
+/* --- BOTÓN DE USUARIO --- */
+.user-button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #fff;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-button:hover {
+    background-color: #FFD580;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ESTILO PARA LOS LINKS DEL DROPDOWN --- */
+.dropdown-menu a {
+    display: block;
+    padding: 8px 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f6f6f6;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 12px 16px;
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-title {
+        font-size: 1.25rem;
+    }
+    .dropdown-menu {
+        width: 100%;
+    }
+}

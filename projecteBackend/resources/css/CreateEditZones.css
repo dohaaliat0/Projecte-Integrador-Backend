@@ -1,0 +1,83 @@
+/* Contenedor del formulario */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Etiquetas */
+.form-container label {
+    font-weight: 600;
+    color: #374151; /* Gris oscuro */
+}
+
+/* Campos de entrada y select */
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db; /* Gris claro */
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.form-container input:focus,
+.form-container select:focus {
+    border-color: #2563eb; /* Azul */
+    outline: none;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+/* Mensaje de error */
+.form-container .error-message {
+    color: #dc2626; /* Rojo */
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* Botones */
+.form-container .btn {
+    display: inline-block;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-align: center;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #2563eb; /* Azul */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1e40af; /* Azul oscuro */
+}
+
+.btn-secondary {
+    background-color: #d1d5db; /* Gris */
+    color: #374151; /* Gris oscuro */
+}
+
+.btn-secondary:hover {
+    background-color: #9ca3af; /* Gris más oscuro */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-container .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
